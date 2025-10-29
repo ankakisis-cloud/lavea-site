@@ -1,14 +1,18 @@
-import { createClient } from "next-sanity";
+import { createClient } from "@sanity/client";
 
 const client = createClient({
-  projectId: "1e9ly1np", // твой Sanity project ID
-  dataset: "production",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "1e9ly1np",
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   apiVersion: "2023-10-01",
   useCdn: true,
 });
 
+export const revalidate = 60;
+
 export default async function PricingPage() {
-  const data = await client.fetch(`*[_type == "price"] | order(order asc)`);
+  const data = await client.fetch(`*[_type == "price"] | order(order asc){
+    _id, name, subtitle, includes, price
+  }`);
 
   return (
     <main className="container" style={{ padding: "40px" }}>
@@ -30,20 +34,23 @@ export default async function PricingPage() {
               padding: "24px",
               background: "#fff",
               boxShadow: "0 4px 16px rgba(0,0,0,0.05)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
             }}
           >
-            <h2 style={{ marginBottom: "8px", fontSize: "22px" }}>{item.name}</h2>
-            <p style={{ color: "#555", marginBottom: "12px" }}>{item.subtitle}</p>
+            <h2 style={{ margin: 0, fontSize: 22 }}>{item.name}</h2>
+            {item.subtitle && <p style={{ margin: 0, color: "#555" }}>{item.subtitle}</p>}
 
-            <ul style={{ paddingLeft: "20px", marginBottom: "16px" }}>
-              {item.includes?.map((line, i) => (
-                <li key={i} style={{ marginBottom: "6px" }}>
-                  {line}
-                </li>
-              ))}
-            </ul>
+            {!!item.includes?.length && (
+              <ul style={{ paddingLeft: 20, margin: "8px 0" }}>
+                {item.includes.map((line, i) => (
+                  <li key={i} style={{ marginBottom: 6 }}>{line}</li>
+                ))}
+              </ul>
+            )}
 
-            <p style={{ fontWeight: "bold", color: "#111" }}>{item.price}</p>
+            <p style={{ marginTop: "auto", fontWeight: 700 }}>{item.price}</p>
           </div>
         ))}
       </div>
