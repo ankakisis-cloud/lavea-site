@@ -1,0 +1,4 @@
+
+export function TelegramIcon(){return (<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9.04 15.47 8.9 19.6c.43 0 .62-.19.85-.41l2.04-1.95 4.23 3.1c.78.43 1.34.2 1.56-.72l2.83-12.37h.01c.25-1.1-.4-1.53-1.15-1.26L3.52 9.6c-1.08.42-1.06 1.03-.18 1.3l4.2 1.31 9.74-6.15c.46-.29.88-.13.53.16"/></svg>)}
+export function WhatsAppIcon(){return (<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.47 0 .12 5.34.12 11.93c0 2.1.55 4.13 1.6 5.93L0 24l6.3-1.64a11.84 11.84 0 0 0 5.76 1.47h.01c6.59 0 11.94-5.35 11.94-11.94 0-3.19-1.24-6.19-3.49-8.41Z"/></svg>)}
+export function Social({telegram="#", whatsapp="#"}){return (<div style={{display:'flex',gap:8}}><a href={telegram} target="_blank" rel="noreferrer"><TelegramIcon/></a><a href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppIcon/></a></div>)}

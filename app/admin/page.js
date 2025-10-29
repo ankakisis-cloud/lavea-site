@@ -1,0 +1,1 @@
+export default function Page(){return (<div><h1>Админка (заглушка)</h1><p>Позже тут будет Sanity Studio.</p></div>)}

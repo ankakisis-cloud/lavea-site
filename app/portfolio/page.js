@@ -1,0 +1,1 @@
+export default function Page(){return (<div><h1>Портфолио</h1><p>Сетка проектов и карточки.</p></div>)}

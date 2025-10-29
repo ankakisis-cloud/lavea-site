@@ -1,0 +1,1 @@
+export default function Page(){return (<div><h1>Контакты</h1><p>Форма + карта + соцсети.</p></div>)}

@@ -1,0 +1,1 @@
+import Link from 'next/link'; export default function Page(){return (<div><h1>Карта сайта</h1><ul><li><Link href='/'>Главная</Link></li><li><Link href='/portfolio'>Портфолио</Link></li><li><Link href='/process'>Процесс</Link></li><li><Link href='/pricing'>Цены</Link></li><li><Link href='/reviews'>Отзывы</Link></li><li><Link href='/contacts'>Контакты</Link></li></ul></div>)}

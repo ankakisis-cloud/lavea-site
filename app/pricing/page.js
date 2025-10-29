@@ -1,0 +1,1 @@
+export default function Page(){return (<div><h1>Цены и пакеты</h1><p>4 пакета услуг.</p></div>)}

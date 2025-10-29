@@ -1,0 +1,1 @@
+export default function Page(){return (<div><h1>Отзывы</h1><p>Отзывы клиентов.</p></div>)}
