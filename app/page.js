@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import PricingBlock from "../components/PricingBlock";
 
 function openModal() {
   if (typeof window !== "undefined" && window.openContactModal) {
