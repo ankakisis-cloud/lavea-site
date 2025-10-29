@@ -1,1 +1,7 @@
-export default function Page(){return (<div><h1>Админка (заглушка)</h1><p>Позже тут будет Sanity Studio.</p></div>)}
+"use client";
+import { Studio } from "sanity";
+import config from "../../../sanity.config";
+
+export default function AdminPage() {
+  return <Studio config={config} />;
+}
