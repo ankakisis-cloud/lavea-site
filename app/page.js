@@ -1,7 +1,7 @@
 "use client";
-
-import Link from "next/link";
 import PricingBlock from "../components/PricingBlock";
+import Link from "next/link";
+
 
 // Кнопка "Связаться" (как у тебя было)
 function openModal() {
@@ -59,6 +59,7 @@ export default function Home() {
 
       {/* 🔧 твой блок ПРОЦЕСС (как был) */}
       <section id="process">{/* ...твой контент процесса... */}</section>
+<PricingBlock />
 
       {/* 💳 НОВЫЙ БЛОК ЦЕН — между Процессом и Отзывами */}
       <PricingBlock />
