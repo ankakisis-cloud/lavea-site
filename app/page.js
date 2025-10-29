@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import PricingBlock from "../../components/PricingBlock";
+import PricingBlock from "../components/PricingBlock";
 
+// Кнопка "Связаться" (как у тебя было)
 function openModal() {
   if (typeof window !== "undefined" && window.openContactModal) {
     window.openContactModal();
@@ -12,7 +13,7 @@ function openModal() {
 export default function Home() {
   return (
     <>
-      {/* HERO + карточки преимуществ, как у тебя было */}
+      {/* HERO + карточки преимуществ — как у тебя было */}
       <section
         style={{
           display: "grid",
@@ -28,32 +29,44 @@ export default function Home() {
             авторского надзора.
           </p>
 
-          <div style={{ display: "flex", gap: 8, marginTop: 16, flexWrap: "wrap" }}>
-            <Link className="btn dark" href="/portfolio">Портфолио</Link>
-            <Link className="btn" href="/pricing">Цены</Link>
-            <button className="btn" onClick={openModal}>Связаться</button>
+          <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
+            <Link className="btn dark" href="/portfolio">
+              Портфолио
+            </Link>
+            <Link className="btn" href="/pricing">
+              Цены
+            </Link>
+            <button className="btn" onClick={openModal}>
+              Связаться
+            </button>
           </div>
+
+          {/* здесь можешь оставить свою сетку преимуществ */}
         </div>
 
-        <div className="card" style={{ aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          3D Preview
+        <div
+          className="card"
+          style={{
+            aspectRatio: "4/3",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {/* картинка/обложка */}
         </div>
       </section>
 
-      {/* преимущества, как у тебя в grid */}
-      <div className="grid grid-3" style={{ gridTemplateColumns: "repeat(4,1fr)", marginTop: 24 }}>
-        {["02–04 мес.", "Топ-материалы", "Авторский надзор", "Конфиденциальность"].map((x, i) => (
-          <div className="card" key={i}>
-            <div className="badge">Ключевое преимущество</div>
-            <div style={{ fontWeight: 600, marginTop: 6 }}>{x}</div>
-          </div>
-        ))}
-      </div>
+      {/* 🔧 твой блок ПРОЦЕСС (как был) */}
+      <section id="process">{/* ...твой контент процесса... */}</section>
 
-      {/* 🔹 ЦЕНЫ НА ГЛАВНОЙ — компактный раскрывающийся блок */}
+      {/* 💳 НОВЫЙ БЛОК ЦЕН — между Процессом и Отзывами */}
       <PricingBlock />
 
-      {/* ниже можно оставить остальные секции страницы (процесс, отзывы, контакты) */}
+      {/* ⭐️ ОТЗЫВЫ (как были) */}
+      <section id="reviews">{/* ...твои отзывы... */}</section>
+
+      {/* Контакты/CTA и т.д. */}
     </>
   );
 }
