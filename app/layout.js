@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
 
         {/* Плавающая кнопка и модалка делают клиенточный код внутри себя */}
         <ContactModal />
-        <script dangerouslySetInnerHTML={{__html:""}} />
+      
       </body>
     </html>
   )
