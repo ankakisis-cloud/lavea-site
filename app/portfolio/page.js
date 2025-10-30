@@ -1,5 +1,6 @@
-import PortfolioPreview from "../components/PortfolioPreview";
+"use client";
 
+import Image from "next/image";
 
 export const metadata = {
   title: "Портфолио — LAVEA",
