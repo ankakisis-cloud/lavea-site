@@ -11,16 +11,14 @@ export default function PortfolioPage() {
       <div className="grid">
         {portfolioImages.map((src, i) => (
           <figure key={i} className="tile">
-            <div className="media">
-              <Image
-                src={src}
-                alt={`Проект ${i + 1}`}
-                width={600}      // фиксированная ширина
-                height={400}     // фиксированная высота (соотношение 3:2)
-                className="img"
-                priority={i < 3}
-              />
-            </div>
+            <Image
+              src={src}
+              alt={`Проект ${i + 1}`}
+              width={600}
+              height={400}
+              className="img"
+              priority={i < 3}
+            />
           </figure>
         ))}
       </div>
@@ -41,8 +39,8 @@ export default function PortfolioPage() {
 
         .grid {
           display: grid;
-          grid-template-columns: 1fr;
           gap: 20px;
+          grid-template-columns: 1fr;
         }
 
         @media (min-width: 760px) {
@@ -58,20 +56,14 @@ export default function PortfolioPage() {
         }
 
         .tile {
-          margin: 0;
-          padding: 0;
-          border: 0;
-          background: none;
-          display: flex;
-          justify-content: center;
+          overflow: hidden;
+          border-radius: 18px;
+          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+          transition: transform 0.6s ease;
         }
 
-        .media {
-          width: 100%;
-          max-width: 600px;
-          border-radius: 18px;
-          overflow: hidden;
-          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+        .tile:hover {
+          transform: scale(1.03);
         }
 
         .img {
@@ -79,11 +71,6 @@ export default function PortfolioPage() {
           height: auto;
           object-fit: cover;
           display: block;
-          transition: transform 0.6s ease;
-        }
-
-        .media:hover .img {
-          transform: scale(1.05);
         }
       `}</style>
     </section>
