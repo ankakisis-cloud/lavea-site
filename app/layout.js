@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
             <nav style={{display:'flex',gap:8}}>
               <Link href="/portfolio">Портфолио</Link>
               <Link href="/process">Процесс</Link>
-              <Link href="/pricing">Цены</Link>
+              <Link href="/#pricing">Цены</Link>
               <Link href="/reviews">Отзывы</Link>
               <Link href="/contacts">Контакты</Link>
               <Link href="/sitemap">Карта сайта</Link>
