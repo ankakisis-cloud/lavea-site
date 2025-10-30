@@ -1,127 +1,70 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { createClient } from "@sanity/client";
-
-// 👇 твой Sanity-проект
-const client = createClient({
-  projectId: "1e9ly1np",
-  dataset: "production",
-  apiVersion: "2023-10-01",
-  useCdn: true,
-});
+import React from "react";
 
 export default function PricingBlock() {
-  const [items, setItems] = useState([]);
-  const [open, setOpen] = useState(null); // какой аккордеон раскрыт
-
-  useEffect(() => {
-    const query = `*[_type == "price"] | order(order asc) {
-      _id, order, name, subtitle, includes, price
-    }`;
-    client.fetch(query).then(setItems).catch(console.error);
-  }, []);
-
-  if (!items.length) {
-    return (
-      <section style={{ padding: "40px 0" }}>
-        <h2 style={{ fontSize: 28, marginBottom: 16 }}>Цены</h2>
-        <p>Загружаем пакеты…</p>
-      </section>
-    );
-  }
+  // Можно править тут тексты и цены
+  const items = [
+    {
+      title: "Авторская концепция",
+      desc:
+        "Уникальная идея и визуальное видение интерьера. Реализацию берёте на себя или делаем совместно.",
+      price: "от 6 000 ₽ / м²",
+    },
+    {
+      title: "Полный дизайн-проект",
+      desc:
+        "Полный пакет чертежей и спецификаций, чтобы строители реализовали интерьер без ошибок.",
+      price: "от 7 000 ₽ / м²",
+    },
+    {
+      title: "Дизайн + Авторский надзор",
+      desc:
+        "Контроль реализации задумки. Фикс или почасовой — обсуждается отдельно.",
+      price: "от 9 000 ₽ / м² + авторский надзор",
+    },
+    {
+      title: "Дизайн + комплектация под ключ",
+      desc:
+        "Готовое пространство: мебель, свет, декор. Полная логистика и сопровождение.",
+      price: "от 10 000 ₽ / м² + % от комплектации",
+    },
+  ];
 
   return (
-    <section id="pricing" style={{ padding: "40px 0" }}>
-      <h2 style={{ fontSize: 28, marginBottom: 16 }}>Цены</h2>
+    <section id="pricing" className="w-full py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-12">
+          Цены
+        </h2>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: 16,
-        }}
-      >
-        {items.map((it, idx) => {
-          const opened = open === it._id;
-          return (
-            <div
-              key={it._id}
-              style={{
-                border: "1px solid #ddd",
-                borderRadius: 12,
-                padding: 16,
-              }}
+        {/* 4 в ряд на десктопе, 2 — на планшете, 1 — на мобилке */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {items.map((item, i) => (
+            <article
+              key={i}
+              className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow"
             >
-              <div
-                onClick={() => setOpen(opened ? null : it._id)}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  gap: 12,
-                }}
-              >
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 18 }}>{it.name}</div>
-                  {it.subtitle ? (
-                    <div style={{ color: "#666", fontSize: 14 }}>{it.subtitle}</div>
-                  ) : null}
-                </div>
-
-                <div style={{ fontWeight: 700 }}>{it.price}</div>
+              <div>
+                <h3 className="text-xl font-bold leading-tight mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-neutral-600 leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
 
-              {/* раскрывающаяся часть */}
-              <div
-                style={{
-                  maxHeight: opened ? 400 : 0,
-                  overflow: "hidden",
-                  transition: "max-height 220ms ease",
-                }}
-              >
-                <div style={{ marginTop: 12 }}>
-                  {(it.includes || []).map((row, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 8,
-                        padding: "6px 0",
-                        borderTop: i === 0 ? "1px dashed #eee" : "none",
-                      }}
-                    >
-                      <span style={{ fontSize: 18, lineHeight: 1 }}>•</span>
-                      <span>{row}</span>
-                    </div>
-                  ))}
+              {/* ЦЕННИК ПОД ОПИСАНИЕМ */}
+              <div className="mt-6">
+                <div className="text-base font-semibold mb-4">
+                  {item.price}
                 </div>
+                <button className="w-full rounded-xl bg-black text-white py-2.5 text-sm font-medium hover:bg-neutral-800 transition">
+                  Обсудить проект
+                </button>
               </div>
-
-              <button
-                onClick={() => {
-                  if (typeof window !== "undefined" && window.openContactModal) {
-                    window.openContactModal();
-                  }
-                }}
-                style={{
-                  marginTop: 12,
-                  width: "100%",
-                  padding: "10px 14px",
-                  borderRadius: 10,
-                  border: "1px solid #222",
-                  background: "#111",
-                  color: "#fff",
-                  cursor: "pointer",
-                }}
-              >
-                Обсудить проект
-              </button>
-            </div>
-          );
-        })}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
