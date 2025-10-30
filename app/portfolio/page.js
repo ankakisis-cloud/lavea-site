@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 export const metadata = {
@@ -14,35 +12,32 @@ const images = [
   "/IMG_9747.jpg",
   "/IMG_9751.jpg",
   "/IMG_9755.jpg",
-  // добавишь остальные по мере загрузки
+  // добавь остальные пути
 ];
 
 export default function PortfolioPage() {
   return (
-    <main className="wrap">
-      <h1>Полное портфолио</h1>
+    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6 md:mb-8">
+        Полное портфолио
+      </h1>
 
-      <div className="grid">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
         {images.map((src, i) => (
-          <figure key={i} className="card">
-            <div className="ratio">
-              <Image src={src} alt={`Проект ${i + 1}`} fill className="img" />
+          <figure key={i} className="group relative overflow-hidden rounded-xl">
+            <div className="relative w-full pt-[66%]">
+              <Image
+                src={src}
+                alt={`Проект ${i + 1}`}
+                fill
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
             </div>
           </figure>
         ))}
       </div>
-
-      <style jsx>{`
-        .wrap { max-width:1180px; margin:0 auto; padding:48px 16px; }
-        h1 { font-size:36px; font-weight:600; margin:0 0 20px; }
-        .grid { display:grid; grid-template-columns:1fr; gap:12px; }
-        @media (min-width:640px){ .grid{ grid-template-columns:repeat(2,1fr);} }
-        @media (min-width:1024px){ .grid{ grid-template-columns:repeat(3,1fr);} }
-        .card { position:relative; overflow:hidden; border-radius:14px; }
-        .ratio { position:relative; width:100%; padding-top:66.66%; } /* 3:2 */
-        .img { object-fit:cover; transition: transform .5s ease; }
-        .card:hover .img { transform: scale(1.05); }
-      `}</style>
     </main>
   );
 }
