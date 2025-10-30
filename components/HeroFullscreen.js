@@ -2,7 +2,7 @@
 import React from "react";
 
 export default function HeroFullscreen() {
-  // файлы лежат в /public/hero/
+  // Файлы лежат в /public/hero/
   const slides = [
     "/hero/IMG_9732.jpg",
     "/hero/IMG_9738.jpg",
@@ -15,30 +15,29 @@ export default function HeroFullscreen() {
 
   return (
     <section className="hero" aria-label="LAVEA hero">
-      {/* фоновые слайды */}
+      {/* Фоновые слайды */}
       <div className="slides">
         {slides.map((src, i) => (
           <span
             key={i}
             className="slide"
             style={{
-              backgroundImage: `url(${src})`,   // ВАЖНО: обратные кавычки `
+              backgroundImage: `url(${src})`,
               animationDelay: `${i * 6}s`,
             }}
           />
         ))}
       </div>
 
-      {/* лёгкая затемняющая вуаль */}
+      {/* Вуаль для читабельности текста */}
       <div className="veil" />
 
-      {/* контент поверх */}
+      {/* Текст/кнопки поверх */}
       <div className="content">
         <div className="container">
           <h1>LAVEA — премиальная студия интерьерного дизайна</h1>
           <p>
-            Создаём личные миры: от концепции и 3D-визуализаций до комплектации и
-            авторского надзора.
+            Создаём личные миры: от концепции и 3D-визуализаций до комплектации и авторского надзора.
           </p>
           <div className="actions">
             <a className="btn dark" href="/portfolio">Портфолио</a>
@@ -51,11 +50,12 @@ export default function HeroFullscreen() {
       <style jsx>{`
         .hero {
           position: relative;
+          z-index: 0;             /* важно: ниже шапки */
           height: 92vh;
           min-height: 560px;
           width: 100%;
-          background: #000;
           overflow: hidden;
+          background: #000;
         }
         .slides { position: absolute; inset: 0; z-index: 0; }
         .slide {
@@ -91,11 +91,24 @@ export default function HeroFullscreen() {
           display: grid; align-items: center;
         }
         .container {
-          max-width: 1180px; margin: 0 auto; padding: 0 24px;
-          color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,.3);
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 0 24px;
+          color: #fff;
+          text-shadow: 0 2px 20px rgba(0,0,0,.3);
         }
-        .container h1 { margin: 0 0 12px; font-size: 56px; line-height: 1.06; letter-spacing: -.02em; }
-        .container p  { margin: 0 0 18px; max-width: 680px; font-size: 18px; color: rgba(255,255,255,.92); }
+        .container h1 {
+          margin: 0 0 12px;
+          font-size: 56px;
+          line-height: 1.06;
+          letter-spacing: -0.02em;
+        }
+        .container p {
+          margin: 0 0 18px;
+          max-width: 680px;
+          font-size: 18px;
+          color: rgba(255,255,255,.92);
+        }
         .actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
         @media (max-width: 1024px) { .container h1 { font-size: 44px; } }
