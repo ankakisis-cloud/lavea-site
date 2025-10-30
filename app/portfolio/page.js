@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { portfolioImages } from "../../lib/portfolioImages";
+import { portfolioImages } from "../lib/portfolioImages";
 
 export default function PortfolioPage() {
   return (
@@ -11,13 +10,14 @@ export default function PortfolioPage() {
       <div className="grid">
         {portfolioImages.map((src, i) => (
           <figure key={i} className="tile">
-            <Image
+            {/* ВАЖНО: <img>, не <Image>, чтобы не было обрезки/пересчёта */}
+            <img
               src={src}
               alt={`Проект ${i + 1}`}
-              width={600}
-              height={400}
+              loading="lazy"
+              decoding="async"
+              fetchpriority={i < 3 ? "high" : "auto"}
               className="img"
-              priority={i < 3}
             />
           </figure>
         ))}
@@ -29,48 +29,30 @@ export default function PortfolioPage() {
           margin: 0 auto;
           padding: 60px 12px;
         }
-
         .title {
           font-size: 44px;
           font-weight: 700;
           line-height: 1.05;
           margin-bottom: 22px;
         }
-
         .grid {
           display: grid;
-          gap: 20px;
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 28px;
         }
-
-        @media (min-width: 760px) {
-          .grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (min-width: 1100px) {
-          .grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-
         .tile {
-          overflow: hidden;
+          margin: 0;
+          padding: 0;
           border-radius: 18px;
-          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
-          transition: transform 0.6s ease;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+          background: #fff;
         }
-
-        .tile:hover {
-          transform: scale(1.03);
-        }
-
         .img {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
           display: block;
+          width: 100%;
+          height: auto;        /* <-- сохраняем пропорции оригинала */
+          object-fit: contain; /* <-- ничего не обрезаем */
         }
       `}</style>
     </section>
