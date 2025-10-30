@@ -1,6 +1,6 @@
 "use client";
 
-import { portfolioImages } from "../lib/portfolioImages";
+import { portfolioImages } from "../../lib/portfolioImages";
 
 export default function PortfolioPage() {
   return (
