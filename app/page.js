@@ -4,6 +4,7 @@ import HeroFullscreen from "../components/HeroFullscreen";
 import PricingBlock from "../components/PricingBlock";
 import PortfolioPreview from "../components/PortfolioPreview";
 
+
 export default function Home() {
   return (
     <>
