@@ -17,7 +17,7 @@ export default function PortfolioPreview() {
     <section className="wrap">
       <div className="head">
         <h2>Портфолио</h2>
-        <Link href="/portfolio" className="headLink">Смотреть всё →</Link>
+        <Link href="/portfolio" className="headLink">Смотреть всё&nbsp;→</Link>
       </div>
 
       <div className="grid">
@@ -43,7 +43,7 @@ export default function PortfolioPreview() {
       </div>
 
       <style jsx>{`
-        .wrap { max-width: 1440px; margin: 0 auto; padding: 40px 12px 32px; }
+        .wrap { max-width:1440px; margin:0 auto; padding:40px 12px 32px; }
         .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:22px; }
         .head h2 { margin:0; font-size:44px; font-weight:700; line-height:1.05; }
         .headLink { font-size:15px; color:#1c1c1c; text-decoration:none; opacity:.85; }
@@ -69,11 +69,14 @@ export default function PortfolioPreview() {
         .media:hover .hoverLayer { opacity:1; }
 
         .cta { text-align:center; margin-top:30px; }
-        .button {
+
+        /* КНОПКА — жёсткое переопределение всех браузерных стилей */
+        .button, .button:visited {
           display:inline-flex; align-items:center; gap:10px;
-          padding:14px 34px; border-radius:999px; text-decoration:none;
+          padding:14px 34px; border-radius:999px;
           background:#C8A96A; color:#fff; border:none;
           font-size:16px; font-weight:500; letter-spacing:.3px;
+          text-decoration:none !important;                /* важно */
           box-shadow:0 8px 20px rgba(200,169,106,.35);
           transition:background .25s ease, color .25s ease,
                      box-shadow .25s ease, transform .1s ease;
