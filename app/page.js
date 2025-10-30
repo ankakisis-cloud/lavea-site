@@ -2,8 +2,7 @@
 import PricingBlock from "../components/PricingBlock";
 import Link from "next/link";
 
-
-// Кнопка "Связаться" (как у тебя было)
+// Кнопка "Связаться"
 function openModal() {
   if (typeof window !== "undefined" && window.openContactModal) {
     window.openContactModal();
@@ -13,7 +12,7 @@ function openModal() {
 export default function Home() {
   return (
     <>
-      {/* HERO + карточки преимуществ — как у тебя было */}
+      {/* HERO + карточки преимуществ */}
       <section
         style={{
           display: "grid",
@@ -33,9 +32,9 @@ export default function Home() {
             <Link className="btn dark" href="/portfolio">
               Портфолио
             </Link>
-            <Link className="btn" href="/pricing">
+            <a className="btn" href="/#pricing">
               Цены
-            </Link>
+            </a>
             <button className="btn" onClick={openModal}>
               Связаться
             </button>
@@ -57,14 +56,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🔧 твой блок ПРОЦЕСС (как был) */}
-      <section id="process">{/* ...твой контент процесса... */}</section>
-<PricingBlock />
+      {/* 🔧 Блок ПРОЦЕСС */}
+      <section id="process">{/* ...контент процесса... */}</section>
 
-      {/* 💳 НОВЫЙ БЛОК ЦЕН — между Процессом и Отзывами */}
+      {/* 💳 ЦЕНЫ — теперь только здесь */}
       <PricingBlock />
 
-      {/* ⭐️ ОТЗЫВЫ (как были) */}
+      {/* ⭐️ ОТЗЫВЫ */}
       <section id="reviews">{/* ...твои отзывы... */}</section>
 
       {/* Контакты/CTA и т.д. */}
