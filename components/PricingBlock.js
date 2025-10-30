@@ -16,7 +16,7 @@ export default function PricingBlock() {
         "Полный пакет чертежей и спецификаций, чтобы строители реализовали интерьер без ошибок.",
       price: "от 7 000 ₽ / м²",
       cta: "Обсудить проект",
-      featured: true, // ← этот помечаем как популярный
+      featured: true, // ← популярный тариф
       badge: "Популярный тариф",
     },
     {
@@ -55,7 +55,6 @@ export default function PricingBlock() {
 
             <h3 className="cardTitle">{p.title}</h3>
             <p className="cardDesc">{p.desc}</p>
-
             <div className="cardPrice">{p.price}</div>
 
             <button className="cardBtn" type="button">
@@ -66,11 +65,10 @@ export default function PricingBlock() {
       </div>
 
       <style jsx>{`
-        /* такой же контейнер, как у PortfolioPreview */
         .wrap {
           max-width: 1440px;
           margin: 0 auto;
-          padding: 36px 12px 12px; /* ровняем отступы с портфолио */
+          padding: 40px 12px 12px;
         }
 
         .title {
@@ -100,20 +98,22 @@ export default function PricingBlock() {
           position: relative;
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
           gap: 14px;
           border-radius: 16px;
           border: 1px solid #e9e9ec;
           background: #fff;
-          padding: 22px 20px;
+          padding: 28px 22px;
           box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
+          min-height: 320px; /* ← чуть вытянуты вниз */
         }
+
         .card:hover {
           transform: translateY(-2px);
           box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
         }
 
-        /* выделение популярного тарифа */
         .cardFeatured {
           border: 1.5px solid #c8a96a;
           box-shadow: 0 12px 36px rgba(200, 169, 106, 0.18);
@@ -150,9 +150,9 @@ export default function PricingBlock() {
         .cardDesc {
           margin: 0;
           color: #4a4a4a;
-          line-height: 1.5;
+          line-height: 1.55;
           font-size: 14px;
-          min-height: 64px; /* чтобы карточки были ровными по высоте */
+          flex-grow: 1;
         }
 
         .cardPrice {
@@ -163,8 +163,8 @@ export default function PricingBlock() {
         }
 
         .cardBtn {
-          margin-top: 6px;
-          height: 44px;
+          margin-top: 10px;
+          height: 46px;
           border-radius: 12px;
           width: 100%;
           background: #111;
@@ -175,11 +175,13 @@ export default function PricingBlock() {
           transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
         }
+
         .cardBtn:hover {
           background: #1a1a1a;
           box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
           transform: translateY(-1px);
         }
+
         .cardBtn:active {
           transform: translateY(1px);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
