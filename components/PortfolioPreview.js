@@ -17,14 +17,17 @@ export default function PortfolioPreview() {
     <section className="wrap">
       <div className="head">
         <h2>Портфолио</h2>
-        <Link href="/portfolio" className="link">Показать полное портфолио</Link>
+        <Link href="/portfolio" className="headLink">
+          Смотреть всё&nbsp;→
+        </Link>
       </div>
 
       <div className="grid">
         {previewImages.map((src, i) => (
-          <figure key={i} className="card">
-            <div className="ratio">
+          <figure key={i} className="tile">
+            <div className="media">
               <Image src={src} alt={`Проект ${i + 1}`} fill className="img" priority={i < 3} />
+              <div className="hoverLayer" />
             </div>
           </figure>
         ))}
@@ -32,33 +35,43 @@ export default function PortfolioPreview() {
 
       <div className="cta">
         <Link href="/portfolio" className="button">
-          Показать ещё работы →
+          Показать ещё работы
+          <span className="arrow">→</span>
         </Link>
       </div>
 
       <style jsx>{`
-        .wrap { max-width:1180px; margin:0 auto; padding:48px 16px; }
-        .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:20px; }
-        .head h2 { font-size:36px; font-weight:600; margin:0; }
-        .link { font-size:14px; text-decoration:underline; color:#111; }
+        .wrap { max-width:1280px; margin:0 auto; padding:56px 16px 40px; }
+        .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:24px; }
+        .head h2 { margin:0; font-size:40px; line-height:1.1; font-weight:700; }
+        .headLink { font-size:14px; color:#222; text-decoration:none; opacity:.8; }
+        .headLink:hover { opacity:1; }
 
-        .grid { display:grid; grid-template-columns:1fr; gap:12px; }
-        @media (min-width:640px){ .grid{ grid-template-columns:repeat(2,1fr);} }
-        @media (min-width:1024px){ .grid{ grid-template-columns:repeat(3,1fr);} }
+        /* Сетка как в рефе: крупные карточки, почти без полей */
+        .grid { display:grid; grid-template-columns:1fr; gap:10px; }
+        @media (min-width:740px){ .grid{ grid-template-columns:repeat(2,1fr);} }
+        @media (min-width:1100px){ .grid{ grid-template-columns:repeat(3,1fr);} }
 
-        .card { position:relative; overflow:hidden; border-radius:14px; }
-        .ratio { position:relative; width:100%; aspect-ratio: 3 / 2; }   /* без Tailwind */
-        .img { object-fit:cover; transition: transform .5s ease; }
-        .card:hover .img { transform: scale(1.05); }
+        .tile { margin:0; padding:0; border:none; background:none; }
+        .media { position:relative; width:100%; aspect-ratio: 16 / 10; border-radius:16px; overflow:hidden; }
+        .img { object-fit:cover; transform:scale(1); transition:transform .6s ease; display:block; }
+        .hoverLayer { position:absolute; inset:0; background:linear-gradient(transparent, rgba(0,0,0,.03));
+                      opacity:0; transition:opacity .4s ease; }
+        .media:hover .img { transform:scale(1.06); }
+        .media:hover .hoverLayer { opacity:1; }
+        .media { box-shadow:0 10px 30px rgba(0,0,0,.07); } /* мягкая тень, без белых рамок */
 
         .cta { text-align:center; margin-top:28px; }
         .button {
-          display:inline-flex; align-items:center; gap:8px;
-          padding:12px 22px; border-radius:999px;
-          border:1px solid #C8A96A; color:#C8A96A; font-weight:500;
-          transition: background .2s ease, color .2s ease;
+          display:inline-flex; align-items:center; gap:10px;
+          padding:14px 26px; border-radius:999px;
+          border:1px solid #C8A96A; color:#C8A96A; background:#fff;
+          font-size:15px; letter-spacing:.2px; text-decoration:none;
+          transition:background .2s ease, color .2s ease, box-shadow .2s ease;
+          box-shadow:0 4px 14px rgba(200,169,106,.18);
         }
-        .button:hover { background:#C8A96A; color:#fff; }
+        .button:hover { background:#C8A96A; color:#fff; box-shadow:0 6px 20px rgba(200,169,106,.32); }
+        .arrow { transform:translateY(1px); }
       `}</style>
     </section>
   );
