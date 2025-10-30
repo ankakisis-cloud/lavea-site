@@ -1,71 +1,52 @@
 "use client";
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { portfolioImages } from "../lib/portfolioImages";
 
 export default function PortfolioPreview() {
-  const router = useRouter();
-  const preview = portfolioImages.slice(0, 6); // ← только 6 штук
+  const preview = portfolioImages.slice(0, 6);
 
   return (
-    <section className="wrap">
-      <div className="head">
-        <h2>Портфолио</h2>
-        <button type="button" className="headLinkBtn" onClick={() => router.push("/portfolio")}>
-          Смотреть всё →
-        </button>
-      </div>
+    <section className="wrap" id="portfolio">
+      <h2 className="title">Портфолио</h2>
 
       <div className="grid">
         {preview.map((src, i) => (
           <figure key={i} className="tile">
-            <div className="media">
-              <Image src={src} alt={`Проект ${i + 1}`} fill className="img" priority={i < 3} />
-            </div>
+            <img
+              src={src}
+              alt={`Проект ${i + 1}`}
+              loading="lazy"
+              decoding="async"
+              className="img"
+            />
           </figure>
         ))}
       </div>
 
-      <div className="cta">
-        <button type="button" className="button" onClick={() => router.push("/portfolio")}>
-          <span>Показать ещё работы</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor" strokeWidth="2"
-               strokeLinecap="round" strokeLinejoin="round" className="arrow">
-            <path d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+      <div className="btnRow">
+        <Link href="/portfolio" className="btn">
+          Посмотреть полное портфолио
+        </Link>
       </div>
 
       <style jsx>{`
-        .wrap { max-width:1440px; margin:0 auto; padding:40px 12px 32px; }
-        .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:22px; }
-        .head h2 { margin:0; font-size:44px; font-weight:700; line-height:1.05; }
-        .headLinkBtn { appearance:none; border:none; background:none; padding:0; margin:0; font-size:15px; color:#1c1c1c; opacity:.85; cursor:pointer; }
-        .headLinkBtn:hover { opacity:1; }
-
-        .grid { display:grid; grid-template-columns:1fr; gap:12px; }
-        @media (min-width:760px){ .grid{ grid-template-columns:repeat(2,1fr);} }
-        @media (min-width:1100px){ .grid{ grid-template-columns:repeat(3,1fr);} }
-
-        .tile { margin:0; padding:0; border:0; background:none; }
-        .media { position:relative; width:100%; aspect-ratio:4/3; border-radius:18px; overflow:hidden; box-shadow:0 12px 36px rgba(0,0,0,.08); }
-        .img { object-fit:cover; transform:scale(1); transition:transform .6s ease; display:block; }
-        .media:hover .img { transform:scale(1.07); }
-
-        .cta { text-align:center; margin-top:30px; }
-        .button {
-          appearance:none; border:none; cursor:pointer;
-          display:inline-flex; align-items:center; gap:10px;
-          padding:14px 34px; border-radius:999px;
-          background:#C8A96A; color:#fff; font-size:16px; font-weight:500; letter-spacing:.3px;
-          box-shadow:0 8px 20px rgba(200,169,106,.35);
-          transition:background .25s ease, box-shadow .25s ease, transform .1s ease;
+        .wrap { max-width: 1440px; margin: 0 auto; padding: 60px 12px; }
+        .title { font-size: 36px; font-weight: 700; margin-bottom: 18px; }
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 24px;
         }
-        .button:hover { background:#D5B979; box-shadow:0 10px 26px rgba(200,169,106,.5); transform:translateY(-1px); }
-        .button:active { transform:translateY(1px); box-shadow:0 4px 12px rgba(200,169,106,.3); }
-        .arrow { width:20px; height:20px; }
+        .tile { margin: 0; border-radius: 16px; overflow: hidden; background: #fff;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        .img  { display: block; width: 100%; height: auto; object-fit: contain; }
+        .btnRow { display: flex; justify-content: center; margin-top: 28px; }
+        .btn {
+          padding: 12px 22px; border-radius: 999px;
+          background: linear-gradient(180deg, #E8C980, #C7A251);
+          color: #111; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
       `}</style>
     </section>
   );
