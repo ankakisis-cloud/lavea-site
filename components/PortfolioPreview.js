@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const previewImages = [
   "/IMG_9728.jpg",
@@ -13,11 +13,19 @@ const previewImages = [
 ];
 
 export default function PortfolioPreview() {
+  const router = useRouter();
+
   return (
     <section className="wrap">
       <div className="head">
         <h2>Портфолио</h2>
-        <Link href="/portfolio" className="headLink">Смотреть всё&nbsp;→</Link>
+        <button
+          type="button"
+          className="headLinkBtn"
+          onClick={() => router.push("/portfolio")}
+        >
+          Смотреть всё →
+        </button>
       </div>
 
       <div className="grid">
@@ -32,22 +40,37 @@ export default function PortfolioPreview() {
       </div>
 
       <div className="cta">
-        <Link href="/portfolio" className="button">
+        <button
+          type="button"
+          className="button"
+          onClick={() => router.push("/portfolio")}
+        >
           <span>Показать ещё работы</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor" strokeWidth="2"
-               strokeLinecap="round" strokeLinejoin="round" className="arrow">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="arrow"
+          >
             <path d="M9 5l7 7-7 7" />
           </svg>
-        </Link>
+        </button>
       </div>
 
       <style jsx>{`
         .wrap { max-width:1440px; margin:0 auto; padding:40px 12px 32px; }
         .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:22px; }
         .head h2 { margin:0; font-size:44px; font-weight:700; line-height:1.05; }
-        .headLink { font-size:15px; color:#1c1c1c; text-decoration:none; opacity:.85; }
-        .headLink:hover { opacity:1; }
+
+        .headLinkBtn {
+          appearance:none; border:none; background:none; padding:0; margin:0;
+          font-size:15px; color:#1c1c1c; opacity:.85; cursor:pointer;
+        }
+        .headLinkBtn:hover { opacity:1; }
 
         .grid { display:grid; grid-template-columns:1fr; gap:12px; }
         @media (min-width:760px){ .grid{ grid-template-columns:repeat(2,1fr);} }
@@ -69,17 +92,14 @@ export default function PortfolioPreview() {
         .media:hover .hoverLayer { opacity:1; }
 
         .cta { text-align:center; margin-top:30px; }
-
-        /* КНОПКА — жёсткое переопределение всех браузерных стилей */
-        .button, .button:visited {
+        .button {
+          appearance:none; border:none; cursor:pointer;
           display:inline-flex; align-items:center; gap:10px;
           padding:14px 34px; border-radius:999px;
-          background:#C8A96A; color:#fff; border:none;
+          background:#C8A96A; color:#fff;
           font-size:16px; font-weight:500; letter-spacing:.3px;
-          text-decoration:none !important;                /* важно */
           box-shadow:0 8px 20px rgba(200,169,106,.35);
-          transition:background .25s ease, color .25s ease,
-                     box-shadow .25s ease, transform .1s ease;
+          transition:background .25s ease, box-shadow .25s ease, transform .1s ease;
         }
         .button:hover { background:#D5B979; box-shadow:0 10px 26px rgba(200,169,106,.5); transform:translateY(-1px); }
         .button:active { transform:translateY(1px); box-shadow:0 4px 12px rgba(200,169,106,.3); }
