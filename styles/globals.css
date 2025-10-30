@@ -14,3 +14,25 @@ input,textarea{width:100%;padding:12px 14px;border:1px solid var(--border);borde
 .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
 .modal{background:#fff;border-radius:16px;width:min(96vw,520px);padding:20px}
 html { scroll-behavior: smooth; }
+/* ====== HEADER (global) ====== */
+.header{
+  position:sticky; top:0; z-index:1000;
+  background:rgba(255,255,255,.78);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.header__container{ max-width:1180px; margin:0 auto; padding:10px 24px; }
+.header__nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.logo{ font-weight:800; letter-spacing:.02em; text-decoration:none; color:inherit; }
+.menu{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.menu a{ text-decoration:none; color:inherit; opacity:.9; }
+.menu a:hover{ opacity:1; }
+
+@media (max-width:640px){
+  .header__container{ padding:8px 16px; }
+  .menu{ gap:12px; }
+}
+
+/* плавная прокрутка к якорям */
+html{ scroll-behavior:smooth; }
