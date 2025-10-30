@@ -14,49 +14,43 @@ const previewImages = [
 
 export default function PortfolioPreview() {
   return (
-    <section className="wrap">
-      <div className="head">
-        <h2>Портфолио</h2>
-        <Link href="/portfolio" className="link">Показать полное портфолио</Link>
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="flex items-end justify-between mb-6 md:mb-8">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Портфолио</h2>
+        <Link
+          href="/portfolio"
+          className="text-sm underline underline-offset-4 hover:opacity-70 transition"
+        >
+          Показать полное портфолио
+        </Link>
       </div>
 
-      <div className="grid">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
         {previewImages.map((src, i) => (
-          <figure key={i} className="card">
-            <div className="ratio">
-              <Image src={src} alt={`Проект ${i + 1}`} fill className="img" priority={i < 3}/>
+          <figure key={i} className="group relative overflow-hidden rounded-xl">
+            <div className="relative w-full pt-[66%]">
+              <Image
+                src={src}
+                alt={`Проект ${i + 1}`}
+                fill
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                priority={i < 3}
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
             </div>
           </figure>
         ))}
       </div>
 
-      <div className="cta">
-        <Link href="/portfolio" className="button">
-          Показать ещё работы →
+      <div className="mt-8 md:mt-10 text-center">
+        <Link
+          href="/portfolio"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#C8A96A] text-[#C8A96A] text-sm md:text-base tracking-wide hover:bg-[#C8A96A] hover:text-white transition"
+        >
+          Показать ещё работы <span aria-hidden>→</span>
         </Link>
       </div>
-
-      <style jsx>{`
-        .wrap { max-width: 1180px; margin: 0 auto; padding: 48px 16px; }
-        .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom: 20px; }
-        .head h2 { font-size: 36px; font-weight: 600; margin:0; }
-        .link { font-size:14px; text-decoration: underline; color:#111; }
-        .grid { display:grid; grid-template-columns:1fr; gap:12px; }
-        @media (min-width:640px){ .grid{ grid-template-columns:repeat(2,1fr);} }
-        @media (min-width:1024px){ .grid{ grid-template-columns:repeat(3,1fr);} }
-        .card { position:relative; overflow:hidden; border-radius:14px; }
-        .ratio { position:relative; width:100%; padding-top:66.66%; } /* 3:2 */
-        .img { object-fit:cover; transition: transform .5s ease; }
-        .card:hover .img { transform: scale(1.05); }
-        .cta { text-align:center; margin-top:28px; }
-        .button {
-          display:inline-flex; align-items:center; gap:8px;
-          padding:12px 22px; border-radius:999px;
-          border:1px solid #C8A96A; color:#C8A96A; font-weight:500;
-          transition: background .2s ease, color .2s ease;
-        }
-        .button:hover { background:#C8A96A; color:#fff; }
-      `}</style>
     </section>
   );
 }
