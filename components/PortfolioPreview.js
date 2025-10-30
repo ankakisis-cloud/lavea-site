@@ -14,29 +14,52 @@ const previewImages = [
 
 export default function PortfolioPreview() {
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <div className="flex items-end justify-between mb-8">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      {/* Заголовок и линк сверху */}
+      <div className="flex items-end justify-between mb-6 md:mb-8">
         <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Портфолио</h2>
+
         <Link
           href="/portfolio"
-          className="rounded-full border px-4 py-2 text-sm hover:shadow-md transition"
+          className="text-sm underline underline-offset-4 hover:opacity-70 transition"
         >
           Показать полное портфолио
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      {/* Сетка 3×2 как на референсе */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
         {previewImages.map((src, i) => (
-          <div key={i} className="relative overflow-hidden rounded-2xl shadow-sm">
-            <Image
-              src={src}
-              alt={`Проект ${i + 1}`}
-              width={800}
-              height={600}
-              className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-            />
-          </div>
+          <figure
+            key={i}
+            className="group relative overflow-hidden rounded-xl"
+          >
+            {/* блок для соотношения сторон 3:2 */}
+            <div className="relative w-full pt-[66%]">
+              <Image
+                src={src}
+                alt={`Проект ${i + 1}`}
+                fill
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                priority={i < 3}
+              />
+              {/* лёгкое затемнение при наведении — добавляет «премиум» ощущение */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+            </div>
+          </figure>
         ))}
+      </div>
+
+      {/* Кнопка по центру в стиле референса */}
+      <div className="mt-8 md:mt-10 text-center">
+        <Link
+          href="/portfolio"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#C8A96A] text-[#C8A96A] text-sm md:text-base tracking-wide hover:bg-[#C8A96A] hover:text-white transition"
+        >
+          Показать ещё работы
+          <span aria-hidden>→</span>
+        </Link>
       </div>
     </section>
   );
