@@ -2,7 +2,7 @@
 
 import HeroFullscreen from "../components/HeroFullscreen";
 import PricingBlock from "../components/PricingBlock";
-import PortfolioPreview from "@/components/PortfolioPreview";
+import PortfolioPreview from "../components/PortfolioPreview";
 
 export default function Home() {
   return (
@@ -14,7 +14,9 @@ export default function Home() {
       <section id="process" style={{ padding: "60px 0" }}>
         {/* ...твой контент процесса... */}
       </section>
-<PortfolioPreview />
+
+      {/* Блок ПОРТФОЛИО */}
+      <PortfolioPreview />
 
       {/* Блок ЦЕНЫ — карточки */}
       <PricingBlock />
