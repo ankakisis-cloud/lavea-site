@@ -4,12 +4,13 @@ import React from "react";
 export default function HeroFullscreen() {
   // Положи эти файлы в /public/hero/
   const slides = [
-    "/hero/01.jpg",
-    "/hero/02.jpg",
-    "/hero/03.jpg",
-    "/hero/04.jpg",
-    "/hero/05.jpg",
-  ];
+  "/hero/IMG_9732.jpg",
+  "/hero/IMG_9738.jpg",
+  "/hero/IMG_9742.jpg",
+  "/hero/IMG_9743.jpg",
+  "/hero/IMG_9753.jpg",
+];
+
 
   const onContact = () => window.openContactModal?.();
 
