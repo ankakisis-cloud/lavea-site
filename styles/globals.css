@@ -1,20 +1,27 @@
 /* ====== БАЗА + ПЕРЕМЕННЫЕ БРЕНДА ====== */
-:root{
-  --font-heading: "Bodoni Moda", serif;
-  --font-body: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+:root {
+  --font-heading: "Prata", serif;
+  --font-body: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji";
   --brand-bg: #ffffff;
-  --brand-ink: #111;                /* основной текст */
-  --brand-ink-soft: #666;           /* вторичный текст */
-  --brand-gold: #C7A251;            /* золото LAVEA */
-  --brand-gold-soft: #E8C980;       /* светлое золото */
+  --brand-ink: #111;
+  --brand-ink-soft: #666;
+  --brand-gold: #c7a251;
+  --brand-gold-soft: #e8c980;
   --border: #e8e8e8;
-  --shadow: 0 8px 30px rgba(0,0,0,.06);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
-/* База шрифтов/цветов */
-html { scroll-behavior: smooth; }
-html, body { height: 100%; }
-body{
+/* ====== БАЗОВЫЙ СТИЛЬ ====== */
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  height: 100%;
+}
+body {
   margin: 0;
   background: var(--brand-bg);
   color: var(--brand-ink);
@@ -23,24 +30,17 @@ body{
   line-height: 1.55;
 }
 
-/* Контейнер по сайту, если нужен */
-.container{
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
 /* ====== ШАПКА ====== */
-.header{
+.header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255,255,255,.78);
+  background: rgba(255, 255, 255, 0.78);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
-.header__container{
+.header__container {
   max-width: 1180px;
   margin: 0 auto;
   padding: 14px 24px;
@@ -50,65 +50,70 @@ body{
   gap: 20px;
 }
 
-/* ====== ЛОГОТИП LAVEA (текстом) ====== */
-.logo{
+/* ====== ЛОГОТИП ====== */
+.logo {
   text-decoration: none;
   color: inherit;
   display: inline-flex;
   flex-direction: column;
   line-height: 1;
 }
-.logoText{
+.logoText {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 28px;
-  letter-spacing: .02em;           /* премиальная стяжка букв */
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 0.03em;
 }
-.logoSub{
+.logoSub {
   margin-top: 4px;
   font-size: 11px;
-  letter-spacing: .18em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--brand-ink-soft);
 }
 
-/* Hover лёгкий — золото */
-.logo:hover .logoText{
+/* Hover эффект */
+.logo:hover .logoText {
   color: var(--brand-gold);
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 }
 
 /* ====== МЕНЮ ====== */
-.menu{
+.menu {
   justify-self: center;
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
 }
-.menu a{
+.menu a {
   color: inherit;
   text-decoration: none;
   font-weight: 600;
-  opacity: .9;
+  opacity: 0.9;
 }
-.menu a:hover{ color: var(--brand-gold); }
+.menu a:hover {
+  color: var(--brand-gold);
+}
 
-/* Правый блок шапки (кнопка/иконки от HeaderClient) */
-.header__right{ justify-self: end; }
-
-/* Адаптив шапки */
-@media (max-width: 860px){
-  .header__container{
+/* ====== АДАПТИВ ====== */
+@media (max-width: 860px) {
+  .header__container {
     grid-template-columns: 1fr auto;
     gap: 14px;
   }
-  .menu{ display:none; } /* при необходимости можно свернуть */
-  .logoText{ font-size: 24px; }
-  .logoSub{ display:none; }
+  .menu {
+    display: none;
+  }
+  .logoText {
+    font-size: 24px;
+  }
+  .logoSub {
+    display: none;
+  }
 }
 
-/* ====== УТИЛИТЫ (карточки, тени, и т.д.) — если надо дальше использовать ====== */
-.card{
+/* ====== УТИЛИТЫ ====== */
+.card {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 16px;
