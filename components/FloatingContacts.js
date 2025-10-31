@@ -4,16 +4,16 @@ export default function FloatingContacts() {
   const TG = "https://t.me/laveastudio";
   const WA = "https://wa.me/message/WOMRGEYTDAOAC1";
 
-  // пути к PNG с кириллицей
   const TG_ICON = "/телеграм%20иконка.png";
   const WA_ICON = "/вотсап%20иконка.png";
 
   return (
     <div className="fab" aria-label="Быстрые контакты">
-      <a href={TG} target="_blank" rel="noopener noreferrer" className="btn glow" aria-label="Telegram">
+      <a href={TG} target="_blank" rel="noopener noreferrer" className="fabBtn glow" aria-label="Telegram">
         <img src={TG_ICON} alt="Telegram" className="icon" />
       </a>
-      <a href={WA} target="_blank" rel="noopener noreferrer" className="btn glow" aria-label="WhatsApp">
+
+      <a href={WA} target="_blank" rel="noopener noreferrer" className="fabBtn glow" aria-label="WhatsApp">
         <img src={WA_ICON} alt="WhatsApp" className="icon" />
       </a>
 
@@ -28,80 +28,58 @@ export default function FloatingContacts() {
           z-index: 1000;
         }
 
-        .btn {
+        /* СБРОС ВСЕГО, чтобы не схватить глобальный .btn */
+        .fabBtn {
+          all: unset;                /* критично: убирает фон/паддинги/бордеры из глобалок */
           position: relative;
           width: 60px;
           height: 60px;
+          display: grid;
+          place-items: center;
           border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0;
-          border: none;
-          background: transparent; /* Убираем фон */
           cursor: pointer;
+          background: transparent !important;
+          box-shadow: none !important;
+          transition: transform .25s ease;
           animation: float 3s ease-in-out infinite;
-          transition: transform 0.25s ease;
-          overflow: visible;
         }
+        .fabBtn:nth-child(2){ animation-delay: .6s; }
+        .fabBtn:hover{ transform: scale(1.08); }
 
-        .btn:hover {
-          transform: scale(1.08);
-        }
-
-        /* Мягкое золотое свечение */
-        .btn.glow::before {
-          content: "";
-          position: absolute;
-          inset: -10px;
-          border-radius: 50%;
-          background: radial-gradient(
-            circle,
-            rgba(232, 201, 128, 0.7) 0%,
-            rgba(199, 162, 81, 0.4) 40%,
-            transparent 70%
-          );
+        /* Мягкое золотое свечение LAVEA */
+        .glow::before{
+          content:"";
+          position:absolute;
+          inset:-10px;
+          border-radius:50%;
+          background:
+            radial-gradient(circle, rgba(232,201,128,.70) 0%, rgba(199,162,81,.40) 40%, transparent 70%);
           filter: blur(6px);
-          opacity: 0.8;
-          z-index: -1;
+          opacity:.8;
+          z-index:-1;
           animation: glowPulse 4s ease-in-out infinite;
         }
 
-        @keyframes glowPulse {
-          0%, 100% {
-            opacity: 0.7;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.1);
-          }
-        }
-
-        .icon {
-          width: 100%;
-          height: 100%;
+        .icon{
+          width:100%;
+          height:100%;
           object-fit: contain;
-          border-radius: 50%;
-          mix-blend-mode: normal;
-          background: transparent !important; /* убираем тёмную подложку */
-          box-shadow: none !important;
+          border-radius:50%;
+          background: transparent !important;
+          display:block;
         }
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-6px);
-          }
+        @keyframes float{
+          0%,100% { transform: translateY(0); }
+          50%     { transform: translateY(-6px); }
+        }
+        @keyframes glowPulse{
+          0%,100% { opacity:.7; transform: scale(1); }
+          50%     { opacity:1;  transform: scale(1.1); }
         }
 
-        @media (max-width: 480px) {
-          .btn {
-            width: 54px;
-            height: 54px;
-          }
+        @media (max-width:480px){
+          .fabBtn{ width:54px; height:54px; }
         }
       `}</style>
     </div>
