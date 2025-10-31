@@ -7,11 +7,11 @@ import ContactModal from "../components/Modal";
 import FloatingContacts from "../components/FloatingContacts";
 
 // Премиальные шрифты
-import { Bodoni_Moda, Manrope } from "next/font/google";
+import { Prata, Manrope } from "next/font/google";
 
-const bodoni = Bodoni_Moda({
+const prata = Prata({
   subsets: ["latin", "cyrillic"],
-  weight: ["600", "700"],
+  weight: ["400"],
   display: "swap",
   variable: "--font-heading",
 });
@@ -31,7 +31,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ru" className={`${bodoni.variable} ${manrope.variable}`}>
+    <html lang="ru" className={`${prata.variable} ${manrope.variable}`}>
       <body>
         {/* Плавающие иконки TG/WA */}
         <FloatingContacts />
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
         {/* ШАПКА */}
         <header className="header">
           <nav className="header__container">
-            {/* Текстовый логотип (без картинки) */}
+            {/* Текстовый логотип */}
             <Link href="/" className="logo" aria-label="LAVEA — на главную">
               <span className="logoText">LAVEA</span>
               <span className="logoSub">интерьер с любовью к деталям</span>
@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
               <Link href="/sitemap">Карта сайта</Link>
             </div>
 
-            {/* Кнопка «Написать» и соцсети рендерит клиентский компонент */}
+            {/* Кнопка «Написать» и соцсети */}
             <HeaderClient />
           </nav>
         </header>
@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
         {/* Контент страниц */}
         <main>{children}</main>
 
-        {/* Модалка (если используешь) */}
+        {/* Модалка (если используется) */}
         <ContactModal />
       </body>
     </html>
