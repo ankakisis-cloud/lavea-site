@@ -1,1 +1,0 @@
-export default function Page(){return (<div><h1>Процесс</h1><p>6 шагов процесса.</p></div>)}
