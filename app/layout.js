@@ -16,16 +16,14 @@ export default function RootLayout({ children }) {
         <header className="header">
           <div className="header__container">
             <nav className="header__nav">
-              <Link href="/" className="logo">LAVEA</Link>
+ <div className="menu">
+  <Link href="/#portfolio">Портфолио</Link>
+  <Link href="/#pricing">Цены</Link>
+  <Link href="/#reviews">Отзывы</Link>
+  <Link href="/#contacts">Контакты</Link>
+  <Link href="/sitemap">Карта сайта</Link>
+</div>
 
-              <div className="menu">
-                <Link href="/portfolio">Портфолио</Link>
-                <Link href="/process">Процесс</Link>
-                <Link href="/#pricing">Цены</Link>
-                <Link href="/reviews">Отзывы</Link>
-                <Link href="/contacts">Контакты</Link>
-                <Link href="/sitemap">Карта сайта</Link>
-              </div>
 
               {/* кнопка "Написать" и соцсети — клиентский компонент */}
               <HeaderClient />
