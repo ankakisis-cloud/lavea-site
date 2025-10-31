@@ -4,17 +4,29 @@ export default function FloatingContacts() {
   const TG = "https://t.me/laveastudio";
   const WA = "https://wa.me/message/WOMRGEYTDAOAC1";
 
-  // используем твои файлы из /public
+  // твои иконки из public
   const TG_ICON = "/телеграм%20иконка.PNG";
   const WA_ICON = "/вотсап%20иконка.PNG";
 
   return (
     <div className="fab" aria-label="Быстрые контакты">
-      <a href={TG} target="_blank" rel="noopener noreferrer" className="btn" aria-label="Telegram">
+      <a
+        href={TG}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn glow"
+        aria-label="Telegram"
+      >
         <img src={TG_ICON} alt="Telegram" className="icon" />
       </a>
 
-      <a href={WA} target="_blank" rel="noopener noreferrer" className="btn" aria-label="WhatsApp">
+      <a
+        href={WA}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn glow"
+        aria-label="WhatsApp"
+      >
         <img src={WA_ICON} alt="WhatsApp" className="icon" />
       </a>
 
@@ -25,41 +37,78 @@ export default function FloatingContacts() {
           bottom: max(20px, env(safe-area-inset-bottom));
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 14px;
           z-index: 1000;
         }
+
         .btn {
-          width: 56px;
-          height: 56px;
-          border-radius: 999px;
-          display: inline-flex;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
           align-items: center;
           justify-content: center;
-          background: transparent;       /* без чёрной подложки */
-          border: 0;
+          background: none;          /* убираем фон полностью */
+          border: none;
           padding: 0;
-          box-shadow: 0 8px 18px rgba(0,0,0,.18); /* лёгкая тень */
+          cursor: pointer;
+          transition: transform 0.25s ease;
           animation: float 3s ease-in-out infinite;
-          transition: transform .2s ease;
         }
-        .btn:nth-child(2){ animation-delay: .6s; }
-        .btn:hover { transform: translateY(-2px) scale(1.04); }
+
+        .btn:nth-child(2) {
+          animation-delay: 0.6s;
+        }
+
+        .btn:hover {
+          transform: scale(1.08);
+        }
+
+        /* Золотое мягкое свечение */
+        .glow {
+          box-shadow:
+            0 0 12px rgba(232, 201, 128, 0.5),
+            0 0 24px rgba(199, 162, 81, 0.4),
+            0 0 40px rgba(232, 201, 128, 0.25);
+          animation: float 3s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+          0%, 100% {
+            box-shadow:
+              0 0 10px rgba(232, 201, 128, 0.5),
+              0 0 24px rgba(199, 162, 81, 0.4);
+          }
+          50% {
+            box-shadow:
+              0 0 18px rgba(232, 201, 128, 0.75),
+              0 0 36px rgba(199, 162, 81, 0.6);
+          }
+        }
 
         .icon {
           width: 100%;
           height: 100%;
-          object-fit: contain;  /* ровно как в исходнике */
+          object-fit: contain;
           border-radius: 50%;
           display: block;
+          background: transparent !important;
         }
 
         @keyframes float {
-          0%,100% { transform: translateY(0); }
-          50% { transform: translateY(-5px); }
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-6px);
+          }
         }
 
-        @media (max-width: 480px){
-          .btn { width: 52px; height: 52px; }
+        @media (max-width: 480px) {
+          .btn {
+            width: 54px;
+            height: 54px;
+          }
         }
       `}</style>
     </div>
