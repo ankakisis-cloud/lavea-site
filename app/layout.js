@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import Link from "next/link";
 import HeaderClient from "./HeaderClient";
 import ContactModal from "../components/Modal";
+import FloatingContacts from "../components/FloatingContacts";
 
 export const metadata = {
   title: "LAVEA — студия интерьерного дизайна",
@@ -11,6 +12,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
+    <FloatingContacts />
+
       <body>
         {/* ШАПКА — фикс сверху, всегда над контентом */}
         <header className="header">
