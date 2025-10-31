@@ -4,16 +4,31 @@ export default function FloatingContacts() {
   const TG = "https://t.me/laveastudio";
   const WA = "https://wa.me/message/WOMRGEYTDAOAC1";
 
+  // пути к твоим PNG (с пробелом в имени — кодируем %20)
   const TG_ICON = "/телеграм%20иконка.png";
   const WA_ICON = "/вотсап%20иконка.png";
 
   return (
     <div className="fab" aria-label="Быстрые контакты">
-      <a href={TG} target="_blank" rel="noopener noreferrer" className="fabBtn glow" aria-label="Telegram">
+      <a
+        href={TG}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fabBtn glow"
+        aria-label="Telegram"
+        style={{ background: "transparent" }} // антифон
+      >
         <img src={TG_ICON} alt="Telegram" className="icon" />
       </a>
 
-      <a href={WA} target="_blank" rel="noopener noreferrer" className="fabBtn glow" aria-label="WhatsApp">
+      <a
+        href={WA}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fabBtn glow"
+        aria-label="WhatsApp"
+        style={{ background: "transparent" }} // антифон
+      >
         <img src={WA_ICON} alt="WhatsApp" className="icon" />
       </a>
 
@@ -26,25 +41,40 @@ export default function FloatingContacts() {
           flex-direction: column;
           gap: 14px;
           z-index: 1000;
+          background: transparent !important;   /* антифон контейнеру */
+          backdrop-filter: none !important;
         }
 
-        /* СБРОС ВСЕГО, чтобы не схватить глобальный .btn */
+        /* СБРОС ВСЕГО + антифон с наивысшим приоритетом */
         .fabBtn {
-          all: unset;                /* критично: убирает фон/паддинги/бордеры из глобалок */
+          all: unset;
           position: relative;
-          width: 60px;
-          height: 60px;
-          display: grid;
-          place-items: center;
+          width: 60px; height: 60px;
+          display: grid; place-items: center;
           border-radius: 50%;
           cursor: pointer;
           background: transparent !important;
           box-shadow: none !important;
+          border: 0 !important;
+          padding: 0 !important;
+          backdrop-filter: none !important;
+          transform: translateZ(0); /* хак для Safari */
           transition: transform .25s ease;
           animation: float 3s ease-in-out infinite;
         }
         .fabBtn:nth-child(2){ animation-delay: .6s; }
         .fabBtn:hover{ transform: scale(1.08); }
+
+        /* ГЛОБАЛЬНЫЕ ПЕРЕОПРЕДЕЛЕНИЯ на случай конфликтов .btn/.dark и пр. */
+        :global(a.fabBtn),
+        :global(a.fabBtn:hover),
+        :global(.header a.fabBtn),
+        :global(a.fabBtn.btn),
+        :global(a.fabBtn.dark) {
+          background: transparent !important;
+          box-shadow: none !important;
+          border: 0 !important;
+        }
 
         /* Мягкое золотое свечение LAVEA */
         .glow::before{
@@ -58,6 +88,7 @@ export default function FloatingContacts() {
           opacity:.8;
           z-index:-1;
           animation: glowPulse 4s ease-in-out infinite;
+          pointer-events: none;
         }
 
         .icon{
@@ -65,18 +96,13 @@ export default function FloatingContacts() {
           height:100%;
           object-fit: contain;
           border-radius:50%;
-          background: transparent !important;
           display:block;
+          background: transparent !important;   /* антифон у самого изображения */
+          mix-blend-mode: normal;
         }
 
-        @keyframes float{
-          0%,100% { transform: translateY(0); }
-          50%     { transform: translateY(-6px); }
-        }
-        @keyframes glowPulse{
-          0%,100% { opacity:.7; transform: scale(1); }
-          50%     { opacity:1;  transform: scale(1.1); }
-        }
+        @keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+        @keyframes glowPulse{ 0%,100%{opacity:.7;transform:scale(1)} 50%{opacity:1;transform:scale(1.1)} }
 
         @media (max-width:480px){
           .fabBtn{ width:54px; height:54px; }
