@@ -1,31 +1,26 @@
 "use client";
 
 import HeroFullscreen from "../components/HeroFullscreen";
-import PricingBlock from "../components/PricingBlock";
 import PortfolioPreview from "../components/PortfolioPreview";
-
+import ProcessBlock from "../components/ProcessBlock";
+import PricingBlock from "../components/PricingBlock";
 
 export default function Home() {
   return (
     <>
-      {/* Фуллскрин HERO со слайдером на фоне и твоими кнопками поверх */}
+      {/* Верхний полноэкранный блок */}
       <HeroFullscreen />
 
-      {/* Блок ПРОЦЕСС (замени коммент на свой контент) */}
-      <section id="process" style={{ padding: "60px 0" }}>
-        {/* ...твой контент процесса... */}
-      </section>
-
-      {/* Блок ПОРТФОЛИО */}
+      {/* Портфолио (6 карточек + кнопка) */}
       <PortfolioPreview />
 
-      {/* Блок ЦЕНЫ — карточки */}
+      {/* НОВЫЙ БЛОК ПРОЦЕСС — стоит между Портфолио и Ценами */}
+      <ProcessBlock />
+
+      {/* Цены */}
       <PricingBlock />
 
-      {/* Блок ОТЗЫВЫ */}
-      <section id="reviews" style={{ padding: "60px 0" }}>
-        {/* ...твои отзывы... */}
-      </section>
+      {/* Отзывы, контакты и т.п. — дальше по странице */}
     </>
   );
 }
