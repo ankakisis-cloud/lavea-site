@@ -1,6 +1,6 @@
 // app/layout.js
 import "../styles/globals.css";
-import "../styles/lavea-additions.css"; // <- добавили наш файл со стилями LAVEA
+import "../styles/lavea-additions.css";
 import Link from "next/link";
 
 import HeaderClient from "./HeaderClient";
@@ -9,23 +9,12 @@ import FloatingContacts from "../components/FloatingContacts";
 
 import { Prata, Manrope } from "next/font/google";
 
-const prata = Prata({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400"],
-  display: "swap",
-  variable: "--font-heading",
-});
-const manrope = Manrope({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-body",
-});
+const prata = Prata({ subsets: ["latin","cyrillic"], weight: ["400"], display: "swap", variable: "--font-heading" });
+const manrope = Manrope({ subsets: ["latin","cyrillic"], weight: ["400","500","600","700","800"], display: "swap", variable: "--font-body" });
 
 export const metadata = {
   title: "LAVEA — премиальная студия интерьерного дизайна",
-  description:
-    "Создаём личные миры: от концепции и 3D-визуализации до комплектации и авторского надзора.",
+  description: "Создаём личные миры: от концепции и 3D-визуализации до комплектации и авторского надзора.",
 };
 
 export default function RootLayout({ children }) {
@@ -47,12 +36,11 @@ export default function RootLayout({ children }) {
               <Link href="/portfolio">Портфолио</Link>
               <Link href="/pricing">Цены</Link>
               <Link href="/about">О нас</Link>
-              {/* Контакты оставляем в шапке, но ведём к блоку на главной */}
+              <Link href="/#process">Процесс</Link>   {/* ВЕРНУЛ */}
               <Link href="/#contacts">Контакты</Link>
-              {/* Отзывы и Карта сайта из шапки убраны */}
             </div>
 
-            {/* ПРАВАЯ ЗОНА (кнопка «Написать») */}
+            {/* ПРАВАЯ ЗОНА */}
             <div className="header__right">
               <HeaderClient />
             </div>
