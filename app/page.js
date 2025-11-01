@@ -7,53 +7,41 @@ import ProcessBlock from "../components/ProcessBlock";
 import PricingBlock from "../components/PricingBlock";
 import ConsultModal from "../components/ConsultModal";
 
-// важное: без alias, относительный путь к стилям
+// общий премиум-стиль (без алиасов)
 import "../styles/lavea-additions.css";
 
 export default function Home() {
   return (
-    <main>
-      {/* Верхний полноэкранный баннер */}
+    <main className="homeNoStats">
+      {/* ВЕРХНИЙ ПОЛНОЭКРАННЫЙ БАННЕР */}
       <HeroFullscreen />
 
-      {/* Портфолио (6 карточек + кнопка) */}
+      {/* ПОРТФОЛИО (6 карточек + кнопка) */}
       <PortfolioPreview />
 
-      {/* Короткий блок «О нас» */}
+      {/* КОРОТКИЙ БЛОК «О НАС» — БЕЗ ЛЮБОЙ СТАТИСТИКИ */}
       <AboutShort />
 
-      {/* Небольшая премиальная полоса со статистикой */}
-      <section aria-label="Ключевая статистика LAVEA" className="laveaStats">
-        <div className="laveaStats__inner">
-          <div className="laveaStats__item" aria-label="лет работы">
-            <div className="laveaStats__value">8</div>
-            <div className="laveaStats__label">лет работы</div>
-          </div>
-          <div className="laveaStats__item" aria-label="реализованных проектов">
-            <div className="laveaStats__value">120</div>
-            <div className="laveaStats__label">реализованных проектов</div>
-          </div>
-          <div className="laveaStats__item" aria-label="городов">
-            <div className="laveaStats__value">17</div>
-            <div className="laveaStats__label">городов</div>
-          </div>
-          <div className="laveaStats__item" aria-label="довольных клиентов">
-            <div className="laveaStats__value">98%</div>
-            <div className="laveaStats__label">довольных клиентов</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Процесс */}
+      {/* ПРОЦЕСС */}
       <section id="process" aria-label="Наш процесс">
         <ProcessBlock />
       </section>
 
-      {/* Цены */}
+      {/* ЦЕНЫ */}
       <PricingBlock />
 
-      {/* Модалка консультации (регистрируется один раз на странице) */}
+      {/* МОДАЛКА КОНСУЛЬТАЦИИ */}
       <ConsultModal />
+
+      {/* На всякий случай глушим любые «хвосты» статистики, если где-то оставались старые блоки/классы */}
+      <style jsx global>{`
+        .homeNoStats .laveaStats,
+        .homeNoStats .aboutStats,
+        .homeNoStats .laveaStats_strip,
+        .homeNoStats .LaveaStatsStrip {
+          display: none !important;
+        }
+      `}</style>
     </main>
   );
 }
