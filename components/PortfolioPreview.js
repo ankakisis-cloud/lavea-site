@@ -27,8 +27,9 @@ export default function PortfolioPreview() {
       <div className="btnRow">
         {/* legacy <a> + :global, чтобы ничего не сломало стили */}
         <Link href="/portfolio" legacyBehavior passHref>
-          <a className="goldBtn">Посмотреть полное портфолио</a>
-        </Link>
+  <a className="btn btn-lavea">Посмотреть полное портфолио</a>
+</Link>
+
       </div>
 
       <style jsx>{`
