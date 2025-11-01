@@ -242,3 +242,107 @@
 .btn-lavea{
   color:#fff; /* белый текст */
 }
+/* ===== HERO (широкий премиум-блок) ===== */
+.heroAbout {
+  position: relative;
+  padding: clamp(80px, 8vw, 120px) 0;
+  overflow: hidden;
+}
+.heroAbout__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #faf7f0 0%, #fff 30%, #fbf6eb 100%);
+  z-index: 0;
+}
+.heroAbout__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+  padding: 0 40px;
+}
+.heroAbout__content {
+  position: relative;
+  padding-left: 28px;
+  border-left: 2px solid #C7A251;
+}
+.heroAbout__content h1 {
+  font-size: clamp(36px, 4.5vw, 56px);
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+.heroAbout__content p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+.heroAbout__mantra {
+  margin-top: 24px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7a6a44;
+}
+.heroAbout__image {
+  width: 100%;
+  height: 480px;
+  border-radius: 28px;
+  background: url("/hero/about.jpg") center/cover no-repeat;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+.heroAbout__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  border: 1px solid rgba(199,162,81,0.4);
+}
+
+/* ===== CONCLUSION (золотистое завершение) ===== */
+.aboutConclusion {
+  background: radial-gradient(ellipse at center, #f8f4ea 0%, #ffffff 100%);
+  padding: clamp(90px, 10vw, 140px) 20px;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.aboutConclusion__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.aboutConclusion h2 {
+  color: #C7A251;
+  font-size: clamp(24px, 3vw, 34px);
+  margin-bottom: 24px;
+}
+.aboutConclusion p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+.aboutConclusion strong {
+  color: #000;
+}
+.aboutConclusion .btn-lavea {
+  margin-top: 30px;
+}
+
+/* мягкие fade-анимации появления */
+@media (prefers-reduced-motion: no-preference) {
+  .heroAbout__content, .heroAbout__image, .aboutConclusion__inner {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .heroAbout__image { animation-delay: 0.3s; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
