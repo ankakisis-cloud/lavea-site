@@ -1,7 +1,7 @@
-// app/about/page.js  — SERVER COMPONENT (без "use client")
+// app/about/page.js — SERVER COMPONENT (без "use client")
 
 import ConsultBtn from "../../components/ConsultBtn";
-import "@/styles/lavea-additions.css";
+import "../../styles/lavea-additions.css"; // <— фикс: относительный путь
 
 export const metadata = {
   title: "О студии LAVEA",
@@ -32,7 +32,7 @@ export default function AboutPage() {
         </div>
 
         <div className="aboutHero__media">
-          {/* Подставь свой файл, сейчас безопасный плейсхолдер из /public */}
+          {/* При желании замени на нужное изображение из /public */}
           <img src="/IMG_9728.jpg" alt="Интерьер LAVEA" loading="lazy" />
         </div>
       </section>
@@ -78,25 +78,13 @@ export default function AboutPage() {
 
       {/* ======= Цифры ======= */}
       <section className="aboutStats">
-        <div className="aboutStat">
-          <div className="n">8</div>
-          <div className="d">лет работы</div>
-        </div>
-        <div className="aboutStat">
-          <div className="n">120</div>
-          <div className="d">реализованных проектов</div>
-        </div>
-        <div className="aboutStat">
-          <div className="n">17</div>
-          <div className="d">городов</div>
-        </div>
-        <div className="aboutStat">
-          <div className="n">98%</div>
-          <div className="d">довольных клиентов</div>
-        </div>
+        <div className="aboutStat"><div className="n">8</div><div className="d">лет работы</div></div>
+        <div className="aboutStat"><div className="n">120</div><div className="d">реализованных проектов</div></div>
+        <div className="aboutStat"><div className="n">17</div><div className="d">городов</div></div>
+        <div className="aboutStat"><div className="n">98%</div><div className="d">довольных клиентов</div></div>
       </section>
 
-      {/* ======= Заключение с мягким фоном ======= */}
+      {/* ======= Заключение ======= */}
       <section className="aboutConclusion">
         <h3>Заключение</h3>
         <p>
