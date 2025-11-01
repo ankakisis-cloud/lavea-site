@@ -62,6 +62,10 @@ export default function AboutPage() {
           Получить консультацию
         </button>
       </div>
+          import AboutConclusion from "../../components/AboutConclusion";
+...
+<AboutConclusion />
+
     </main>
   );
 }
