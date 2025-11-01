@@ -1,4 +1,6 @@
 "use client";
+import LaveaStatsStrip from "../../components/LaveaStatsStrip";
+import GuaranteesList from "../../components/GuaranteesList";
 
 export default function AboutPage() {
   const openModal = () => {
@@ -95,6 +97,11 @@ export default function AboutPage() {
 
       <div className="consultationBlock">
         <button className="btn btn-lavea" onClick={openModal}>
+          <LaveaStatsStrip />
+
+<GuaranteesList />
+<div className="consultationBlock">
+  <button className="btn btn-lavea" onClick={openModal}>
           Получить консультацию
         </button>
       </div>
