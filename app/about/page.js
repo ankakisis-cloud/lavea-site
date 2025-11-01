@@ -1,9 +1,18 @@
+"use client"; // <- важное добавление! страница станет клиентской и перестанет падать на билде
+
 export const metadata = {
   title: "О нас — LAVEA",
-  description: "Философия, подход и цифры LAVEA — архитектурно-дизайнерской студии премиум-класса",
+  description:
+    "Философия, подход и цифры LAVEA — архитектурно-дизайнерской студии премиум-класса",
 };
 
 export default function AboutPage() {
+  const openModal = () => {
+    if (typeof window !== "undefined") {
+      window.openContactModal?.();
+    }
+  };
+
   return (
     <main className="aboutPage container">
       <h1>О студии LAVEA</h1>
@@ -59,17 +68,13 @@ export default function AboutPage() {
 
       <h2>Заключение</h2>
       <p>
-        <strong>LAVEA</strong> — это больше, чем дизайн интерьера.
-        Это философия спокойствия, точности и вкуса.
+        <strong>LAVEA</strong> — это больше, чем дизайн интерьера. Это философия спокойствия, точности и вкуса.
         Мы создаём пространство, где красота живёт не на рендерах, а в реальности.
       </p>
       <p><strong>LAVEA. Пространство, в котором всё на своём месте.</strong></p>
 
       <div className="consultationBlock">
-        <button
-          className="btn btn-lavea"
-          onClick={() => window.openContactModal?.()}
-        >
+        <button className="btn btn-lavea" onClick={openModal}>
           Получить консультацию
         </button>
       </div>
