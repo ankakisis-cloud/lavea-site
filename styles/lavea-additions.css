@@ -1,3 +1,7 @@
+body {
+  background: #fbf9f3 !important;
+}
+
 /* Золотая кнопка LAVEA (с белым шрифтом) */
 .btn-lavea {
   background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
