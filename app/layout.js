@@ -1,6 +1,7 @@
 // app/layout.js
 import "../styles/globals.css";
-import "../styles/lavea-additions.css";
+import "../styles/lavea-additions.css"; // ✅ НОВЫЙ ИМПОРТ СТИЛЕЙ 2.0
+
 import Link from "next/link";
 
 import HeaderClient from "./HeaderClient";
@@ -9,8 +10,8 @@ import FloatingContacts from "../components/FloatingContacts";
 
 import { Prata, Manrope } from "next/font/google";
 
-const prata = Prata({ subsets: ["latin","cyrillic"], weight: ["400"], display: "swap", variable: "--font-heading" });
-const manrope = Manrope({ subsets: ["latin","cyrillic"], weight: ["400","500","600","700","800"], display: "swap", variable: "--font-body" });
+const prata = Prata({ subsets: ["latin", "cyrillic"], weight: ["400"], display: "swap", variable: "--font-heading" });
+const manrope = Manrope({ subsets: ["latin", "cyrillic"], weight: ["400","500","600","700","800"], display: "swap", variable: "--font-body" });
 
 export const metadata = {
   title: "LAVEA — премиальная студия интерьерного дизайна",
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
         <FloatingContacts />
 
         <header className="header">
-          <nav className="header__container" aria-label="Основная навигация">
+          <nav className="header__container" aria-label="Навигация">
             {/* ЛОГО */}
             <Link href="/" className="logo" aria-label="LAVEA — на главную">
               <span className="logoText">LAVEA</span>
@@ -36,11 +37,11 @@ export default function RootLayout({ children }) {
               <Link href="/portfolio">Портфолио</Link>
               <Link href="/pricing">Цены</Link>
               <Link href="/about">О нас</Link>
-              <Link href="/#process">Процесс</Link>   {/* ВЕРНУЛ */}
-              <Link href="/#contacts">Контакты</Link>
+              <Link href="/process">Процесс</Link>
+              <Link href="/contacts">Контакты</Link>
             </div>
 
-            {/* ПРАВАЯ ЗОНА */}
+            {/* ПРАВАЯ ЗОНА (кнопка «написать») */}
             <div className="header__right">
               <HeaderClient />
             </div>
@@ -50,15 +51,6 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
 
         <ContactModal />
-
-        <footer className="footer">
-          <div className="footer__inner">
-            <span>© {new Date().getFullYear()} LAVEA</span>
-            <nav aria-label="Ссылки в подвале">
-              <Link href="/sitemap">Карта сайта</Link>
-            </nav>
-          </div>
-        </footer>
       </body>
     </html>
   );
