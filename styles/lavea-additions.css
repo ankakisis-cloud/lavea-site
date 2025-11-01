@@ -1,293 +1,173 @@
-/* ===== LAVEA — Premium Additions v2.0 ===== */
+/* ===== LAVEA — Premium Additions v2.1 ===== */
 
 :root{
-  --bg-pure: #fbf9f3;
-  --ink: #111;
+  --bg-pure:#fbf9f3;
+  --ink:#111;
   --ink-soft:#666;
   --gold:#C7A251;
-  --gold-soft:#E8C980;
-  --border: #e8e8e8;
-  --shadow: 8px 8px 30px rgba(0,0,0,.06);
+  --gold-soft:#EBC980;
+  --border:#e8e8e8;
+  --shadow: 8px 3px 39px rgba(0,0,0,.06);
 }
 
-/* Общая обвязка страницы О нас */
+/* ===== Общая обвязка «О нас» ===== */
 .aboutShell{
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 16px 80px;
+  padding: 48px 16px 24px;
 }
-
-/* ===== Герой ===== */
-.aboutHero{
-  display: grid;
-  grid-template-columns: 1.2fr .9fr;
-  gap: 40px;
-  align-items: center;
-  background: radial-gradient(1200px 400px at 0% 0%, #f6efe2 0%, transparent 55%),
-              radial-gradient(900px 260px at 100% 60%, #f7f1e6 0%, transparent 55%);
-  border-radius: 24px;
-  padding: 36px;
-  margin: 8px 0 56px;
-}
-
-.aboutHero__card{
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: var(--shadow);
-  border-radius: 20px;
-  padding: 28px 28px 24px;
-}
-
-.aboutHero__card h1{
-  font-family: var(--font-heading);
-  font-size: clamp(32px, 3.2vw, 44px);
-  margin: 0 0 12px;
-  letter-spacing: .2px;
-}
-
-.aboutHero__card p{
-  color: var(--ink-soft);
-  line-height: 1.65;
-  margin: 0 0 16px;
-}
-
-.aboutHero__tags{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 6px 0 18px;
-}
-.aboutHero__tags span{
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  border: 1px solid rgba(0,0,0,.08);
-  padding: 6px 10px;
-  border-radius: 999px;
-  opacity: .85;
-}
-
-.aboutHero__media{
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.aboutHero__media img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  object-fit: cover;
-}
-
-/* ===== Блок «О студии» ===== */
-.aboutBlock h2{
+.aboutShell h2{
   font-family: var(--font-heading);
   font-size: clamp(26px, 2.4vw, 36px);
   margin: 0 0 16px;
 }
-.aboutLead p{
+.aboutShell p{
   margin: 0 0 12px;
   color: var(--ink);
   line-height: 1.7;
 }
 
-/* ===== Философия с золотой направляющей ===== */
+/* ===== Премиальный блок «Философия» c золотой направляющей ===== */
 .aboutPhilosophy{
   position: relative;
   display: grid;
-  grid-template-columns: 14px 1fr;
-  gap: 24px;
-  margin: 56px 0 36px;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  margin: 24px auto 8px;
+  max-width: 1200px;
+  padding: 0 16px;
 }
 .aboutPhilosophy__rail{
-  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
   border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(199,162,81,.25);
+  background:
+    radial-gradient(1000px 260px at 60% 40%, #f6efe2 0%, transparent 60%),
+    linear-gradient(180deg, var(--gold-soft), var(--gold));
+  box-shadow: 0 8px 18px rgba(199,162,81,.25);
 }
 .aboutPhilosophy__content h2{
   font-family: var(--font-heading);
   font-size: clamp(26px, 2.4vw, 36px);
-  margin: -4px 0 16px;
+  margin: 0 0 16px;
 }
-.aboutPhilosophy__content p{
-  margin: 0 0 12px;
-  color: var(--ink);
-  line-height: 1.75;
-}
+.aboutPhilosophy__content p{ margin: 0 0 12px; line-height: 1.75; }
 
-/* ===== Цифры ===== */
-.aboutStats{
-  margin: 36px 0 24px;
+/* ===== Ровная премиальная статистика ===== */
+.laveaStats{
+  margin: 40px auto 8px;
+  padding: 0 16px;
+  max-width: 1200px;
 }
-.aboutStats__grid{
+.laveaStats__inner{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+  align-items: stretch;
 }
-.stat{
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 16px;
+.laveaStats__item{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;
   box-shadow: var(--shadow);
-  padding: 18px 18px 16px;
-  text-align: center;
+  padding:18px 16px;
+  text-align:center;
 }
-.stat__num{
+.laveaStats__value{
   font-family: var(--font-heading);
   font-size: clamp(28px, 4vw, 52px);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.stat__label{
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  font-size: 12px;
-  opacity: .9;
+  line-height:1;
   margin-bottom: 6px;
 }
-.stat__desc{
-  color: var(--ink-soft);
-  font-size: 14px;
-  line-height: 1.55;
+.laveaStats__label{
+  font-weight:700;
+  text-transform: uppercase;
+  letter-spacing:.08em;
+  font-size:12px;
+  opacity:.9;
+  margin-bottom:0;
 }
 
-/* ===== Подход и гарантии ===== */
-.aboutPromises{
-  margin: 40px 0 0;
-}
-.promises__grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-.promise{
-  background: linear-gradient(180deg, #fff, #fdfbf7);
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 18px 16px;
-}
-.promise h3{
-  font-family: var(--font-heading);
-  font-size: clamp(16px, 1.6vw, 18px);
-  margin: 0 0 8px;
-}
-.promise p{
-  margin: 0;
-  color: var(--ink-soft);
-  line-height: 1.6;
-}
-
-/* ===== Заключение ===== */
+/* ===== Заключение (мягкая подложка) ===== */
 .aboutConclusion{
   margin: 56px 0 0;
-  background: radial-gradient(900px 300px at 50% -40%, #f6efe2 0%, transparent 60%);
-  text-align: center;
+  background: radial-gradient(900px 260px at 50% 40%, #f6efe2 0%, transparent 60%);
+  text-align:center;
   padding: 24px 12px 16px;
   border-radius: 20px;
 }
 .aboutConclusion h2{
   font-family: var(--font-heading);
-  font-size: clamp(26px, 2.4vw, 36px);
+  font-size: clamp(20px, 2vw, 26px);
   color: var(--gold);
   margin: 0 0 10px;
 }
-.aboutConclusion p{
-  margin: 0 0 8px;
-  color: var(--ink);
-  line-height: 1.7;
-}
-.ctaRow{
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-}
+.aboutConclusion p{ margin: 0 10px 10px; line-height: 1.7; }
+.ctaRow{ display:flex; justify-content:center; margin:14px 0 0; }
 
-/* ===== Кнопки LAVEA ===== */
-.btn{
-  appearance: none;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
+/* ===== Кнопка LAVEA ===== */
+.btn{ appearance:none; background:none; border:0; cursor:pointer; }
 .btn-lavea{
-  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
-  color: #fff;                   /* белые буквы, как просили */
-  border: 0;                     /* убираем «линию» на кнопках */
+  background: linear-gradient(90deg, #EBC980 0%, #C7A251 100%);
+  color: #fff;            /* белые буквы */
+  border: 0;              /* убираем «линию» на кнопках */
   padding: 12px 22px;
-  border-radius: 999px;
+  border-radius: 9999px;
   font-weight: 700;
   box-shadow: 0 2px 8px rgba(0,0,0,.12);
   transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
 }
-.btn-lavea:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.18);
-  opacity: .97;
+.btn-lavea:hover{ transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.18); opacity:.97; }
+.btn-lavea:active{ transform: translateY(0); box-shadow: 0 3px 10px rgba(0,0,0,.14); }
+.btn-lavea--lg{ padding:14px 28px; font-size:16px; }
+
+/* ===== Модалка консультации ===== */
+.modalLavea{
+  position: fixed; inset: 0; z-index: 1000;
 }
-.btn-lavea:active{
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(0,0,0,.14);
+.modalLavea__backdrop{
+  position:absolute; inset:0; background: rgba(0,0,0,.35);
+  backdrop-filter: blur(2px);
 }
-.btn-lavea--lg{
-  padding: 14px 28px;
-  font-size: 16px;
+.modalLavea__card{
+  position: absolute; left:50%; top:50%; transform: translate(-50%,-50%);
+  width: min(680px, 92vw);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 20px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.25);
+  padding: 28px 22px;
 }
+.modalLavea__close{
+  position:absolute; right:10px; top:6px;
+  width:36px; height:36px; border-radius:50%;
+  border:0; background:transparent; font-size:28px; line-height:1;
+  color:#333; cursor:pointer;
+}
+.modalLavea__card h3{
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2vw, 26px);
+  margin: 0 0 6px;
+}
+.modalLavea__lead{ margin: 0 0 16px; color:#333; }
+.modalLavea__form{ display:grid; gap:12px; }
+.modalLavea__form label{ display:grid; gap:6px; font-size:14px; color:#333; }
+.modalLavea__form input,
+.modalLavea__form textarea{
+  width:100%; border:1px solid var(--border); border-radius:12px;
+  padding:12px 14px; outline: none; background:#fff;
+}
+.modalLavea__form input:focus,
+.modalLavea__form textarea:focus{
+  border-color:#d9c08a; box-shadow: 0 0 0 3px rgba(231,203,138,.25);
+}
+.modalLavea__note{ display:block; margin-top:10px; opacity:.7; }
 
 /* ===== Адаптив ===== */
 @media (max-width: 1024px){
-  .aboutHero{ grid-template-columns: 1fr; }
-  .aboutHero__media{ order: -1; }
-  .promises__grid{ grid-template-columns: repeat(2, 1fr); }
-  .aboutStats__grid{ grid-template-columns: repeat(2, 1fr); }
+  .aboutPhilosophy{ grid-template-columns: 1fr; gap: 18px; }
+  .aboutPhilosophy__rail{ height: 120px; }
+  .laveaStats__inner{ grid-template-columns: repeat(2,1fr); }
 }
 @media (max-width: 560px){
-  .aboutShell{ padding: 28px 12px 56px; }
-  .promises__grid{ grid-template-columns: 1fr; }
-  .aboutStats__grid{ grid-template-columns: 1fr 1fr; }
+  .aboutShell{ padding: 28px 12px 8px; }
+  .laveaStats__inner{ grid-template-columns: 1fr; }
 }
-/* ===== Универсальный контейнер для краткого блока на главной ===== */
-.aboutShort { padding: 80px 0; }
-.aboutShort__inner {
-  max-width: 1200px; margin: 0 auto; padding: 0 24px;
-  display: grid; gap: 28px; align-items: center;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 1024px){
-  .aboutShort__inner { grid-template-columns: 1.1fr .9fr; gap: 48px; }
-}
-.aboutShort__media {
-  border-radius: 18px; overflow: hidden; background: #f7f5f0;
-  box-shadow: var(--shadow);
-}
-.aboutShort__media img { display: block; width: 100%; height: auto; }
-.aboutShort__lead { margin: 8px 0 16px; line-height: 1.7; color: var(--ink); }
-.aboutShort__list { list-style: none; padding: 0; margin: 12px 0 20px; }
-.aboutShort__list li { position: relative; padding-left: 18px; margin: 8px 0; }
-.aboutShort__list li::before {
-  content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; border-radius: 50%;
-  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
-}
-.kicker { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 8px; }
-
-/* ===== Кнопка LAVEA — убираем “волосяную” линию ===== */
-.btn { appearance: none; background: none; border: 0; cursor: pointer; }
-.btn-lavea{
-  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
-  color: #fff;
-  border: 0; outline: none; -webkit-appearance: none; background-clip: padding-box;
-  padding: 12px 22px; border-radius: 999px; font-weight: 700;
-  box-shadow: 0 8px 28px rgba(0,0,0,.12);
-  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-}
-.btn-lavea:hover { transform: translateY(-1px); box-shadow: 0 12px 36px rgba(0,0,0,.18); opacity: .97; }
-.btn-lavea:active { transform: translateY(0); box-shadow: 0 3px 10px rgba(0,0,0,.14); }
-.btn-lavea:focus-visible { outline: 2px solid rgba(199,162,81,.35); outline-offset: 3px; }
-
-/* ===== Компенсация липкой шапки (если перекрывает контент) ===== */
-.withHeaderOffset { padding-top: 84px; }
-@media (max-width: 768px){ .withHeaderOffset { padding-top: 72px; } }
