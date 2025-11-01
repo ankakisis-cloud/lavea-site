@@ -2,6 +2,7 @@
 
 import HeroFullscreen from "../components/HeroFullscreen";
 import PortfolioPreview from "../components/PortfolioPreview";
+import AboutShort from "../components/AboutShort";
 import ProcessBlock from "../components/ProcessBlock";
 import PricingBlock from "../components/PricingBlock";
 
@@ -14,13 +15,19 @@ export default function Home() {
       {/* Портфолио (6 карточек + кнопка) */}
       <PortfolioPreview />
 
-      {/* НОВЫЙ БЛОК ПРОЦЕСС — стоит между Портфолио и Ценами */}
-      <ProcessBlock />
+      {/* КОРОТКИЙ «О НАС» — сразу после портфолио */}
+      <AboutShort />
+
+      {/* ПРОЦЕСС — обёрнут якорем для кнопки в шапке */}
+      <section id="process" aria-label="Наш процесс">
+        <ProcessBlock />
+      </section>
 
       {/* Цены */}
       <PricingBlock />
 
-      {/* Отзывы, контакты и т.п. — дальше по странице */}
+      {/* Якорь для ссылки «Контакты» в шапке */}
+      <section id="contacts" aria-label="Контакты" />
     </>
   );
 }
