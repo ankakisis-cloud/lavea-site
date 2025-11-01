@@ -1,0 +1,142 @@
+/* ===== LAVEA — премиальные добавки (изолированы от твоих файлов) ===== */
+
+:root{
+  --gold:#C7A251;
+  --gold-soft:#E8C980;
+  --ink:#111;
+  --ink-soft:#666;
+  --shadow: 0 8px 30px rgba(0,0,0,.06);
+  --font-heading: var(--font-heading, "Prata", serif);
+  --font-body: var(--font-body, "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+}
+
+/* чтобы шапка не перекрывала контент, если нужно */
+.withHeaderOffset{ padding-top: 0; }
+@media (max-width: 768px){ .withHeaderOffset{ padding-top: 0; } }
+
+/* ===== Премиальный блок «Философия» ===== */
+.aboutPhilosophy{
+  position: relative;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+@media (min-width: 1024px){
+  .aboutPhilosophy{
+    grid-template-columns: .06fr 1fr;
+    gap: 36px;
+  }
+}
+.aboutPhilosophy__rail{
+  width: 6px;
+  min-height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  box-shadow: 0 6px 22px rgba(199,162,81,.26);
+}
+@media (max-width: 1023px){
+  .aboutPhilosophy__rail{ display:none; }
+}
+.aboutPhilosophy__content h2{
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 2.4vw, 36px);
+  margin: 0 0 12px;
+}
+.aboutLead{
+  margin: 8px 0 16px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.aboutPhilosophy__list{
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 20px;
+  display: grid;
+  gap: 12px;
+}
+.aboutPhilosophy__list li{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.aboutPhilosophy__list li span{ font-weight: 700; }
+.aboutPhilosophy__note{ margin-top: 12px; font-weight: 700; }
+
+/* ===== Статистика: аккуратная сетка ===== */
+.aboutStats{ margin: 36px 0 24px; }
+.aboutStats__grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 1024px){ .aboutStats__grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px){ .aboutStats__grid{ grid-template-columns: 1fr; } }
+.stat{
+  background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px;
+  box-shadow:var(--shadow); padding:18px 18px 16px; text-align:center;
+}
+.stat__num{ font-family:var(--font-heading); font-size:clamp(28px,4vw,52px); margin-bottom:4px; line-height:1; }
+.stat__label{ font-weight:700; text-transform:uppercase; letter-spacing:.08em; font-size:12px; opacity:.9; margin-bottom:6px; }
+.stat__desc{ font-size:14px; line-height:1.55; color:var(--ink-soft); }
+
+/* ===== Заключение: мягкая «аура» ===== */
+.aboutConclusion{ margin: 56px 0 0; }
+.aboutConclusion__inner{
+  background: radial-gradient(900px 300px at 50% 40%, #f6efe2 0%, transparent 60%);
+  text-align: center;
+  border-radius: 20px;
+  padding: 24px 12px 16px;
+}
+.aboutConclusion h2{
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.2vw, 24px);
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+.aboutConclusion p{ margin: 0 12px; line-height: 1.7; }
+.ctaRow{ margin-top: 14px; display: flex; justify-content: center; }
+
+/* ===== Кнопка LAVEA без паразитной линии ===== */
+.btn{ appearance:none; background:none; border:0; cursor:pointer; }
+.btn-lavea{
+  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
+  color: #fff;
+  border: 0; outline: none; background-clip: padding-box;
+  padding: 12px 22px; border-radius: 999px; font-weight: 700;
+  box-shadow: 0 8px 28px rgba(0,0,0,.12);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn-lavea:hover{ transform: translateY(-1px); box-shadow: 0 12px 36px rgba(0,0,0,.18); opacity: .97; }
+.btn-lavea:active{ transform: translateY(0); box-shadow: 0 3px 10px rgba(0,0,0,.14); }
+
+/* ===== Красивое модальное окно ===== */
+.modalBackdrop{
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,.35); backdrop-filter: blur(4px);
+  display: grid; place-items: center; padding: 24px;
+}
+.modalCard{
+  width: min(560px, 100%); background: #fff;
+  border: 1px solid rgba(0,0,0,.06); border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.18);
+  padding: 22px 22px 18px; position: relative;
+}
+.modalClose{
+  position: absolute; top: 8px; right: 10px; font-size: 28px;
+  background: none; border: 0; cursor: pointer; opacity: .6;
+}
+.modalClose:hover{ opacity: 1; }
+.modalTitle{ font-family: var(--font-heading); font-size: clamp(20px,2.2vw,26px); margin: 2px 0 6px; }
+.modalSubtitle{ margin: 0 0 14px; color: var(--ink-soft); }
+.modalForm{ display: grid; gap: 12px; }
+.modalForm label{ display: grid; gap: 6px; font-size: 14px; }
+.modalForm input, .modalForm textarea{
+  border-radius: 12px; border: 1px solid rgba(0,0,0,.12); padding: 12px 12px; outline: none;
+}
+.modalForm input:focus, .modalForm textarea:focus{
+  border-color: rgba(199,162,81,.55); box-shadow: 0 0 0 3px rgba(199,162,81,.12);
+}
+
+/* Скрыть нижнюю форму на странице О нас (если у неё id="contacts") */
+.aboutPage.noBottomForm #contacts{ display: none !important; }
