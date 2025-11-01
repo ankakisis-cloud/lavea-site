@@ -1,23 +1,33 @@
+"use client";
+
+import Link from "next/link";
+
 export default function AboutShort() {
   return (
-    <section className="aboutShort" id="about">
+    <section className="aboutShort" aria-label="О студии LAVEA — кратко">
       <div className="aboutShort__inner">
-        <h2>О нас</h2>
-        <p>
-          <strong>LAVEA</strong> — студия премиального дизайна интерьеров.
-          Мы создаём пространства, где 3D-визуал совпадает с реальностью.
-          Наши интерьеры сочетают итальянскую эстетику, инженерную точность
-          и спокойствие в каждом решении.
-        </p>
-        <p>
-          Каждый проект проходит технический аудит, авторский надзор и ежедневный контроль качества.
-          Вы получаете не просто красивый интерьер — вы получаете систему, в которой всё продумано до мелочей:
-          свет, воздух, движение, эмоции.
-        </p>
-        <p><em>Точность. Спокойствие. Совершенство.</em></p>
-        <p><strong>LAVEA</strong> — студия, где красота рождается из системности.</p>
+        <div className="aboutShort__text">
+          <h2>О нас</h2>
+          <p className="aboutShort__lead">
+            LAVEA — студия премиального дизайна интерьеров.
+            Создаём пространства, где 3D-визуал совпадает с реальностью.
+            Итальянская эстетика, инженерная точность и спокойствие в каждом решении.
+          </p>
 
-        <a href="/about" className="btn btn-lavea">Подробнее</a>
+          <ul className="aboutShort__list">
+            <li>Технический аудит каждого проекта</li>
+            <li>Авторский надзор и ежедневный контроль качества</li>
+            <li>Прозрачные сметы и единая точка общения</li>
+          </ul>
+
+          <div className="aboutShort__actions">
+            <Link href="/about" className="btn btn-lavea" prefetch>
+              Подробнее
+            </Link>
+          </div>
+        </div>
+
+        <div className="aboutShort__media" aria-hidden="true" />
       </div>
     </section>
   );
