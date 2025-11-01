@@ -31,3 +31,41 @@
   text-decoration: none;
   outline: none;
 }
+/* ===== СТРАНИЦА О НАС ===== */
+.aboutPage {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  line-height: 1.7;
+}
+.aboutPage h1 {
+  font-size: clamp(32px, 4vw, 42px);
+  margin-bottom: 32px;
+}
+.aboutPage h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  color: var(--gold);
+}
+.aboutPage p {
+  margin-bottom: 16px;
+  opacity: .9;
+}
+.aboutPage ul {
+  margin: 0 0 24px 18px;
+  padding: 0;
+  list-style-type: "— ";
+}
+.aboutPage ul li {
+  margin-bottom: 10px;
+}
+
+.consultationBlock {
+  text-align: center;
+  margin-top: 64px;
+}
+.consultationBlock .btn-lavea {
+  font-size: 18px;
+  padding: 14px 28px;
+}
