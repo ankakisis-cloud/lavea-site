@@ -106,6 +106,10 @@ export default function AboutPage() {
       <div className="consultationBlock" style={{ textAlign: "center", margin: "36px 0 64px" }}>
         <button className="btn btn-lavea" onClick={openModal}>Получить консультацию</button>
       </div>
+        import DiscussProject from "../../components/DiscussProject";
+...
+<DiscussProject />
+
     </main>
   );
 }
