@@ -19,7 +19,7 @@ export default function HeroAbout() {
           </button>
         </div>
 
-        {/* Правая «сцена» — мягкое фото/рендер, ставим свой файл в /public/hero/about.jpg */}
+        {/* Правая часть — фоновой рендер */}
         <div className="heroAbout__media" aria-hidden="true" />
       </div>
     </section>
