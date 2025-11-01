@@ -5,54 +5,40 @@ import { useEffect, useState } from "react";
 export default function ConsultModal() {
   const [open, setOpen] = useState(false);
 
-  // Глобальный хук для кнопок: window.openContactModal()
   useEffect(() => {
+    // глобальная «кнопка» из шапки/кнопок вызывает это окно
     window.openContactModal = () => setOpen(true);
   }, []);
+
+  const close = () => setOpen(false);
 
   if (!open) return null;
 
   return (
-    <div className="modalBackdrop" role="dialog" aria-modal="true">
-      <div className="modalCard">
-        <button
-          className="modalClose"
-          onClick={() => setOpen(false)}
-          aria-label="Закрыть"
-        >
-          ×
-        </button>
-
-        <h3 className="modalTitle">Получить консультацию</h3>
-        <p className="modalSubtitle">
-          Оставьте контакты — вернёмся к вам в течение рабочего дня.
+    <div className="modalLavea" role="dialog" aria-modal="true" aria-label="Заявка на консультацию">
+      <div className="modalLavea__backdrop" onClick={close} />
+      <div className="modalLavea__card">
+        <button className="modalLavea__close" onClick={close} aria-label="Закрыть">×</button>
+        <h3>Получить консультацию</h3>
+        <p className="modalLavea__lead">
+          Оставьте контакты — мы вернёмся с идеями для вашего пространства.
         </p>
-
-        <form
-          className="modalForm"
-          onSubmit={(e) => {
-            e.preventDefault();
-            // здесь можно повесить отправку в Sanity/почту
-            setOpen(false);
-          }}
-        >
+        <form className="modalLavea__form" onSubmit={(e)=>{e.preventDefault(); close();}}>
           <label>
             Имя
-            <input type="text" required />
+            <input type="text" placeholder="Как к вам обращаться" required />
           </label>
           <label>
             Телефон или Email
-            <input type="text" required />
+            <input type="text" placeholder="+7… или name@mail…" required />
           </label>
           <label>
             Кратко о задаче
-            <textarea rows={3} />
+            <textarea rows={4} placeholder="Метраж, стиль, сроки…" />
           </label>
-
-          <button type="submit" className="btn btn-lavea">
-            Отправить заявку
-          </button>
+          <button type="submit" className="btn-lavea">Отправить заявку</button>
         </form>
+        <small className="modalLavea__note">Нажимая «Отправить», вы соглашаетесь с обработкой данных.</small>
       </div>
     </div>
   );
