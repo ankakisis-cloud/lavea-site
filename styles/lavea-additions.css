@@ -346,3 +346,38 @@
     to { opacity: 1; transform: translateY(0); }
   }
 }
+/* ===== DROP-CAPS для абзацев «О нас» ===== */
+/* Включается классом .withDropcaps на контейнере секции/страницы */
+
+.withDropcaps p {
+  position: relative;
+}
+
+.withDropcaps p::first-letter {
+  float: left;
+  font-family: var(--font-heading, "Prata"), serif;
+  font-weight: 400;
+  line-height: 1;
+  font-size: clamp(42px, 8vw, 74px);
+  margin: 6px 12px 0 0;
+  color: #C7A251; /* золото LAVEA */
+  text-shadow: 0 1px 0 rgba(0,0,0,.04);
+}
+
+/* Чуть мягче для коротких подписей/лидов, если они помечены .lead */
+.withDropcaps .lead::first-letter {
+  font-size: clamp(36px, 6.5vw, 60px);
+  margin-top: 4px;
+}
+
+/* На совсем узких экранах отключаем drop-caps, чтобы не ломать поток */
+@media (max-width: 540px) {
+  .withDropcaps p::first-letter,
+  .withDropcaps .lead::first-letter {
+    float: none;
+    font-size: inherit;
+    margin: 0;
+    color: inherit;
+    text-shadow: none;
+  }
+}
