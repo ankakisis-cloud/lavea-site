@@ -19,7 +19,6 @@ export default function HeroAbout() {
           </button>
         </div>
 
-        {/* Правая часть — фоновой рендер */}
         <div className="heroAbout__media" aria-hidden="true" />
       </div>
     </section>
