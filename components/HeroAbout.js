@@ -3,38 +3,26 @@
 export default function HeroAbout() {
   return (
     <section className="heroAbout" role="region" aria-label="О студии LAVEA">
-      <div className="heroAbout__inner">
-        <div className="heroAbout__card">
-          <h1 className="h1-hero">
-            О студии LAVEA
-            <span className="h1-underline" aria-hidden="true" />
-          </h1>
-
-          <p className="lead">
+      <div className="heroAbout__bg" />
+      <div className="heroAbout__container">
+        <div className="heroAbout__content">
+          <h1>О студии LAVEA</h1>
+          <p>
             Мы создаём пространства, где 3D-визуал совпадает с реальностью.
             Итальянская эстетика, инженерная точность и спокойствие в каждом решении.
           </p>
-
-          <div className="heroAbout__cta">
-            <button
-              className="btn btn-lavea"
-              onClick={() => window.openContactModal?.()}
-            >
-              Получить консультацию
-            </button>
-          </div>
-
-          <div className="mantra">
-            <span>Точность</span>
-            <i aria-hidden="true">•</i>
-            <span>Спокойствие</span>
-            <i aria-hidden="true">•</i>
-            <span>Совершенство</span>
+          <button
+            className="btn btn-lavea"
+            onClick={() => window.openContactModal?.()}
+          >
+            Получить консультацию
+          </button>
+          <div className="heroAbout__mantra">
+            Точность • Спокойствие • Совершенство
           </div>
         </div>
 
-        {/* Правая сцена — фоновой рендер */}
-        <div className="heroAbout__media" aria-hidden="true" />
+        <div className="heroAbout__image" aria-hidden="true" />
       </div>
     </section>
   );
