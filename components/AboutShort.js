@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 
 export default function AboutShort() {
@@ -7,6 +6,7 @@ export default function AboutShort() {
     <section className="aboutShort" aria-label="О студии LAVEA — кратко">
       <div className="aboutShort__inner">
         <div className="aboutShort__text">
+          <p className="kicker">Студия премиального интерьера</p>
           <h2>О нас</h2>
           <p className="aboutShort__lead">
             LAVEA — студия премиального дизайна интерьеров.
@@ -21,13 +21,13 @@ export default function AboutShort() {
           </ul>
 
           <div className="aboutShort__actions">
-            <Link href="/about" className="btn btn-lavea" prefetch>
-              Подробнее
-            </Link>
+            <Link href="/about" className="btn btn-lavea">Подробнее</Link>
           </div>
         </div>
 
-        <div className="aboutShort__media" aria-hidden="true" />
+        <div className="aboutShort__media" aria-hidden="true">
+          <img src="/IMG_9728.jpg" alt="" loading="lazy" />
+        </div>
       </div>
     </section>
   );
