@@ -6,30 +6,54 @@ import AboutShort from "../components/AboutShort";
 import ProcessBlock from "../components/ProcessBlock";
 import PricingBlock from "../components/PricingBlock";
 import ConsultModal from "../components/ConsultModal";
-import "@/styles/lavea-philosophy.css";
+
+// важное: без alias, относительный путь к стилям
+import "../styles/lavea-additions.css";
 
 export default function Home() {
   return (
-    <>
-      {/* верхний полноэкранный баннер */}
+    <main>
+      {/* Верхний полноэкранный баннер */}
       <HeroFullscreen />
 
-      {/* портфолио (6 карточек + кнопка) */}
+      {/* Портфолио (6 карточек + кнопка) */}
       <PortfolioPreview />
 
-      {/* короткий блок «О нас» на главной */}
+      {/* Короткий блок «О нас» */}
       <AboutShort />
 
-      {/* процесс */}
+      {/* Небольшая премиальная полоса со статистикой */}
+      <section aria-label="Ключевая статистика LAVEA" className="laveaStats">
+        <div className="laveaStats__inner">
+          <div className="laveaStats__item" aria-label="лет работы">
+            <div className="laveaStats__value">8</div>
+            <div className="laveaStats__label">лет работы</div>
+          </div>
+          <div className="laveaStats__item" aria-label="реализованных проектов">
+            <div className="laveaStats__value">120</div>
+            <div className="laveaStats__label">реализованных проектов</div>
+          </div>
+          <div className="laveaStats__item" aria-label="городов">
+            <div className="laveaStats__value">17</div>
+            <div className="laveaStats__label">городов</div>
+          </div>
+          <div className="laveaStats__item" aria-label="довольных клиентов">
+            <div className="laveaStats__value">98%</div>
+            <div className="laveaStats__label">довольных клиентов</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Процесс */}
       <section id="process" aria-label="Наш процесс">
         <ProcessBlock />
       </section>
 
-      {/* цены */}
+      {/* Цены */}
       <PricingBlock />
 
-      {/* модалка — чтобы кнопки «Получить консультацию» работали и на главной */}
+      {/* Модалка консультации (регистрируется один раз на странице) */}
       <ConsultModal />
-    </>
+    </main>
   );
 }
