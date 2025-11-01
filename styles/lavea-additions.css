@@ -381,3 +381,125 @@
     text-shadow: none;
   }
 }
+/* ===== LAVEA Discuss Project Section ===== */
+.laveaDiscuss {
+  background: linear-gradient(180deg, #fbf9f3 0%, #fff 100%);
+  padding: clamp(90px, 10vw, 140px) 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.laveaDiscuss__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: stretch;
+}
+.laveaDiscuss__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+}
+.laveaDiscuss__left h2 {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: 22px;
+  color: #3c2c0b;
+  letter-spacing: -0.02em;
+}
+.laveaDiscuss__left p {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+.laveaDiscuss__right {
+  background: #fffdfa;
+  border: 1px solid rgba(231, 206, 156, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.05);
+  padding: clamp(32px, 4vw, 48px);
+}
+
+/* форма */
+.laveaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.laveaForm h3 {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #3c2c0b;
+  text-align: left;
+}
+.laveaForm input,
+.laveaForm select,
+.laveaForm textarea {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  color: #3c2c0b;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.laveaForm input:focus,
+.laveaForm select:focus,
+.laveaForm textarea:focus {
+  border-color: #c7a251;
+  box-shadow: 0 0 0 3px rgba(231, 201, 128, 0.2);
+  outline: none;
+}
+.laveaForm textarea {
+  resize: none;
+}
+
+/* кнопки */
+.btn.goldBtn {
+  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 36px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn.goldBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(199, 162, 81, 0.3);
+}
+
+/* политика */
+.policy {
+  font-size: 13px;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.4;
+}
+.policy a {
+  color: #c7a251;
+  text-decoration: underline;
+}
+
+/* адаптив */
+@media (max-width: 980px) {
+  .laveaDiscuss__inner {
+    grid-template-columns: 1fr;
+  }
+  .laveaDiscuss__left {
+    padding-right: 0;
+  }
+}
