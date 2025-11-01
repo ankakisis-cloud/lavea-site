@@ -250,3 +250,44 @@
   .promises__grid{ grid-template-columns: 1fr; }
   .aboutStats__grid{ grid-template-columns: 1fr 1fr; }
 }
+/* ===== Универсальный контейнер для краткого блока на главной ===== */
+.aboutShort { padding: 80px 0; }
+.aboutShort__inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: grid; gap: 28px; align-items: center;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px){
+  .aboutShort__inner { grid-template-columns: 1.1fr .9fr; gap: 48px; }
+}
+.aboutShort__media {
+  border-radius: 18px; overflow: hidden; background: #f7f5f0;
+  box-shadow: var(--shadow);
+}
+.aboutShort__media img { display: block; width: 100%; height: auto; }
+.aboutShort__lead { margin: 8px 0 16px; line-height: 1.7; color: var(--ink); }
+.aboutShort__list { list-style: none; padding: 0; margin: 12px 0 20px; }
+.aboutShort__list li { position: relative; padding-left: 18px; margin: 8px 0; }
+.aboutShort__list li::before {
+  content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+}
+.kicker { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 8px; }
+
+/* ===== Кнопка LAVEA — убираем “волосяную” линию ===== */
+.btn { appearance: none; background: none; border: 0; cursor: pointer; }
+.btn-lavea{
+  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
+  color: #fff;
+  border: 0; outline: none; -webkit-appearance: none; background-clip: padding-box;
+  padding: 12px 22px; border-radius: 999px; font-weight: 700;
+  box-shadow: 0 8px 28px rgba(0,0,0,.12);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn-lavea:hover { transform: translateY(-1px); box-shadow: 0 12px 36px rgba(0,0,0,.18); opacity: .97; }
+.btn-lavea:active { transform: translateY(0); box-shadow: 0 3px 10px rgba(0,0,0,.14); }
+.btn-lavea:focus-visible { outline: 2px solid rgba(199,162,81,.35); outline-offset: 3px; }
+
+/* ===== Компенсация липкой шапки (если перекрывает контент) ===== */
+.withHeaderOffset { padding-top: 84px; }
+@media (max-width: 768px){ .withHeaderOffset { padding-top: 72px; } }
