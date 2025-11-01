@@ -1,0 +1,47 @@
+/* ===== LAVEA — ДОП. СТИЛИ (без правок твоего globals.css) ===== */
+
+/* Золотая кнопка LAVEA (замена чёрной) */
+.btn-lavea {
+  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
+  color: #1a1a1a;
+  border: 0;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  cursor: pointer;
+}
+.btn-lavea:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+.btn-lavea:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+
+/* Короткий блок «О нас» */
+.aboutShort { padding: 56px 0 24px; }
+.aboutShort__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  gap: 16px;
+}
+.aboutShort h2 { font-size: clamp(28px, 3vw, 36px); margin: 0; }
+.aboutShort p { opacity: .9; }
+
+/* Футер (смягчённый) */
+.footer {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer a { opacity: .85; }
+.footer a:hover { opacity: 1; }
