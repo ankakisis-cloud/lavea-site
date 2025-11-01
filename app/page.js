@@ -5,27 +5,31 @@ import PortfolioPreview from "../components/PortfolioPreview";
 import AboutShort from "../components/AboutShort";
 import ProcessBlock from "../components/ProcessBlock";
 import PricingBlock from "../components/PricingBlock";
+import ConsultModal from "../components/ConsultModal";
+import "@/styles/lavea-philosophy.css";
 
 export default function Home() {
   return (
     <>
-      {/* ВЕРХНИЙ ПОЛНОЭКРАННЫЙ БАННЕР */}
+      {/* верхний полноэкранный баннер */}
       <HeroFullscreen />
 
-      {/* ПОРТФОЛИО (6 карточек + кнопка) */}
+      {/* портфолио (6 карточек + кнопка) */}
       <PortfolioPreview />
 
-      {/* НОВЫЙ КОРОТКИЙ БЛОК «О НАС» — красивый, лаконичный */}
+      {/* короткий блок «О нас» на главной */}
       <AboutShort />
 
-      {/* ПРОЦЕСС */}
+      {/* процесс */}
       <section id="process" aria-label="Наш процесс">
         <ProcessBlock />
       </section>
 
-      {/* ЦЕНЫ */}
+      {/* цены */}
       <PricingBlock />
-      {/* отзывы, контакты — далее по странице */}
+
+      {/* модалка — чтобы кнопки «Получить консультацию» работали и на главной */}
+      <ConsultModal />
     </>
   );
 }
