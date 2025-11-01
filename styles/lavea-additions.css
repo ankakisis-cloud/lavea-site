@@ -23,3 +23,11 @@
   transform: translateY(-1px);
   box-shadow: 0 0 12px rgba(232, 201, 128, 0.7), 0 6px 16px rgba(0, 0, 0, .2);
 }
+/* Убираем подчёркивание и контур у всех кнопок-ссылок LAVEA */
+.btn-lavea,
+.btn-lavea:focus,
+.btn-lavea:active,
+.btn-lavea:hover {
+  text-decoration: none;
+  outline: none;
+}
