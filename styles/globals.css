@@ -67,28 +67,40 @@ small,.small{font-size:12px; color:var(--ink-soft)}
 .header__right{justify-self:end; display:flex; align-items:center; gap:12px}
 
 /* Кнопка «Написать» из HeaderClient (универсальная стилизация) */
-.header__right .btn,
-.btn{
-  font-family:var(--font-body);
-  font-weight:700;
-  font-size:14px;
-  padding:10px 16px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:#fff;
-  color:var(--ink);
-  box-shadow:var(--shadow);
-  cursor:pointer;
-  transition:transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease, border-color .12s ease;
+/* Кнопка в стиле LAVEA (золотая, не чёрная) */
+.btn-lavea {
+  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
+  color: #1a1a1a;
+  border: 0;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  cursor: pointer;
 }
-.btn:hover{transform:translateY(-1px)}
-.btn.dark{background:var(--ink); color:#fff; border-color:transparent}
-.btn.dark:hover{box-shadow:0 8px 24px rgba(0,0,0,.2)}
-.btn.gold{
-  background:linear-gradient(180deg, var(--gold-soft), var(--gold));
-  color:#27231a; border-color:#d7b76c;
+.btn-lavea:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+.btn-lavea:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+
+/* Футер */
+.footer {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
-.btn.gold:hover{box-shadow:0 10px 28px rgba(199,162,81,.35)}
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer a { opacity: .85; }
+.footer a:hover { opacity: 1; }
+
 
 /* Уплотняем шапку на мобильных */
 @media (max-width:860px){
