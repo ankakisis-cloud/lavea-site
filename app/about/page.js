@@ -12,6 +12,8 @@ export default function AboutPage() {
 
   return (
     <main className="aboutPage container">
+    {/* НОВЫЙ ГЕРОЙ */}
+      <HeroAbout />
       <h1>О студии LAVEA</h1>
       <p>
         <strong>LAVEA</strong> - архитектурно-дизайнерская студия премиум-класса,
