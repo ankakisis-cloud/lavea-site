@@ -4,7 +4,7 @@ import "./globals.css";
 
 import HeaderClient from "./HeaderClient";
 import ConsultModal from "../components/ConsultModal";
-import FloatingMessengers from "../components/FloatingMessengers";
+import FloatingContacts from "../components/FloatingContacts";
 
 export const metadata = {
   title: "LAVEA — премиальная студия интерьера",
@@ -30,7 +30,8 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
 
         <ConsultModal />
-        <FloatingMessengers />
+       <FloatingContacts />
+
       </body>
     </html>
   );
