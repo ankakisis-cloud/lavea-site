@@ -69,7 +69,7 @@ export default function PrivacyPage() {
       <h2>9. Контакты по вопросам ПДн</h2>
       <address>
         LAVEA — студия интерьера<br />
-        Ответственный за ПДн: <a href="mailto:laveastudio@y">laveastudio@y</a><br />
+        Ответственный за ПДн: <a href="mailto:laveastudio@y">laveastudio@yandex.ru</a><br />
         Тел.: 8 (495) 215-54-71, адрес: Москва, ул. Ильинка, 4
       </address>
 
