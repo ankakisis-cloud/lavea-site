@@ -78,7 +78,7 @@ export default function OfertaPage() {
         LAVEA — студия интерьера<br />
         Тел.: 8 (495) 215-54-71<br />
         Адрес: Москва, ул. Ильинка, 4<br />
-        Email: <a href="mailto:laveastudio@y">laveastudio@y</a>
+        Email: <a href="mailto:laveastudio@yandex.ru">laveastudio@y</a>
       </address>
 
       <h2>11. Заключительные положения</h2>
