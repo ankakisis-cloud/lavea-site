@@ -15,153 +15,43 @@ export default function HeroFullscreen() {
   const onContact = () => window?.openContactModal?.();
 
   return (
-    <section className="hero" aria-label="LAVEA hero">
-      {/* Слайдер-фон */}
-      <div className="slides">
+    <section className="heroFullscreen" aria-label="LAVEA — премиальная студия дизайна">
+      <div className="heroSlides">
         {slides.map((src, i) => (
-          <span
+          <div
             key={i}
-            className="slide"
-            style={{
-              backgroundImage: `url(${src})`,
-              animationDelay: `${i * 6}s`,
-            }}
+            className="heroSlide"
+            style={{ backgroundImage: `url(${src})` }}
+            aria-hidden={i !== 0}
           />
         ))}
       </div>
 
-      {/* Вуаль для читаемости текста */}
-      <div className="veil" />
+      <div className="heroContent">
+        <h1 className="heroTitle">LAVEA — премиальная студия интерьерного дизайна</h1>
+        <p className="heroLead">
+          Создаём личные миры: от концепции и 3D-визуализаций до комплектации и авторского надзора.
+        </p>
 
-      {/* Контент и кнопки сверху */}
-      <div className="content">
-        <div className="container">
-          <h1>LAVEA — премиальная студия интерьерного дизайна</h1>
-          <p>
-            Создаём личные миры: от концепции и 3D-визуализаций до комплектации
-            и авторского надзора.
-          </p>
-
-          {/* Кнопки (без «Процесс») */}
-          <div className="cta">
-            <a href="#portfolio" className="btnPrimary">
-              Портфолио
-            </a>
-            <button type="button" className="btnGhost" onClick={onContact}>
-              Связаться
-            </button>
-          </div>
+        <div className="heroActions">
+          <a href="/#portfolio" className="goldBtn">Портфолио</a>
+          <button type="button" className="goldBtn" onClick={onContact}>Связаться</button>
         </div>
       </div>
 
       <style jsx>{`
-        .hero {
-          position: relative;
-          height: min(86vh, 920px);
-          min-height: 540px;
-          border-radius: 28px;
-          overflow: hidden;
-          margin: 18px 12px 0;
+        .heroFullscreen { position: relative; height: clamp(520px, 84vh, 880px); overflow: hidden; border-radius: 28px; }
+        .heroSlides { position: absolute; inset: 0; }
+        .heroSlide { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(.72); }
+        .heroContent {
+          position: relative; z-index: 2; height: 100%;
+          display: flex; flex-direction: column; justify-content: center; gap: 16px;
+          padding: 24px clamp(12px, 4vw, 48px);
+          color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35);
         }
-
-        .slides {
-          position: absolute;
-          inset: 0;
-        }
-        .slide {
-          position: absolute;
-          inset: 0;
-          background-size: cover;
-          background-position: center;
-          opacity: 0;
-          animation: fade 30s infinite;
-        }
-        @keyframes fade {
-          0% {
-            opacity: 0;
-            transform: scale(1.02);
-          }
-          6%,
-          26% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          32%,
-          100% {
-            opacity: 0;
-            transform: scale(1.02);
-          }
-        }
-
-        .veil {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-              90deg,
-              rgba(0, 0, 0, 0.55),
-              rgba(0, 0, 0, 0.15) 35%,
-              rgba(0, 0, 0, 0.1) 70%,
-              rgba(0, 0, 0, 0.35)
-            ),
-            radial-gradient(60% 60% at 20% 50%, rgba(0, 0, 0, 0.35), transparent);
-        }
-
-        .content {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-        }
-        .container {
-          width: 100%;
-          max-width: 1440px;
-          margin: 0 auto;
-          padding: 0 24px;
-          color: #fff;
-          text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-        }
-        h1 {
-          font-size: clamp(28px, 5vw, 56px);
-          font-weight: 800;
-          line-height: 1.05;
-          margin: 0 0 12px;
-        }
-        p {
-          margin: 0 0 18px;
-          font-size: clamp(15px, 2.2vw, 20px);
-          max-width: 760px;
-        }
-
-        .cta {
-          display: flex;
-          gap: 12px;
-        }
-        .btnPrimary {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 12px 20px;
-          border-radius: 999px;
-          font-weight: 700;
-          background: #111;
-          color: #fff;
-          text-decoration: none;
-          border: none;
-          cursor: pointer;
-        }
-        .btnGhost {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 12px 20px;
-          border-radius: 999px;
-          font-weight: 700;
-          background: rgba(255, 255, 255, 0.82);
-          color: #111;
-          border: none;
-          cursor: pointer;
-          backdrop-filter: blur(6px);
-        }
+        .heroTitle { font-family: var(--font-heading); font-weight: 400; line-height: 1.1; font-size: clamp(28px, 4.2vw, 56px); margin: 0; }
+        .heroLead { max-width: 760px; line-height: 1.7; margin: 0 0 8px; }
+        .heroActions { display: flex; gap: 12px; flex-wrap: wrap; }
       `}</style>
     </section>
   );
