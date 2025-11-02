@@ -1,6 +1,6 @@
 // app/layout.js
 import "../styles/lavea-additions.css";
-import "../globals.css";
+import "../styles/globals.css";   // ✅ правильно
 import "../styles/footer.css";
 
 import HeaderClient from "../components/HeaderClient";
