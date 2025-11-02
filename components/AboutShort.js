@@ -10,15 +10,15 @@ export default function AboutShort() {
           <div className="kicker">О студии</div>
           <h2 className="aboutShort__title">Интерьеры с любовью к деталям</h2>
           <p className="aboutShort__lead">
-            LAVEA создаёт индивидуальные пространства для жизни и вдохновения: от концепции до комплектации и авторского надзора.
+            LAVEA создаёт индивидуальные пространства от авторской концепции до комплектации и авторского надзора.
           </p>
           <ul className="aboutShort__list">
-            <li>Современная итальянская классика и премиальные материалы</li>
-            <li>Продуманные планировки и эргономика</li>
-            <li>Поставки мебели, света, декора</li>
+            <li>Современная итальянская классика, премиальные материалы</li>
+            <li>Продуманные планировки, инженерная точность</li>
+            <li>Поставки мебели, света и декора</li>
           </ul>
           <div className="aboutShort__actions">
-            <Link className="goldBtn" href="/about">Подробнее</Link>
+            <Link href="/about" className="goldBtn">Подробнее</Link>
           </div>
         </div>
 
