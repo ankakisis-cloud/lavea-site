@@ -237,3 +237,31 @@ body{color:var(--ink);background:#fff;font-family:var(--font-body);}
 @media (max-width: 900px){
   .contactBlock__grid{ grid-template-columns: 1fr; }
 }
+/* CONTACTS: убрать старые кнопки */
+.contactBlock__cta { display: none !important; }
+
+/* CONTACTS: таблица данных (dl) */
+.contactBlock__dl { margin: 0; }
+.contactBlock__row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.contactBlock__row:first-child { padding-top: 0; }
+.contactBlock__row:last-child { border-bottom: none; padding-bottom: 8px; }
+.contactBlock__row dt { color: var(--ink-soft); font-weight: 600; }
+.contactBlock__row dd { margin: 0; color: var(--ink); }
+
+.contactBlock__hours {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-top: 10px; color: var(--ink);
+  padding-top: 10px; border-top: 1px dashed var(--border);
+}
+
+/* Кнопка отправки формы остаётся широкой */
+.contactBlock__btn--full { width: 100%; }
+
+/* Карта — как была */
+.contactBlock__map iframe { width: 100%; height: 380px; border: 0; display: block; }
