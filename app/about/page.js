@@ -1,8 +1,9 @@
-"use client";
+// app/about/page.js
 
 export const metadata = {
   title: "О студии LAVEA",
-  description: "Интерьерная студия премиум-класса — современная итальянская классика, инженерная точность и спокойная эстетика.",
+  description:
+    "Интерьерная студия премиум-класса — современная итальянская классика, инженерная точность и спокойная эстетика.",
 };
 
 export default function AboutPage() {
@@ -48,11 +49,9 @@ export default function AboutPage() {
             <h3>Философия LAVEA</h3>
             <p>
               Мы создаём не просто интерьеры — мы создаём ощущение покоя. В каждом проекте LAVEA есть баланс между
-              инженерной точностью и итальянской чувственностью.
-            </p>
-            <p>
-              Красота для нас — не декор, а система, где каждая деталь работает на комфорт и свет. Мы не следуем трендам —
-              формируем пространство, которое остаётся актуальным через годы.
+              инженерной точностью и итальянской чувственностью. Красота для нас — не декор, а система, где каждая
+              деталь работает на комфорт и свет. Мы не следуем трендам — формируем пространство, которое остаётся
+              актуальным через годы.
             </p>
             <p><strong>LAVEA — гармония инженерии и эмоций.</strong></p>
           </div>
@@ -90,41 +89,6 @@ export default function AboutPage() {
           <a href="/#contacts" className="goldBtn">Получить консультацию</a>
         </div>
       </section>
-
-      {/* === Стили оставляем как есть === */}
-      <style jsx>{`
-        .aboutHeroVideo {
-          height: clamp(420px, 68vh, 720px);
-          background: url('/about/hero.jpg') center/cover no-repeat;
-          border-radius: 28px;
-          margin: 16px;
-          position: relative;
-          overflow: hidden;
-        }
-        .aboutHero__overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, rgba(0,0,0,.36), rgba(0,0,0,.38));
-        }
-        .aboutHero__inner {
-          position: relative;
-          z-index: 2;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          color: #fff;
-          text-align: center;
-        }
-        .aboutHero__title {
-          font-family: var(--font-heading);
-          font-size: clamp(38px, 7vw, 84px);
-          font-weight: 400;
-          margin: 0;
-        }
-      `}</style>
     </main>
   );
 }
