@@ -18,6 +18,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body>
+    // app/layout.js (фрагмент)
+<body>
+  <header className="lavea-topbar">
+    <div className="lavea-topbar__inner">
+      <a href="/" className="lavea-logo">LAVEA</a>
+    </div>
+  </header>
+
+  <HeaderClient />
+
+  <main>{children}</main>
+  <Footer />
+  <ConsultModal />
+  <FloatingContacts />
+</body>
+
         <HeaderClient />
 
         <main>{children}</main>
