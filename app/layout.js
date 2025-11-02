@@ -1,10 +1,10 @@
 // app/layout.js
 import "../styles/lavea-additions.css";
-import "../styles/globals.css";   // ✅ правильно
+import "./globals.css";                 // ← globals.css лежит в app/
 import "../styles/footer.css";
 
-import HeaderClient from "../components/HeaderClient";
-import ConsultModal from "../components/ConsultModal";
+import HeaderClient from "./HeaderClient";                 // ← файл в app/
+import ConsultModal from "../components/ConsultModal";     // ← в components/
 import FloatingContacts from "../components/FloatingContacts";
 import Footer from "../components/Footer";
 
