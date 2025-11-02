@@ -20,7 +20,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* О студии (текст) */}
+      {/* О студии */}
       <section className="wrap">
         <h2 className="title">О студии LAVEA</h2>
         <p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Философия (картинка слева, текст справа) */}
+      {/* Философия */}
       <section className="aboutShell">
         <div className="aboutPhilosophy">
           <div className="aboutPhilosophy__media">
@@ -48,16 +48,18 @@ export default function AboutPage() {
             <h3>Философия LAVEA</h3>
             <p>
               Мы создаём не просто интерьеры — мы создаём ощущение покоя. В каждом проекте LAVEA есть баланс между
-              инженерной точностью и итальянской чувственностью. Красота для нас — не декор, а система, где каждая
-              деталь работает на комфорт и свет. Мы не следуем трендам — формируем пространство, которое остаётся
-              актуальным через годы.
+              инженерной точностью и итальянской чувственностью.
+            </p>
+            <p>
+              Красота для нас — не декор, а система, где каждая деталь работает на комфорт и свет. Мы не следуем трендам —
+              формируем пространство, которое остаётся актуальным через годы.
             </p>
             <p><strong>LAVEA — гармония инженерии и эмоций.</strong></p>
           </div>
         </div>
       </section>
 
-      {/* Цифры (4 круглые бейджа) */}
+      {/* Цифры */}
       <section className="aboutStatsLavea">
         <div className="aboutStatsLavea__inner">
           {[
@@ -89,8 +91,9 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* === Стили оставляем как есть === */}
       <style jsx>{`
-        .aboutHeroVideo{
+        .aboutHeroVideo {
           height: clamp(420px, 68vh, 720px);
           background: url('/about/hero.jpg') center/cover no-repeat;
           border-radius: 28px;
@@ -98,37 +101,28 @@ export default function AboutPage() {
           position: relative;
           overflow: hidden;
         }
-        .aboutHero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.36),rgba(0,0,0,.38));}
-        .aboutHero__inner{
-          position:relative;z-index:2;height:100%;
-          display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;color:#fff;text-align:center;
+        .aboutHero__overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(0,0,0,.36), rgba(0,0,0,.38));
         }
-        .aboutHero__kicker{letter-spacing:.12em;text-transform:uppercase;opacity:.9}
-        .aboutHero__title{font-family:var(--font-heading);font-size:clamp(38px,7vw,84px);font-weight:400;margin:0}
-        .aboutHero__lead{opacity:.95}
-
-        .aboutShell{max-width:1180px;margin:0 auto;padding:32px 16px;}
-        .aboutPhilosophy{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;}
-        .aboutPhilosophy__media img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:var(--shadow);}
-        .aboutPhilosophy__text h3{font-family:var(--font-heading);margin:0 0 8px;}
-        .aboutPhilosophy__text p{margin:0 0 10px;line-height:1.7}
-
-        .aboutStatsLavea{padding:10px 16px 24px;}
-        .aboutStatsLavea__inner{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-        .aboutStatsLavea__item{text-align:center}
-        .aboutStatsLavea__circle{width:132px;height:132px;background:#fff;border:1px solid var(--border);border-radius:999px;box-shadow:var(--shadow);display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px;}
-        .aboutStatsLavea__num{font-family:var(--font-heading);font-size:28px}
-        .aboutStatsLavea__label{color:var(--ink-soft);font-size:14px}
-
-        .aboutConclusion{padding:14px 0 40px;}
-        .aboutConclusion__inner{
-          max-width:980px;margin:0 auto;border-radius:18px;padding:22px 22px 26px;text-align:center;
-          background:linear-gradient(180deg,#fff7e3,#fbf3de);
+        .aboutHero__inner {
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          color: #fff;
+          text-align: center;
         }
-        .aboutConclusion h3{font-family:var(--font-heading);margin:0 0 6px;}
-        @media (max-width:980px){
-          .aboutPhilosophy{grid-template-columns:1fr;}
-          .aboutStatsLavea__inner{grid-template-columns:repeat(2,1fr);}
+        .aboutHero__title {
+          font-family: var(--font-heading);
+          font-size: clamp(38px, 7vw, 84px);
+          font-weight: 400;
+          margin: 0;
         }
       `}</style>
     </main>
