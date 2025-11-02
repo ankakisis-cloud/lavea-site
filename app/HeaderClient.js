@@ -5,11 +5,12 @@ import ConsultBtn from "../components/ConsultBtn";
 export default function HeaderClient() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-      {/* КНОПКИ-ССЫЛКИ НА БЛОКИ ГЛАВНОЙ */}
+      {/* Ссылки на блоки ГЛАВНОЙ */}
+      <a className="btn btn-lavea" href="/#portfolio">Портфолио</a>
+      <a className="btn btn-lavea" href="/#about">О нас</a>
       <a className="btn btn-lavea" href="/#process">Процесс</a>
-      <a className="btn btn-lavea" href="/#pricing">Цены</a>
 
-      {/* Контактные кнопки — модалка */}
+      {/* Запись через модалку */}
       <ConsultBtn className="goldBtn">Написать</ConsultBtn>
       <ConsultBtn className="goldBtn">Связаться</ConsultBtn>
     </div>
