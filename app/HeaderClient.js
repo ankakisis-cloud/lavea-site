@@ -1,10 +1,29 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import ConsultBtn from "../components/ConsultBtn";
 
 export default function HeaderClient() {
+  const ref = useRef(null);
+
+  // Анти-дубликатор: оставляем только первый экземпляр меню
+  useEffect(() => {
+    const selector = '[data-nav="lavea-main"]';
+    const all = Array.from(document.querySelectorAll(selector));
+    if (all.length > 1) {
+      // оставляем самый первый, остальные удаляем
+      all.slice(1).forEach(el => el.remove());
+    }
+  }, []);
+
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+    <nav
+      ref={ref}
+      data-nav="lavea-main"
+      aria-label="Основная навигация"
+      className="headerNav"
+      style={{ display: "flex", alignItems: "center", gap: 18 }}
+    >
       {/* Чёрные текст-ссылки */}
       <a href="/#portfolio" className="header__link">Портфолио</a>
       <a href="/#pricing"   className="header__link">Цены</a>
@@ -26,6 +45,6 @@ export default function HeaderClient() {
         }
         .header__link:hover { background: rgba(0,0,0,.04); }
       `}</style>
-    </div>
+    </nav>
   );
 }
