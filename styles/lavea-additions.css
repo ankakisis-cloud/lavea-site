@@ -338,3 +338,13 @@ header .wrap .nav-cta{
 /* Если в правом блоке несколько кнопок — скрываем все, кроме одной отмеченной */
 header .wrap .actions > *{ display: none; }
 header .wrap .actions .nav-cta{ display: inline-flex; }
+/* контейнер для простых статических страниц */
+.pageWrap{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+.pageWrap h1{ font-family: var(--font-heading, serif); margin: 0 0 16px; }
+.pageWrap h2{ margin: 24px 0 10px; }
+.pageWrap p, .pageWrap li{ line-height: 1.7; }
+.pageWrap address{ font-style: normal; line-height: 1.7; }
