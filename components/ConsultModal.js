@@ -6,8 +6,9 @@ export default function ConsultModal() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // глобальная «кнопка» из шапки/кнопок вызывает это окно
-    window.openContactModal = () => setOpen(true);
+    const onOpen = () => setOpen(true);
+    window.addEventListener("open-consult-modal", onOpen);
+    return () => window.removeEventListener("open-consult-modal", onOpen);
   }, []);
 
   const close = () => setOpen(false);
@@ -15,31 +16,41 @@ export default function ConsultModal() {
   if (!open) return null;
 
   return (
-    <div className="modalLavea" role="dialog" aria-modal="true" aria-label="Заявка на консультацию">
-      <div className="modalLavea__backdrop" onClick={close} />
-      <div className="modalLavea__card">
-        <button className="modalLavea__close" onClick={close} aria-label="Закрыть">×</button>
-        <h3>Получить консультацию</h3>
-        <p className="modalLavea__lead">
-          Оставьте контакты — мы вернёмся с идеями для вашего пространства.
-        </p>
-        <form className="modalLavea__form" onSubmit={(e)=>{e.preventDefault(); close();}}>
-          <label>
-            Имя
-            <input type="text" placeholder="Как к вам обращаться" required />
-          </label>
-          <label>
-            Телефон или Email
-            <input type="text" placeholder="+7… или name@mail…" required />
-          </label>
-          <label>
-            Кратко о задаче
-            <textarea rows={4} placeholder="Метраж, стиль, сроки…" />
-          </label>
-          <button type="submit" className="btn-lavea">Отправить заявку</button>
+    <div className="consultModal__backdrop" onClick={close}>
+      <div className="consultModal" onClick={(e)=>e.stopPropagation()}>
+        <button className="consultModal__close" onClick={close} aria-label="Закрыть">×</button>
+        <h3 className="consultModal__title">Оставьте заявку</h3>
+        <p className="consultModal__subtitle">Мы свяжемся с вами и ответим на вопросы.</p>
+
+        <form className="consultModal__form" onSubmit={(e)=>{e.preventDefault(); close();}}>
+          <input className="consultModal__input" name="name" placeholder="Ваше имя" required />
+          <input className="consultModal__input" name="phone" placeholder="Телефон" required />
+          <textarea className="consultModal__input" name="msg" placeholder="Кратко о задаче" rows={3} />
+          <button className="goldBtn" type="submit">Отправить</button>
         </form>
-        <small className="modalLavea__note">Нажимая «Отправить», вы соглашаетесь с обработкой данных.</small>
       </div>
+
+      <style jsx>{`
+        .consultModal__backdrop{
+          position:fixed;inset:0;background:rgba(0,0,0,.45);
+          display:flex;align-items:center;justify-content:center;z-index:9999;
+        }
+        .consultModal{
+          width:min(560px,92vw);background:#fff;border-radius:18px;padding:20px;
+          box-shadow:0 24px 80px rgba(0,0,0,.25);
+        }
+        .consultModal__close{
+          position:absolute;right:14px;top:8px;border:0;background:none;
+          font-size:28px;cursor:pointer;line-height:1;
+        }
+        .consultModal__title{margin:6px 0 4px;font-family:var(--font-heading)}
+        .consultModal__subtitle{margin:0 0 12px;color:#666}
+        .consultModal__form{display:grid;gap:10px}
+        .consultModal__input{
+          width:100%;border:1px solid var(--border);border-radius:12px;padding:12px 14px;
+          outline:none;
+        }
+      `}</style>
     </div>
   );
 }
