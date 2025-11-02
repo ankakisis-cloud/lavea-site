@@ -1,5 +1,7 @@
 // app/about/page.js
 
+import AboutHeroSlider from "../../components/AboutHeroSlider";
+
 export const metadata = {
   title: "О студии LAVEA",
   description:
@@ -9,17 +11,8 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main>
-      {/* HERO */}
-      <section className="aboutHeroVideo" aria-label="О студии LAVEA">
-        <div className="aboutHero__overlay">
-          <div className="aboutHero__inner">
-            <div className="aboutHero__kicker">Студия премиального интерьера</div>
-            <h1 className="aboutHero__title">LAVEA</h1>
-            <p className="aboutHero__lead">Интерьер с любовью к деталям</p>
-            <a href="/#contacts" className="goldBtn">Получить консультацию</a>
-          </div>
-        </div>
-      </section>
+      {/* HERO: слайдер из 5 видео */}
+      <AboutHeroSlider />
 
       {/* О студии */}
       <section className="wrap">
@@ -39,11 +32,12 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Философия */}
+      {/* Философия (картинка + текст) */}
       <section className="aboutShell">
         <div className="aboutPhilosophy">
           <div className="aboutPhilosophy__media">
-            <img src="/about/philosophy.jpg" alt="Философия LAVEA" />
+            {/* ФАЙЛ лежит в /public как на скрине */}
+            <img src="/about-philosophy.jpg" alt="Философия LAVEA" />
           </div>
           <div className="aboutPhilosophy__text">
             <h3>Философия LAVEA</h3>
@@ -85,8 +79,6 @@ export default function AboutPage() {
             LAVEA — это больше, чем дизайн интерьера. Это философия спокойствия, точности и вкуса.
             Мы создаём пространство, где красота живёт не на рендерах, а в реальности.
           </p>
-          <p><strong>LAVEA. Пространство, в котором всё на своём месте.</strong></p>
-          <a href="/#contacts" className="goldBtn">Получить консультацию</a>
         </div>
       </section>
     </main>
