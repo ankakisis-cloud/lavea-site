@@ -52,20 +52,49 @@ body{color:var(--ink);background:#fff;font-family:var(--font-body);}
 .aboutShort__media{position:relative;width:100%;max-width:560px;justify-self:end;}
 .aboutShort__media img{display:block;width:100%;height:auto;max-height:360px;object-fit:cover;object-position:center;border-radius:14px;box-shadow:var(--shadow);}
 
-/* ===== PROCESS ===== */
+/* ===== PROCESS (ровные стрелки между карточками) ===== */
 .processBlock{background:var(--bg-pure);padding:56px 0;}
 .processBlock__inner{max-width:var(--container);margin:0 auto;padding:0 16px;}
-.processGrid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px;}
-.stepCard{position:relative;background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow);}
-.stepCard__num{font-family:var(--font-heading);color:var(--gold);font-size:12px;margin-bottom:6px;}
-.stepCard__title{font-weight:800;margin:0 0 6px;display:inline-flex;align-items:center;gap:8px;}
-/* «Золотая стрелочка» у заголовка */
-.stepCard__title::after{
-  content:"";display:inline-block;width:14px;height:14px;
-  background:linear-gradient(90deg,var(--gold-soft),var(--gold));
-  clip-path:polygon(0 45%,70% 45%,70% 25%,100% 50%,70% 75%,70% 55%,0 55%);
+.processGrid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-top:18px;
 }
+.stepCard{
+  position:relative;background:#fff;border:1px solid var(--border);
+  border-radius:18px;padding:18px;box-shadow:var(--shadow);
+}
+.stepCard__num{font-family:var(--font-heading);color:var(--gold);font-size:12px;margin-bottom:6px;}
+.stepCard__title{font-weight:800;margin:0 0 6px;}
 .stepCard__desc{margin:0;color:var(--ink-soft)}
+
+/* Золотая стрелка СТРОГО между карточками (десктоп: 4 колонки) */
+.processGrid .stepCard:not(:nth-child(4n))::after{
+  content:"";position:absolute;top:50%;right:-12px;transform:translateY(-50%);
+  width:24px;height:12px;
+  background:linear-gradient(90deg,var(--gold-soft),var(--gold));
+  -webkit-clip-path:polygon(0 45%,70% 45%,70% 25%,100% 50%,70% 75%,70% 55%,0 55%);
+          clip-path:polygon(0 45%,70% 45%,70% 25%,100% 50%,70% 75%,70% 55%,0 55%);
+}
+
+/* Планшет: 2 колонки — стрелки между парами */
+@media (max-width:960px){
+  .processGrid{grid-template-columns:repeat(2,1fr);}
+  .processGrid .stepCard:not(:nth-child(2n))::after{right:-12px;}
+  .processGrid .stepCard:nth-child(2n)::after{display:none;}
+}
+
+/* Мобайл: 1 колонка — стрелки вниз */
+@media (max-width:560px){
+  .processGrid{grid-template-columns:1fr;}
+  .processGrid .stepCard::after{
+    right:50%;top:auto;bottom:-16px;transform:translateX(50%) rotate(90deg);
+  }
+  .processGrid .stepCard:last-child::after{display:none;}
+}
+
 
 /* ===== PRICING (карточки из /pricing, теперь на главной) ===== */
 .pricingBlock{padding:48px 0;}
