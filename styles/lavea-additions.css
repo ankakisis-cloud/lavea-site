@@ -224,12 +224,15 @@
 @media (max-width: 760px) {
   .aboutStatsLavea__inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 }
-/* === О нас (главная) — фикс лэйаута и размера изображения === */
-.aboutShort { 
-  padding: 48px 0 16px;
+/* ===== Контейнер как у портфолио (вровень по ширине) ===== */
+:root{
+  --container: 1180px; /* совпадает с .header_container в globals.css */
 }
-.aboutShort__inner {
-  max-width: 1200px;
+
+/* ===== О нас — секция ===== */
+.aboutShort{ padding: 56px 0 8px; }
+.aboutShort__inner{
+  max-width: var(--container);
   margin: 0 auto;
   padding: 0 16px;
   display: grid;
@@ -238,62 +241,83 @@
   align-items: center;
 }
 
-.aboutShort__text .kicker {
+/* Заголовок как у «Портфолио» (тот же шрифт/цвет/масштаб) */
+.aboutShort .kicker{
   color: var(--ink-soft, #666);
   letter-spacing: .06em;
   text-transform: uppercase;
   font-size: 12px;
   margin-bottom: 6px;
 }
-.aboutShort__text h2 { 
+.aboutShort__title{
   font-family: var(--font-heading);
-  margin: 0 0 12px;
-}
-.aboutShort__lead { 
-  margin: 0 0 12px; 
   color: var(--ink, #111);
-  line-height: 1.7;
+  font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.2;
+  margin: 0 0 14px;
 }
-.aboutShort__list { 
-  margin: 0 0 16px 0; 
-  padding-left: 18px;
-}
-.aboutShort__actions { margin-top: 6px; }
 
-/* Медиа-колонка, чтобы картинка не «раздувалась» */
-.aboutShort__media {
-  position: relative;
-  width: 100%;
-  max-width: 560px;          /* верхний предел ширины картинки */
-  justify-self: end;         /* прилипает к правому краю колонки */
+.aboutShort__lead{ margin: 0 0 14px; line-height: 1.7; color: var(--ink, #111); }
+.aboutShort__list{ margin: 0 0 18px 0; padding-left: 18px; }
+.aboutShort__actions{ margin-top: 6px; }
+
+/* Правая колонка — изображение не «раздувается» */
+.aboutShort__media{ position: relative; width: 100%; max-width: 560px; justify-self: end; }
+.aboutShort__media img{
+  display: block; width: 100%; height: auto;
+  max-height: 360px; object-fit: cover; object-position: center;
+  border-radius: 18px; box-shadow: var(--shadow, 0 8px 32px rgba(0,0,0,.06));
 }
-.aboutShort__media img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 360px;         /* верхний предел высоты */
-  object-fit: cover;
-  object-position: center;
-  border-radius: 18px;
+
+/* ===== Кружки статистики в стиле LAVEA ===== */
+.aboutStatsLavea{
+  padding: 28px 0 56px;
+  background:
+    linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,245,235,0.25) 100%); /* мягкая подложка */
+}
+.aboutStatsLavea__inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.aboutStatsLavea__item{ text-align: center; }
+
+.aboutStatsLavea__circle{
+  display: inline-grid;
+  place-items: center;
+  width: 128px; height: 128px;           /* единый размер */
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
   box-shadow: var(--shadow, 0 8px 32px rgba(0,0,0,.06));
 }
-
-/* Адаптив */
-@media (max-width: 980px) {
-  .aboutShort__inner {
-    grid-template-columns: 1fr;   /* в столбик */
-    gap: 18px;
-  }
-  .aboutShort__media {
-    order: -1;                    /* картинка над текстом */
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .aboutShort__media img {
-    max-height: 320px;
-  }
+.aboutStatsLavea__num{
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2.2vw, 32px);
+  color: var(--ink, #111);
 }
-@media (max-width: 640px) {
-  .aboutShort { padding: 36px 0 8px; }
-  .aboutShort__media img { max-height: 260px; }
+.aboutStatsLavea__label{
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--ink-soft, #666);
+  line-height: 1.35;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 980px){
+  .aboutShort__inner{ grid-template-columns: 1fr; gap: 18px; }
+  .aboutShort__media{ order: -1; max-width: 680px; margin: 0 auto; }
+  .aboutShort__media img{ max-height: 320px; }
+
+  .aboutStatsLavea__inner{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (max-width: 560px){
+  .aboutShort{ padding: 40px 0 4px; }
+  .aboutShort__media img{ max-height: 260px; }
+
+  .aboutStatsLavea__inner{ grid-template-columns: 1fr 1fr; }
+  .aboutStatsLavea__circle{ width: 104px; height: 104px; } /* тот же единый, но мобильный */
 }
