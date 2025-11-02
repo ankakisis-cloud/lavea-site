@@ -1,34 +1,33 @@
 "use client";
 
-import HeroFullscreen from "../components/HeroFullscreen"; // если нет — закомментируй
+import HeroFullscreen from "../components/HeroFullscreen";
 import PortfolioPreview from "../components/PortfolioPreview";
 import AboutShort from "../components/AboutShort";
-import ProcessBlock from "../components/ProcessBlock";   // НОВЫЙ блок «Процесс» на главной
-import PricingBlock from "../components/PricingBlock";   // «Цены» на главной
-import ConsultModal from "../components/ConsultModal";   // модалка «Получить консультацию»
+import ProcessBlock from "../components/ProcessBlock";
+import PricingBlock from "../components/PricingBlock";
+import ConsultModal from "../components/ConsultModal";
 import "../styles/lavea-additions.css";
-
-
 
 export default function Home() {
   return (
     <>
-      {/* верхний полноэкранный баннер */}
-      {typeof HeroFullscreen !== "undefined" && <HeroFullscreen />}
+      <HeroFullscreen />
 
-      {/* превью портфолио */}
+      {/* Портфолио (из него кнопка "Посмотреть полное портфолио" ведёт на /portfolio) */}
       <PortfolioPreview />
 
-      {/* краткий «О нас» + фото + кружки */}
+      {/* О нас (кнопка "Подробнее" ведёт на /about) */}
       <AboutShort />
 
-      {/* ПРОЦЕСС — на главной вместо отдельной страницы */}
+      {/* Процесс (якорь #process) */}
       <ProcessBlock />
 
-      {/* ЦЕНЫ — карточки как на старой странице «Цены» */}
+      {/* Цены (детальные карточки – как у тебя на отдельной, только теперь здесь) */}
       <PricingBlock />
 
-      {/* модалка одна на всю страницу */}
+      {/* Якорь для "Контакты" в шапке — прокрутит к низу страницы */}
+      <div id="contacts" style={{ height: 1 }} />
+
       <ConsultModal />
     </>
   );
