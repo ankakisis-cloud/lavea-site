@@ -14,12 +14,17 @@ export default function ContactBlock() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("failed");
+
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok || payload?.ok === false) {
+        throw new Error(payload?.error || "Неизвестная ошибка API");
+      }
+
       form.reset();
       const ok = form.querySelector("#contactBlockOk");
       if (ok) { ok.hidden = false; setTimeout(() => (ok.hidden = true), 6000); }
     } catch (err) {
-      alert("Не удалось отправить. Попробуйте ещё раз или напишите на почту.");
+      alert(err.message || "Не удалось отправить. Попробуйте ещё раз или напишите на почту.");
     }
   };
 
@@ -32,7 +37,7 @@ export default function ContactBlock() {
         </div>
 
         <div className="contactBlock__grid">
-          {/* Левая колонка — аккуратные данные */}
+          {/* Левая колонка — данные */}
           <div className="contactBlock__info card">
             <dl className="contactBlock__dl">
               <div className="contactBlock__row">
