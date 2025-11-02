@@ -1,10 +1,10 @@
 // app/layout.js
 import "../styles/lavea-additions.css";
-import "./globals.css";                 // ← globals.css лежит в app/
+import "./globals.css";
 import "../styles/footer.css";
 
-import HeaderClient from "./HeaderClient";                 // ← файл в app/
-import ConsultModal from "../components/ConsultModal";     // ← в components/
+import HeaderClient from "./HeaderClient";
+import ConsultModal from "../components/ConsultModal";
 import FloatingContacts from "../components/FloatingContacts";
 import Footer from "../components/Footer";
 
@@ -18,27 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body>
-    // app/layout.js (фрагмент)
-<body>
-  <header className="lavea-topbar">
-    <div className="lavea-topbar__inner">
-      <a href="/" className="lavea-logo">LAVEA</a>
-    </div>
-  </header>
-
-  <HeaderClient />
-
-  <main>{children}</main>
-  <Footer />
-  <ConsultModal />
-  <FloatingContacts />
-</body>
-
         <HeaderClient />
 
         <main>{children}</main>
 
-        <Footer /> {/* общий подвал на всех страницах */}
+        <Footer />
 
         <ConsultModal />
         <FloatingContacts />
