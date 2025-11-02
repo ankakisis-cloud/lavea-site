@@ -6,7 +6,8 @@ import AboutShort from "../components/AboutShort";
 import ProcessBlock from "../components/ProcessBlock";   // НОВЫЙ блок «Процесс» на главной
 import PricingBlock from "../components/PricingBlock";   // «Цены» на главной
 import ConsultModal from "../components/ConsultModal";   // модалка «Получить консультацию»
-import "@/styles/lavea-additions.css";
+import "../styles/lavea-additions.css";
+
 
 
 export default function Home() {
