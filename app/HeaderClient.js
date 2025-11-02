@@ -11,13 +11,14 @@ export default function HeaderClient() {
         <a href="/" className="lavea-logo">LAVEA</a>
 
         {/* Меню по центру */}
-        <nav className="nav-center" aria-label="Основная навигация">
-          <a href="/portfolio" className="header_link">Портфолио</a>
-          <a href="/pricing" className="header_link">Цены</a>
-          <a href="/about" className="header_link">О нас</a>
-          <a href="/process" className="header_link">Процесс</a>
-          <a href="/contacts" className="header_link">Контакты</a>
-        </nav>
+       <nav className="nav-center" aria-label="Основная навигация">
+  <a href="/#portfolio" className="header_link">Портфолио</a>
+  <a href="/#pricing"   className="header_link">Цены</a>
+  <a href="/#about"     className="header_link">О нас</a>
+  <a href="/#process"   className="header_link">Процесс</a>
+  <a href="/#contacts"  className="header_link">Контакты</a>
+</nav>
+
 
         {/* Кнопка справа (единственная) */}
         <div className="actions">
