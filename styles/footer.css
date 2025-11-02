@@ -1,0 +1,115 @@
+/* styles/footer.css */
+
+.lavea-footer {
+  background: var(--bg-pure, #fbf9f3);
+  color: var(--ink, #111);
+  border-top: 1px solid var(--border, #e8e8e8);
+  padding: 48px 16px 0;
+  font-family: var(--font-sans, system-ui, -apple-system, "Segoe UI", Roboto);
+}
+
+.lavea-footer__wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 360px 240px;
+  gap: 32px;
+  align-items: start;
+}
+
+.lavea-footer__col { }
+
+.lavea-footer__title {
+  font-family: var(--font-heading, serif);
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.lavea-footer__subtitle {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.lavea-footer__text {
+  margin: 0 0 12px;
+  color: var(--ink-soft, #666);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.lavea-footer__contacts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.lavea-footer__contacts li { margin-bottom: 6px; }
+
+.lavea-footer__legal { margin-top: 10px; font-size: 13px; color: var(--ink-soft); }
+
+.lavea-footer__link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lavea-footer__form { display: flex; flex-direction: column; gap: 8px; }
+
+.lavea-input,
+.lavea-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border, #e8e8e8);
+  border-radius: 8px;
+  background: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.lavea-textarea { resize: vertical; }
+
+.lavea-footer__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.lavea-btn.gold {
+  background: linear-gradient(180deg, #E8C980 0%, #C7A251 100%);
+  color: #111;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lavea-footer__status {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.lavea-footer__bar {
+  border-top: 1px solid var(--border, #e8e8e8);
+  margin-top: 28px;
+  padding: 18px 0;
+  background: transparent;
+}
+
+.lavea-footer__wrap-small {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.lavea-footer__social { display:flex; gap:8px; margin-top:8px; }
+.social-link { text-decoration:none; font-size:13px; color:var(--ink-soft); }
