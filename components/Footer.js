@@ -2,6 +2,8 @@
 "use client";
 
 import { useState } from "react";
+import "../styles/footer.css";
+import Footer from "../components/Footer";
 
 export default function Footer() {
   const [name, setName] = useState("");
