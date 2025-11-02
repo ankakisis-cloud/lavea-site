@@ -17,18 +17,33 @@ export default function Home() {
 
       {/* Портфолио (из него кнопка "Посмотреть полное портфолио" ведёт на /portfolio) */}
       <PortfolioPreview />
-
+{/* ПОРТФОЛИО */}
+<section id="portfolio">
+  {/* ваш блок портфолио */}
+</section>
       {/* О нас (кнопка "Подробнее" ведёт на /about) */}
       <AboutShort />
-
+{/* О НАС */}
+<section id="about">
+  {/* ваш блок О нас */}
+</section>
       {/* Процесс (якорь #process) */}
       <ProcessBlock />
-
+{/* ПРОЦЕСС */}
+<section id="process">
+  {/* ваш блок Процесс работы */}
+</section>
       {/* Цены (детальные карточки – как у тебя на отдельной, только теперь здесь) */}
       <PricingBlock />
-
+{/* ЦЕНЫ */}
+<section id="pricing">
+  {/* ваш блок с ценами */}
+</section>
       <ContactBlock />
-
+{/* КОНТАКТЫ (если есть блок на главной) */}
+<section id="contacts">
+  {/* ваш блок Контакты / форма */}
+</section>
 
       <ConsultModal />
     </>
