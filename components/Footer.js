@@ -3,7 +3,6 @@
 
 import { useState } from "react";
 import "../styles/footer.css";
-import Footer from "../components/Footer";
 
 export default function Footer() {
   const [name, setName] = useState("");
@@ -105,7 +104,6 @@ export default function Footer() {
 
           <h4 className="lavea-footer__subtitle">Мы в социальных сетях</h4>
           <div className="lavea-footer__social">
-            {/* При желании замените ссылки на реальные */}
             <a href="#" aria-label="instagram" className="social-link">Instagram</a>
             <a href="#" aria-label="telegram" className="social-link">Telegram</a>
             <a href="#" aria-label="vk" className="social-link">VK</a>
