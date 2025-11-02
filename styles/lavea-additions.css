@@ -224,3 +224,76 @@
 @media (max-width: 760px) {
   .aboutStatsLavea__inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 }
+/* === О нас (главная) — фикс лэйаута и размера изображения === */
+.aboutShort { 
+  padding: 48px 0 16px;
+}
+.aboutShort__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr; /* текст / медиа */
+  gap: 28px;
+  align-items: center;
+}
+
+.aboutShort__text .kicker {
+  color: var(--ink-soft, #666);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.aboutShort__text h2 { 
+  font-family: var(--font-heading);
+  margin: 0 0 12px;
+}
+.aboutShort__lead { 
+  margin: 0 0 12px; 
+  color: var(--ink, #111);
+  line-height: 1.7;
+}
+.aboutShort__list { 
+  margin: 0 0 16px 0; 
+  padding-left: 18px;
+}
+.aboutShort__actions { margin-top: 6px; }
+
+/* Медиа-колонка, чтобы картинка не «раздувалась» */
+.aboutShort__media {
+  position: relative;
+  width: 100%;
+  max-width: 560px;          /* верхний предел ширины картинки */
+  justify-self: end;         /* прилипает к правому краю колонки */
+}
+.aboutShort__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 360px;         /* верхний предел высоты */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  box-shadow: var(--shadow, 0 8px 32px rgba(0,0,0,.06));
+}
+
+/* Адаптив */
+@media (max-width: 980px) {
+  .aboutShort__inner {
+    grid-template-columns: 1fr;   /* в столбик */
+    gap: 18px;
+  }
+  .aboutShort__media {
+    order: -1;                    /* картинка над текстом */
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .aboutShort__media img {
+    max-height: 320px;
+  }
+}
+@media (max-width: 640px) {
+  .aboutShort { padding: 36px 0 8px; }
+  .aboutShort__media img { max-height: 260px; }
+}
