@@ -2,6 +2,9 @@
 import "../styles/lavea-additions.css";
 import "./globals.css";
 
+import "../styles/footer.css";
+import Footer from "../components/Footer";
+
 import HeaderClient from "./HeaderClient";
 import ConsultModal from "../components/ConsultModal";
 import FloatingContacts from "../components/FloatingContacts";
