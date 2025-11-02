@@ -289,3 +289,52 @@ body{color:var(--ink);background:#fff;font-family:var(--font-body);}
   color: #111;
   text-decoration: none;
 }
+/* ===== LAVEA — выравнивание шапки: логотип слева, меню центр, CTA справа ===== */
+
+/* контейнер шапки (без изменения разметки) */
+header .wrap{
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: #fff;
+  border-bottom: 1px solid var(--border, #e8e8e8);
+
+  /* сетка 1–auto–1: левый/центр/правый */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Первый блок внутри .wrap — логотип слева */
+header .wrap > :first-child{
+  justify-self: start;
+}
+
+/* Второй блок — меню по центру */
+header .wrap > :nth-child(2){
+  justify-self: center;
+}
+
+/* Третий блок — зона кнопок справа */
+header .wrap > :last-child{
+  justify-self: end;
+}
+
+/* Кнопка-CTA «Написать» */
+header .wrap .nav-cta{
+  background: linear-gradient(180deg, #E8C980 0%, #C7A251 100%);
+  color: #111;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Если в правом блоке несколько кнопок — скрываем все, кроме одной отмеченной */
+header .wrap .actions > *{ display: none; }
+header .wrap .actions .nav-cta{ display: inline-flex; }
