@@ -171,3 +171,56 @@
   .aboutShell{ padding: 28px 12px 8px; }
   .laveaStats__inner{ grid-template-columns: 1fr; }
 }
+/* === LAVEA · премиальная статистика в кружках (главная / aboutShort) === */
+.aboutStatsLavea {
+  margin: 36px 0 8px;
+}
+.aboutStatsLavea__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.aboutStatsLavea__item {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  gap: 10px;
+  text-align: center;
+}
+.aboutStatsLavea__circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(100% 100% at 60% 0%, rgba(255,255,255,.7) 0%, transparent 60%),
+              linear-gradient(180deg, #fff 0%, rgba(255,255,255,.85) 100%),
+              var(--bg-pure, #fbf9f3);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow, 0 8px 32px rgba(0,0,0,.06));
+}
+.aboutStatsLavea__num {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 3.2vw, 28px);
+  font-weight: 600;
+  letter-spacing: .01em;
+  color: var(--ink, #111);
+}
+.aboutStatsLavea__label {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-soft, #666);
+  max-width: 180px;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .aboutStatsLavea__inner { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .aboutStatsLavea__circle { width: 86px; height: 86px; }
+}
+@media (max-width: 760px) {
+  .aboutStatsLavea__inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
