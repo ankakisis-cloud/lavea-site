@@ -9,12 +9,13 @@ export default function ProcessBlock() {
     { title: "Рабочая документация", desc: "Полный комплект чертежей и спецификаций для строителей." },
     { title: "Комплектация", desc: "Сметы, поставки, контроль логистики и сроков." },
     { title: "Авторский надзор", desc: "Контроль соответствия стройки проекту до финала." },
+    { title: "Финальное оформление", desc: "Декорирование и подготовка к сдаче проекта." },
   ];
 
   return (
     <section id="process" className="processBlock" aria-label="Процесс работы">
       <div className="processBlock__inner">
-        <h2 className="h2">Процесс работы</h2>
+        <h2 className="title">Процесс работы</h2>
 
         <div className="processGrid">
           {steps.map((s, i) => (
