@@ -2,7 +2,6 @@
 import "../styles/lavea-additions.css";
 import "./globals.css";
 
-import "../styles/footer.css";
 import Footer from "../components/Footer";
 
 import HeaderClient from "./HeaderClient";
@@ -31,6 +30,24 @@ export default function RootLayout({ children }) {
 
         {/* БЕЗ .wrap — чтобы герои не сжимались */}
         <main>{children}</main>
+          // app/layout.js (фрагмент)
+export default function RootLayout({ children }) {
+  return (
+    <html lang="ru">
+      <body>
+        <HeaderClient />
+
+        <main>{children}</main>
+
+        <Footer />            {/* ← футер здесь */}
+
+        <ConsultModal />
+        <FloatingContacts />
+      </body>
+    </html>
+  );
+}
+
 <html lang="ru">
   <body>
     <Header />
