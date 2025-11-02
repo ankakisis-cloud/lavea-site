@@ -31,6 +31,17 @@ export default function RootLayout({ children }) {
 
         {/* БЕЗ .wrap — чтобы герои не сжимались */}
         <main>{children}</main>
+<html lang="ru">
+  <body>
+    <Header />
+    <main>{children}</main>
+
+    <Footer />         {/* ← вставь сюда */}
+
+    <ConsultModal />
+    <FloatingContacts />
+  </body>
+</html>
 
         <ConsultModal />
        <FloatingContacts />
