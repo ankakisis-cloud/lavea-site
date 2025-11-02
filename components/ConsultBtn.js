@@ -1,13 +1,13 @@
 "use client";
 
-export default function ConsultBtn({ className = "", children = "Получить консультацию" }) {
+export default function ConsultBtn({ className = "", children = "Связаться", ...props }) {
   const open = () => {
-    if (typeof window !== "undefined" && typeof window.openContactModal === "function") {
-      window.openContactModal();
-    }
+    // единый триггер по всему сайту
+    window.dispatchEvent(new CustomEvent("open-consult-modal"));
   };
+
   return (
-    <button type="button" className={`btn ${className}`} onClick={open}>
+    <button type="button" className={className} onClick={open} {...props}>
       {children}
     </button>
   );
