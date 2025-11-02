@@ -47,7 +47,7 @@ export default function Footer() {
           <ul className="lavea-footer__contacts">
             <li><strong>Тел:</strong> 8 (495) 215-54-71</li>
             <li><strong>Адрес:</strong> Москва, ул. Ильинка, 4</li>
-            <li><strong>Email:</strong> <a href="mailto:laveastudio@y">laveastudio@y</a></li>
+            <li><strong>Email:</strong> <a href="mailto:laveastudio@yandex.ru">laveastudio@yandex.ru</a></li>
           </ul>
           <p className="lavea-footer__legal">
             <a href="/oferta" className="lavea-footer__link">Публичная оферта</a> • <a href="/privacy" className="lavea-footer__link">Политика конфиденциальности</a>
