@@ -7,6 +7,8 @@ import ProcessBlock from "../components/ProcessBlock";
 import PricingBlock from "../components/PricingBlock";
 import ConsultModal from "../components/ConsultModal";
 import "../styles/lavea-additions.css";
+import ContactBlock from "../components/ContactBlock";
+
 
 export default function Home() {
   return (
@@ -25,8 +27,8 @@ export default function Home() {
       {/* Цены (детальные карточки – как у тебя на отдельной, только теперь здесь) */}
       <PricingBlock />
 
-      {/* Якорь для "Контакты" в шапке — прокрутит к низу страницы */}
-      <div id="contacts" style={{ height: 1 }} />
+      <ContactBlock />
+
 
       <ConsultModal />
     </>
