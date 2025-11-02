@@ -5,12 +5,12 @@ import ConsultBtn from "../components/ConsultBtn";
 export default function HeaderClient() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-      {/* Чёрные текст-ссылки (как на 1-м фото) */}
+      {/* Чёрные текст-ссылки */}
       <a href="/#portfolio" className="header__link">Портфолио</a>
-      <a href="/#pricing" className="header__link">Цены</a>
-      <a href="/#about" className="header__link">О нас</a>
-      <a href="/#process" className="header__link">Процесс</a>
-      <a href="/#contacts" className="header__link">Контакты</a>
+      <a href="/#pricing"   className="header__link">Цены</a>
+      <a href="/#about"     className="header__link">О нас</a>
+      <a href="/#process"   className="header__link">Процесс</a>
+      <a href="/#contacts"  className="header__link">Контакты</a>
 
       {/* Единственная золотая кнопка */}
       <ConsultBtn className="goldBtn">Написать</ConsultBtn>
