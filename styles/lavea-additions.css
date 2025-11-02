@@ -1,353 +1,54 @@
-/* ===== LAVEA — Premium Additions v2.1 ===== */
+/* ===== LAVEA — Premium Additions v2.2 (clean) ===== */
 
+/* TOKENS */
 :root{
+  --container:1180px;
   --bg-pure:#fbf9f3;
-  --ink:#111;
-  --ink-soft:#666;
-  --gold:#C7A251;
-  --gold-soft:#EBC980;
+  --ink:#111; --ink-soft:#666;
+  --gold:#C7A251; --gold-soft:#EBC980;
   --border:#e8e8e8;
-  --shadow: 8px 3px 39px rgba(0,0,0,.06);
+  --shadow:0 8px 32px rgba(0,0,0,.06);
+  --font-heading:Prata, serif;
+  --font-body:Manrope,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,"Segoe UI Emoji";
 }
+body{color:var(--ink);background:#fff;font-family:var(--font-body);}
 
-/* ===== Общая обвязка «О нас» ===== */
-.aboutShell{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px 16px 24px;
+/* ===== BUTTONS ===== */
+.btn{appearance:none;background:none;border:0;cursor:pointer;}
+.btn-lavea,.goldBtn{
+  background:linear-gradient(90deg,var(--gold-soft) 0%,var(--gold) 100%);
+  color:#111;padding:12px 22px;border-radius:9999px;font-weight:700;
+  box-shadow:0 8px 28px rgba(0,0,0,.12);transition:.2s ease;
 }
-.aboutShell h2{
-  font-family: var(--font-heading);
-  font-size: clamp(26px, 2.4vw, 36px);
-  margin: 0 0 16px;
-}
-.aboutShell p{
-  margin: 0 0 12px;
-  color: var(--ink);
-  line-height: 1.7;
-}
+.btn-lavea:hover,.goldBtn:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(0,0,0,.18);opacity:.97;}
+.btn-lavea:active,.goldBtn:active{transform:translateY(0);box-shadow:0 4px 14px rgba(0,0,0,.14);}
+.btn-lavea--lg{padding:14px 28px;font-size:16px;}
+.h2{font-family:var(--font-heading);font-size:clamp(26px,2.4vw,36px);margin:0 0 14px;}
 
-/* ===== Премиальный блок «Философия» c золотой направляющей ===== */
-.aboutPhilosophy{
-  position: relative;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 32px;
-  margin: 24px auto 8px;
-  max-width: 1200px;
-  padding: 0 16px;
-}
-.aboutPhilosophy__rail{
-  border-radius: 16px;
-  background:
-    radial-gradient(1000px 260px at 60% 40%, #f6efe2 0%, transparent 60%),
-    linear-gradient(180deg, var(--gold-soft), var(--gold));
-  box-shadow: 0 8px 18px rgba(199,162,81,.25);
-}
-.aboutPhilosophy__content h2{
-  font-family: var(--font-heading);
-  font-size: clamp(26px, 2.4vw, 36px);
-  margin: 0 0 16px;
-}
-.aboutPhilosophy__content p{ margin: 0 0 12px; line-height: 1.75; }
-
-/* ===== Ровная премиальная статистика ===== */
-.laveaStats{
-  margin: 40px auto 8px;
-  padding: 0 16px;
-  max-width: 1200px;
-}
-.laveaStats__inner{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  align-items: stretch;
-}
-.laveaStats__item{
-  background:#fff;
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:16px;
-  box-shadow: var(--shadow);
-  padding:18px 16px;
-  text-align:center;
-}
-.laveaStats__value{
-  font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 52px);
-  line-height:1;
-  margin-bottom: 6px;
-}
-.laveaStats__label{
-  font-weight:700;
-  text-transform: uppercase;
-  letter-spacing:.08em;
-  font-size:12px;
-  opacity:.9;
-  margin-bottom:0;
-}
-
-/* ===== Заключение (мягкая подложка) ===== */
-.aboutConclusion{
-  margin: 56px 0 0;
-  background: radial-gradient(900px 260px at 50% 40%, #f6efe2 0%, transparent 60%);
-  text-align:center;
-  padding: 24px 12px 16px;
-  border-radius: 20px;
-}
-.aboutConclusion h2{
-  font-family: var(--font-heading);
-  font-size: clamp(20px, 2vw, 26px);
-  color: var(--gold);
-  margin: 0 0 10px;
-}
-.aboutConclusion p{ margin: 0 10px 10px; line-height: 1.7; }
-.ctaRow{ display:flex; justify-content:center; margin:14px 0 0; }
-
-/* ===== Кнопка LAVEA ===== */
-.btn{ appearance:none; background:none; border:0; cursor:pointer; }
-.btn-lavea{
-  background: linear-gradient(90deg, #EBC980 0%, #C7A251 100%);
-  color: #fff;            /* белые буквы */
-  border: 0;              /* убираем «линию» на кнопках */
-  padding: 12px 22px;
-  border-radius: 9999px;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(0,0,0,.12);
-  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-}
-.btn-lavea:hover{ transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.18); opacity:.97; }
-.btn-lavea:active{ transform: translateY(0); box-shadow: 0 3px 10px rgba(0,0,0,.14); }
-.btn-lavea--lg{ padding:14px 28px; font-size:16px; }
-
-/* ===== Модалка консультации ===== */
-.modalLavea{
-  position: fixed; inset: 0; z-index: 1000;
-}
-.modalLavea__backdrop{
-  position:absolute; inset:0; background: rgba(0,0,0,.35);
-  backdrop-filter: blur(2px);
-}
-.modalLavea__card{
-  position: absolute; left:50%; top:50%; transform: translate(-50%,-50%);
-  width: min(680px, 92vw);
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 20px;
-  box-shadow: 0 24px 80px rgba(0,0,0,.25);
-  padding: 28px 22px;
-}
-.modalLavea__close{
-  position:absolute; right:10px; top:6px;
-  width:36px; height:36px; border-radius:50%;
-  border:0; background:transparent; font-size:28px; line-height:1;
-  color:#333; cursor:pointer;
-}
-.modalLavea__card h3{
-  font-family: var(--font-heading);
-  font-size: clamp(20px, 2vw, 26px);
-  margin: 0 0 6px;
-}
-.modalLavea__lead{ margin: 0 0 16px; color:#333; }
-.modalLavea__form{ display:grid; gap:12px; }
-.modalLavea__form label{ display:grid; gap:6px; font-size:14px; color:#333; }
-.modalLavea__form input,
-.modalLavea__form textarea{
-  width:100%; border:1px solid var(--border); border-radius:12px;
-  padding:12px 14px; outline: none; background:#fff;
-}
-.modalLavea__form input:focus,
-.modalLavea__form textarea:focus{
-  border-color:#d9c08a; box-shadow: 0 0 0 3px rgba(231,203,138,.25);
-}
-.modalLavea__note{ display:block; margin-top:10px; opacity:.7; }
-
-/* ===== Адаптив ===== */
-@media (max-width: 1024px){
-  .aboutPhilosophy{ grid-template-columns: 1fr; gap: 18px; }
-  .aboutPhilosophy__rail{ height: 120px; }
-  .laveaStats__inner{ grid-template-columns: repeat(2,1fr); }
-}
-@media (max-width: 560px){
-  .aboutShell{ padding: 28px 12px 8px; }
-  .laveaStats__inner{ grid-template-columns: 1fr; }
-}
-/* === LAVEA · премиальная статистика в кружках (главная / aboutShort) === */
-.aboutStatsLavea {
-  margin: 36px 0 8px;
-}
-.aboutStatsLavea__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 8px 16px 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-.aboutStatsLavea__item {
-  display: grid;
-  justify-items: center;
-  align-items: start;
-  gap: 10px;
-  text-align: center;
-}
-.aboutStatsLavea__circle {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(100% 100% at 60% 0%, rgba(255,255,255,.7) 0%, transparent 60%),
-              linear-gradient(180deg, #fff 0%, rgba(255,255,255,.85) 100%),
-              var(--bg-pure, #fbf9f3);
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: var(--shadow, 0 8px 32px rgba(0,0,0,.06));
-}
-.aboutStatsLavea__num {
-  font-family: var(--font-heading);
-  font-size: clamp(20px, 3.2vw, 28px);
-  font-weight: 600;
-  letter-spacing: .01em;
-  color: var(--ink, #111);
-}
-.aboutStatsLavea__label {
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--ink-soft, #666);
-  max-width: 180px;
-}
-
-/* Адаптив */
-@media (max-width: 1024px) {
-  .aboutStatsLavea__inner { grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .aboutStatsLavea__circle { width: 86px; height: 86px; }
-}
-@media (max-width: 760px) {
-  .aboutStatsLavea__inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-}
-/* ===== Контейнер как у портфолио (вровень по ширине) ===== */
-:root{
-  --container: 1180px; /* совпадает с .header_container в globals.css */
-}
-
-/* ===== О нас — секция ===== */
-.aboutShort{ padding: 56px 0 8px; }
+/* ===== ABOUT: SECTION (как у портфолио по ширине) ===== */
+.aboutShort{padding:56px 0 8px;}
 .aboutShort__inner{
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 16px;
-  display: grid;
-  grid-template-columns: 1.15fr .85fr; /* текст / медиа */
-  gap: 28px;
-  align-items: center;
+  max-width:var(--container);margin:0 auto;padding:0 16px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;
 }
-
-/* Заголовок как у «Портфолио» (тот же шрифт/цвет/масштаб) */
-.aboutShort .kicker{
-  color: var(--ink-soft, #666);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  font-size: 12px;
-  margin-bottom: 6px;
-}
-.aboutShort__title{
-  font-family: var(--font-heading);
-  color: var(--ink, #111);
-  font-size: clamp(26px, 2.4vw, 36px);
-  line-height: 1.2;
-  margin: 0 0 14px;
-}
-
-.aboutShort__lead{ margin: 0 0 14px; line-height: 1.7; color: var(--ink, #111); }
-.aboutShort__list{ margin: 0 0 18px 0; padding-left: 18px; }
-.aboutShort__actions{ margin-top: 6px; }
-
-/* Правая колонка — изображение не «раздувается» */
-.aboutShort__media{ position: relative; width: 100%; max-width: 560px; justify-self: end; }
+.aboutShort .kicker{color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;}
+.aboutShort__title{font-family:var(--font-heading);color:var(--ink);font-size:clamp(26px,2.4vw,36px);line-height:1.2;margin:0 0 14px;}
+.aboutShort__lead{margin:0 0 14px;line-height:1.7;color:var(--ink);}
+.aboutShort__list{margin:0 0 18px;padding-left:18px;}
+.aboutShort__actions{margin-top:6px;}
+.aboutShort__media{position:relative;width:100%;max-width:560px;justify-self:end;}
 .aboutShort__media img{
-  display: block; width: 100%; height: auto;
-  max-height: 360px; object-fit: cover; object-position: center;
-  border-radius: 18px; box-shadow: var(--shadow, 0 8px 32px rgba(0,0,0,.06));
+  display:block;width:100%;height:auto;max-height:360px;object-fit:cover;object-position:center;
+  border-radius:18px;box-shadow:var(--shadow);
 }
 
-/* ===== Кружки статистики в стиле LAVEA ===== */
-.aboutStatsLavea{
-  padding: 28px 0 56px;
-  background:
-    linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,245,235,0.25) 100%); /* мягкая подложка */
-}
-.aboutStatsLavea__inner{
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 16px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-.aboutStatsLavea__item{ text-align: center; }
-
-.aboutStatsLavea__circle{
-  display: inline-grid;
-  place-items: center;
-  width: 128px; height: 128px;           /* единый размер */
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: var(--shadow, 0 8px 32px rgba(0,0,0,.06));
-}
-.aboutStatsLavea__num{
-  font-family: var(--font-heading);
-  font-size: clamp(22px, 2.2vw, 32px);
-  color: var(--ink, #111);
-}
-.aboutStatsLavea__label{
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--ink-soft, #666);
-  line-height: 1.35;
-}
-
-/* ===== Адаптив ===== */
-@media (max-width: 980px){
-  .aboutShort__inner{ grid-template-columns: 1fr; gap: 18px; }
-  .aboutShort__media{ order: -1; max-width: 680px; margin: 0 auto; }
-  .aboutShort__media img{ max-height: 320px; }
-
-  .aboutStatsLavea__inner{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
-}
-@media (max-width: 560px){
-  .aboutShort{ padding: 40px 0 4px; }
-  .aboutShort__media img{ max-height: 260px; }
-
-  .aboutStatsLavea__inner{ grid-template-columns: 1fr 1fr; }
-  .aboutStatsLavea__circle{ width: 104px; height: 104px; } /* тот же единый, но мобильный */
-}
-/* ===== FULL BLEED ===== */
+/* ===== ABOUT: HERO VIDEO (full-bleed) ===== */
 .fullBleed{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
-
-/* ===== ABOUT — HERO VIDEO ===== */
 .aboutHeroVideo{position:relative;height:clamp(360px,58vh,640px);overflow:hidden}
 .aboutHeroVideo__layer{position:absolute;inset:0}
-.aboutHeroVideo .vh{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;opacity:0;filter:saturate(1.02) contrast(1.05);
-  animation:lavFade 25s linear infinite;
-}
-/* 5 дорожек сдвигаем по времени */
-.aboutHeroVideo .v1{animation-delay:0s}
-.aboutHeroVideo .v2{animation-delay:5s}
-.aboutHeroVideo .v3{animation-delay:10s}
-.aboutHeroVideo .v4{animation-delay:15s}
-.aboutHeroVideo .v5{animation-delay:20s}
-
-@keyframes lavFade{
-  0%{opacity:1}
-  16%{opacity:1}
-  20%{opacity:0}
-  96%{opacity:0}
-  100%{opacity:1}
-}
-
-/* лёгкая текстура и затемнение для читаемости */
+.aboutHeroVideo .vh{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;filter:saturate(1.02) contrast(1.05);animation:lavFade 25s linear infinite;}
+.aboutHeroVideo .v1{animation-delay:0s}.aboutHeroVideo .v2{animation-delay:5s}.aboutHeroVideo .v3{animation-delay:10s}.aboutHeroVideo .v4{animation-delay:15s}.aboutHeroVideo .v5{animation-delay:20s}
+@keyframes lavFade{0%,16%{opacity:1}20%,96%{opacity:0}100%{opacity:1}}
 .aboutHeroVideo__grain{
   position:absolute;inset:0;pointer-events:none;opacity:.12;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 100 100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
@@ -355,99 +56,107 @@
 }
 .aboutHeroVideo__shade{
   position:absolute;inset:0;pointer-events:none;
-  background:
-    linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.18) 40%,rgba(0,0,0,.28) 100%),
-    radial-gradient(1000px 380px at 50% 100%, rgba(255,255,255,.35) 0%, transparent 70%);
+  background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.18) 40%,rgba(0,0,0,.28) 100%),
+             radial-gradient(1000px 380px at 50% 100%, rgba(255,255,255,.35) 0%, transparent 70%);
 }
-
-/* типографика героя (используем уже заданные токены) */
+.aboutHeroVideo__inner{position:relative;z-index:2;height:100%;display:grid;align-content:center;justify-items:center;text-align:center;gap:10px;padding:24px;}
 .aboutHeroFull__kicker{letter-spacing:.14em;text-transform:uppercase;opacity:.9;font-size:12px;color:#fff}
 .aboutHeroFull__title{font-family:var(--font-heading);font-size:clamp(40px,6vw,84px);line-height:1;letter-spacing:.02em;color:#fff}
 .aboutHeroFull__subtitle{font-size:clamp(14px,2.2vw,18px);opacity:.9;color:#fff}
 .aboutHeroFull__cta{margin-top:10px}
-.aboutHeroVideo__inner{
-  position:relative;z-index:2;height:100%;
-  display:grid;align-content:center;justify-items:center;text-align:center;gap:10px;padding:24px;
-}
 
-@media (max-width: 560px){
-  .aboutHeroVideo{height: clamp(320px, 54vh, 520px);}
+/* ===== ABOUT: Философия (с золотой направляющей) ===== */
+.aboutPhilosophy{max-width:var(--container);margin:8px auto;display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:start;padding:0 16px;}
+.aboutPhilosophy__rail{
+  border-radius:16px;background:
+  radial-gradient(1000px 260px at 60% 40%, #f6efe2 0%, transparent 60%),
+  linear-gradient(180deg,var(--gold-soft),var(--gold));
+  box-shadow:0 8px 18px rgba(199,162,81,.25);height:100%;
 }
-
-/* ===== остальное из раздела "О нас" (если не добавлено раньше) ===== */
-.aboutPhilosophy{display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:start;margin:8px 0}
 .aboutPhilosophy__media img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:var(--shadow);object-fit:cover}
-.aboutPhilosophy__content h2{font-family:var(--font-heading);font-size:clamp(26px,2.4vw,36px);margin:0 0 10px}
-@media (max-width:980px){.aboutPhilosophy{grid-template-columns:1fr}}
+.aboutPhilosophy__content h2{font-family:var(--font-heading);font-size:clamp(26px,2.4vw,36px);margin:0 0 10px;}
+.aboutPhilosophy__content p{margin:0 0 12px;line-height:1.75;}
 
-.aboutStats{margin:36px 0 24px}
-.aboutStats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media (max-width:1024px){.aboutStats__grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.aboutStats__grid{grid-template-columns:1fr}}
+/* ===== ABOUT: Статистика (КРУЖКИ ЕДИНЫЕ) ===== */
+.aboutStatsLavea{padding:28px 0 56px;background:linear-gradient(0deg,rgba(255,255,255,0) 0%, rgba(255,245,235,0.25) 100%);}
+.aboutStatsLavea__inner{
+  max-width:var(--container);margin:0 auto;padding:0 16px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.aboutStatsLavea__item{text-align:center;display:grid;justify-items:center;gap:10px;}
+.aboutStatsLavea__circle{
+  display:inline-grid;place-items:center;width:128px;height:128px;border-radius:999px;
+  background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow);
+}
+.aboutStatsLavea__num{font-family:var(--font-heading);font-size:clamp(22px,2.2vw,32px);color:var(--ink);}
+.aboutStatsLavea__label{margin-top:10px;font-size:13px;color:var(--ink-soft);line-height:1.35;}
 
-.aboutConclusion{margin:56px 0 8px;background:radial-gradient(900px 300px at 50% 40%, #f6efe2 0%, transparent 60%);text-align:center;padding:24px 12px 16px;border-radius:20px}
-.aboutConclusion h3{font-family:var(--font-heading);font-size:clamp(20px,2vw,26px);color:var(--gold);margin:0 0 8px}
-.aboutConclusion p{margin:6px 0}
+/* ===== ABOUT: Заключение ===== */
+.aboutConclusion{
+  margin:56px 0 8px;background:radial-gradient(900px 300px at 50% 40%, #f6efe2 0%, transparent 60%);
+  text-align:center;padding:24px 12px 16px;border-radius:20px;
+}
+.aboutConclusion h3{font-family:var(--font-heading);font-size:clamp(20px,2vw,26px);color:var(--gold);margin:0 0 8px;}
+.aboutConclusion p{margin:6px 0;}
 .aboutConclusion .ctaRow{margin-top:14px;display:flex;justify-content:center}
-/* ===== ABOUT — СТАТИСТИКА (кружочки) ===== */
-.aboutStats{
-  margin: 36px 0 24px;
-  padding: 0 12px;
-}
-.aboutStats__grid{
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
 
-/* Карточка-кружок (пилюля) */
-.aboutStats__grid .stat{
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 9999px;            /* делает форму «кружка» */
-  height: 120px;                    /* усреднённая высота кружка */
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 16px;
-  max-width: 260px;                 /* чтобы не растягивались слишком широко */
-  margin: 0 auto;                   /* центрируем в своей колонке */
-  text-align: center;
+/* ===== MODAL (консультация) ===== */
+.modalLavea{position:fixed;inset:0;z-index:1000;}
+.modalLavea__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(2px);}
+.modalLavea__card{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(680px,92vw);background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:20px;
+  box-shadow:0 24px 80px rgba(0,0,0,.25);padding:28px 22px;
 }
+.modalLavea__close{position:absolute;right:10px;top:6px;width:36px;height:36px;border-radius:50%;border:0;background:transparent;font-size:28px;line-height:1;color:#333;cursor:pointer;}
+.modalLavea__card h3{font-family:var(--font-heading);font-size:clamp(20px,2vw,26px);margin:0 0 6px;}
+.modalLavea__lead{margin:0 0 16px;color:#333;}
+.modalLavea__form{display:grid;gap:12px;}
+.modalLavea__form label{display:grid;gap:6px;font-size:14px;color:#333;}
+.modalLavea__form input,.modalLavea__form textarea{
+  width:100%;border:1px solid var(--border);border-radius:12px;padding:12px 14px;outline:none;background:#fff;
+}
+.modalLavea__form input:focus,.modalLavea__form textarea:focus{border-color:#d9c08a;box-shadow:0 0 0 3px rgba(231,203,138,.25);}
+.modalLavea__note{display:block;margin-top:10px;opacity:.7;}
 
-.aboutStats__grid .stat__num{
-  font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 36px);
-  line-height: 1;
-  margin-bottom: 6px;
-  letter-spacing: .01em;
-  color: var(--ink);
-}
+/* ===== PROCESS (на главной) ===== */
+.processBlock{padding:56px 0 24px;}
+.processBlock__inner{max-width:var(--container);margin:0 auto;padding:0 16px;}
+.processGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:16px;}
+.stepCard{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;box-shadow:var(--shadow);padding:18px 16px 20px;min-height:150px;}
+.stepCard__num{font-family:var(--font-heading);font-size:22px;color:var(--gold);margin-bottom:8px;}
+.stepCard__title{font-weight:700;margin:0 0 6px;}
+.stepCard__desc{color:var(--ink-soft);line-height:1.55;}
 
-.aboutStats__grid .stat__label{
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  opacity: .8;
-  color: var(--ink-soft);
-}
+/* ===== PRICING (на главной) ===== */
+.pricingBlock{padding:56px 0 32px;}
+.pricingBlock__inner{max-width:var(--container);margin:0 auto;padding:0 16px;}
+.pricingGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:16px;}
+.priceCard{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;box-shadow:var(--shadow);padding:24px 18px 22px;}
+.priceCard h3{font-family:var(--font-heading);font-size:20px;margin:0 0 8px;}
+.priceCard__desc{color:var(--ink-soft);line-height:1.6;min-height:72px;}
+.priceCard__price{margin-top:14px;font-weight:700;}
+.priceCard__tag{position:relative;display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,var(--gold-soft) 0%,var(--gold) 100%);color:#111;margin-bottom:10px;}
+.priceCard.is-popular{border-color:var(--gold-soft);box-shadow:0 0 0 2px rgba(231,201,128,.25) inset,var(--shadow);}
+.pricingCTA{display:flex;justify-content:center;margin-top:24px;}
 
-/* Ховеры — лёгкая глубина */
-.aboutStats__grid .stat:hover{
-  transform: translateY(-1px);
-  box-shadow: 6px 16px 28px rgba(0,0,0,.12);
-  transition: transform .2s ease, box-shadow .2s ease;
+/* ===== RESPONSIVE ===== */
+@media (max-width:1180px){
+  .aboutShort__inner,.aboutPhilosophy,.processBlock__inner,.pricingBlock__inner{padding:0 16px;}
 }
-
-/* Адаптив */
-@media (max-width: 1024px){
-  .aboutStats__grid{ grid-template-columns: repeat(2, 1fr); }
+@media (max-width:980px){
+  .aboutShort__inner{grid-template-columns:1fr;gap:18px;}
+  .aboutShort__media{order:-1;max-width:680px;margin:0 auto;}
+  .aboutShort__media img{max-height:320px;}
+  .processGrid{grid-template-columns:repeat(2,1fr);}
+  .pricingGrid{grid-template-columns:repeat(2,1fr);}
+  .aboutStatsLavea__inner{grid-template-columns:repeat(2,1fr);gap:16px;}
 }
-@media (max-width: 560px){
-  .aboutStats__grid{ grid-template-columns: 1fr; }
-  .aboutStats__grid .stat{ height: 110px; }
+@media (max-width:560px){
+  .aboutShort{padding:40px 0 4px;}
+  .aboutShort__media img{max-height:260px;}
+  .aboutHeroVideo{height:clamp(320px,54vh,520px);}
+  .processGrid,.pricingGrid{grid-template-columns:1fr;}
+  .aboutStatsLavea__inner{grid-template-columns:repeat(2,1fr);}
+  .aboutStatsLavea__circle{width:104px;height:104px;}
 }
