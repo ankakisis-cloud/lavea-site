@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
+import ConsultBtn from "./ConsultBtn";
 
 export default function HeroFullscreen() {
-  // Слайды лежат в /public/hero
+  // Изображения фона (лежат в /public/hero)
   const slides = [
     "/hero/IMG_9732.jpg",
     "/hero/IMG_9738.jpg",
@@ -12,10 +13,9 @@ export default function HeroFullscreen() {
     "/hero/IMG_9753.jpg",
   ];
 
-  const onContact = () => window?.openContactModal?.();
-
   return (
     <section className="heroFullscreen" aria-label="LAVEA — премиальная студия дизайна">
+      {/* СЛАЙДЫ */}
       <div className="heroSlides">
         {slides.map((src, i) => (
           <div
@@ -27,6 +27,7 @@ export default function HeroFullscreen() {
         ))}
       </div>
 
+      {/* КОНТЕНТ */}
       <div className="heroContent">
         <h1 className="heroTitle">LAVEA — премиальная студия интерьерного дизайна</h1>
         <p className="heroLead">
@@ -35,7 +36,7 @@ export default function HeroFullscreen() {
 
         <div className="heroActions">
           <a href="/#portfolio" className="goldBtn">Портфолио</a>
-          <button type="button" className="goldBtn" onClick={onContact}>Связаться</button>
+          <ConsultBtn className="goldBtn">Связаться</ConsultBtn>
         </div>
       </div>
 
