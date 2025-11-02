@@ -1,39 +1,18 @@
 "use client";
 
-import React from "react";
 import ConsultBtn from "./ConsultBtn";
 
 export default function HeroFullscreen() {
-  // Изображения фона (лежат в /public/hero)
-  const slides = [
-    "/hero/IMG_9732.jpg",
-    "/hero/IMG_9738.jpg",
-    "/hero/IMG_9742.jpg",
-    "/hero/IMG_9743.jpg",
-    "/hero/IMG_9753.jpg",
-  ];
+  const bg = "/hero/IMG_9732.jpg"; // твой фон
 
   return (
-    <section className="heroFullscreen" aria-label="LAVEA — премиальная студия дизайна">
-      {/* СЛАЙДЫ */}
-      <div className="heroSlides">
-        {slides.map((src, i) => (
-          <div
-            key={i}
-            className="heroSlide"
-            style={{ backgroundImage: `url(${src})` }}
-            aria-hidden={i !== 0}
-          />
-        ))}
-      </div>
-
-      {/* КОНТЕНТ */}
-      <div className="heroContent">
+    <section className="heroFs">
+      <div className="heroFs__bg" style={{backgroundImage:`url(${bg})`}} />
+      <div className="heroFs__content wrap">
         <h1 className="heroTitle">LAVEA — премиальная студия интерьерного дизайна</h1>
         <p className="heroLead">
           Создаём личные миры: от концепции и 3D-визуализаций до комплектации и авторского надзора.
         </p>
-
         <div className="heroActions">
           <a href="/#portfolio" className="goldBtn">Портфолио</a>
           <ConsultBtn className="goldBtn">Связаться</ConsultBtn>
@@ -41,18 +20,17 @@ export default function HeroFullscreen() {
       </div>
 
       <style jsx>{`
-        .heroFullscreen { position: relative; height: clamp(520px, 84vh, 880px); overflow: hidden; border-radius: 28px; }
-        .heroSlides { position: absolute; inset: 0; }
-        .heroSlide { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(.72); }
-        .heroContent {
-          position: relative; z-index: 2; height: 100%;
-          display: flex; flex-direction: column; justify-content: center; gap: 16px;
-          padding: 24px clamp(12px, 4vw, 48px);
-          color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35);
+        .heroFs{ position:relative; height: min(84vh, 920px); border-radius:28px; overflow:hidden; margin: 16px; }
+        .heroFs__bg{ position:absolute; inset:0; background-size:cover; background-position:center; filter:brightness(.72); }
+        .heroFs__content{
+          position:relative; z-index:2; height:100%;
+          display:flex; flex-direction:column; justify-content:center; gap:16px; color:#fff;
+          text-shadow: 0 2px 24px rgba(0,0,0,.35);
         }
-        .heroTitle { font-family: var(--font-heading); font-weight: 400; line-height: 1.1; font-size: clamp(28px, 4.2vw, 56px); margin: 0; }
-        .heroLead { max-width: 760px; line-height: 1.7; margin: 0 0 8px; }
-        .heroActions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .heroTitle{ font-family: var(--font-heading, Prata, serif); font-weight:400; line-height:1.1;
+          font-size: clamp(32px, 4.6vw, 64px); margin:0; max-width: 16ch;}
+        .heroLead{ max-width: 760px; line-height:1.7; margin:0 0 8px; }
+        .heroActions{ display:flex; gap:12px; flex-wrap:wrap; }
       `}</style>
     </section>
   );
