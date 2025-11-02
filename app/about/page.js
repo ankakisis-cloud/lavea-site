@@ -1,7 +1,8 @@
 // app/about/page.js — SERVER COMPONENT (без "use client")
 
 import ConsultBtn from "../../components/ConsultBtn";
-import "../../styles/lavea-additions.css";
+import "../styles/lavea-additions.css";
+
 
 export const metadata = {
   title: "О студии LAVEA",
