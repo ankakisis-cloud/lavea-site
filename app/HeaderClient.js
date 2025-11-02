@@ -4,7 +4,7 @@ import ConsultBtn from "../components/ConsultBtn";
 
 export default function HeaderClient() {
   return (
-    <nav aria-label="Основная навигация" style={{display:"flex",alignItems:"center",gap:18}}>
+    <nav aria-label="Основная навигация" style={{display:"flex",alignItems:"center",gap:18, position:"relative", zIndex:55}}>
       <a href="/#portfolio" className="header__link">Портфолио</a>
       <a href="/#pricing"   className="header__link">Цены</a>
       <a href="/#about"     className="header__link">О нас</a>
