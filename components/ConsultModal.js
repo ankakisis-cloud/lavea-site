@@ -17,12 +17,12 @@ export default function ConsultModal() {
 
   return (
     <div className="consultModal__backdrop" onClick={close}>
-      <div className="consultModal" onClick={(e)=>e.stopPropagation()}>
+      <div className="consultModal" onClick={(e) => e.stopPropagation()}>
         <button className="consultModal__close" onClick={close} aria-label="Закрыть">×</button>
         <h3 className="consultModal__title">Оставьте заявку</h3>
         <p className="consultModal__subtitle">Мы свяжемся с вами и ответим на вопросы.</p>
 
-        <form className="consultModal__form" onSubmit={(e)=>{e.preventDefault(); close();}}>
+        <form className="consultModal__form" onSubmit={(e) => { e.preventDefault(); close(); }}>
           <input className="consultModal__input" name="name" placeholder="Ваше имя" required />
           <input className="consultModal__input" name="phone" placeholder="Телефон" required />
           <textarea className="consultModal__input" name="msg" placeholder="Кратко о задаче" rows={3} />
@@ -36,6 +36,7 @@ export default function ConsultModal() {
           display:flex;align-items:center;justify-content:center;z-index:9999;
         }
         .consultModal{
+          position:relative;
           width:min(560px,92vw);background:#fff;border-radius:18px;padding:20px;
           box-shadow:0 24px 80px rgba(0,0,0,.25);
         }
@@ -47,8 +48,7 @@ export default function ConsultModal() {
         .consultModal__subtitle{margin:0 0 12px;color:#666}
         .consultModal__form{display:grid;gap:10px}
         .consultModal__input{
-          width:100%;border:1px solid var(--border);border-radius:12px;padding:12px 14px;
-          outline:none;
+          width:100%;border:1px solid #e8e8e8;border-radius:12px;padding:12px 14px;outline:none;
         }
       `}</style>
     </div>
