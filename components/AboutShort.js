@@ -1,27 +1,20 @@
-// components/AboutShort.js
 "use client";
+
 import Link from "next/link";
 
 export default function AboutShort() {
-  const stats = [
-    { num: "8", label: "лет работы" },
-    { num: "120+", label: "реализованных проектов" },
-    { num: "17", label: "городов" },
-    { num: "98%", label: "довольных клиентов" },
-  ];
-
   return (
     <section className="aboutShort" aria-label="О студии LAVEA — кратко">
       <div className="aboutShort__inner">
-        {/* Текстовая колонка */}
+        {/* Левая колонка: текст */}
         <div className="aboutShort__text">
-          <p className="kicker">Студия премиального интерьера</p>
-          <h2>О нас</h2>
+          <div className="kicker">СТУДИЯ ПРЕМИАЛЬНОГО ИНТЕРЬЕРА</div>
+          <h2 className="aboutShort__title">О нас</h2>
 
           <p className="aboutShort__lead">
-            LAVEA — студия премиального дизайна интерьеров.
-            Создаём пространства, где 3D-визуал совпадает с реальностью.
-            Итальянская эстетика, инженерная точность и спокойствие в каждом решении.
+            LAVEA — студия премиального дизайна интерьеров. Создаём
+            пространства, где 3D-визуал совпадает с реальностью. Итальянская
+            эстетика, инженерная точность и спокойствие в каждом решении.
           </p>
 
           <ul className="aboutShort__list">
@@ -31,28 +24,30 @@ export default function AboutShort() {
           </ul>
 
           <div className="aboutShort__actions">
-            <Link href="/about" prefetch={false} className="btn btn-lavea">
-              Подробнее
-            </Link>
+            <Link href="/about" className="btn btn-lavea">Подробнее</Link>
           </div>
         </div>
 
-        {/* Медиа справа */}
+        {/* Правая колонка: изображение */}
         <div className="aboutShort__media" aria-hidden="true">
-          {/* Замени при необходимости путь на своё изображение из /public */}
           <img src="/IMG_9728.jpg" alt="" loading="lazy" />
         </div>
       </div>
 
-      {/* Премиальная статистика в виде кружков */}
-      <div className="aboutStatsLavea" aria-label="Ключевые показатели LAVEA">
+      {/* Статистика — во всю ту же ширину контейнера, что и Портфолио */}
+      <div className="aboutStatsLavea" aria-label="Статистика LAVEA">
         <div className="aboutStatsLavea__inner">
-          {stats.map((item, i) => (
+          {[
+            { num: "8",    label: "лет работы" },
+            { num: "120+", label: "реализованных проектов" },
+            { num: "17",   label: "городов" },
+            { num: "98%",  label: "довольных клиентов" },
+          ].map((it, i) => (
             <div className="aboutStatsLavea__item" key={i}>
               <span className="aboutStatsLavea__circle">
-                <span className="aboutStatsLavea__num">{item.num}</span>
+                <span className="aboutStatsLavea__num">{it.num}</span>
               </span>
-              <div className="aboutStatsLavea__label">{item.label}</div>
+              <div className="aboutStatsLavea__label">{it.label}</div>
             </div>
           ))}
         </div>
