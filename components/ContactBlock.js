@@ -1,18 +1,25 @@
 "use client";
 
 export default function ContactBlock() {
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    form.reset();
-    const ok = form.querySelector("#contactBlockOk");
-    if (ok) {
-      ok.hidden = false;
-      setTimeout(() => (ok.hidden = true), 6000);
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("failed");
+      form.reset();
+      const ok = form.querySelector("#contactBlockOk");
+      if (ok) { ok.hidden = false; setTimeout(() => (ok.hidden = true), 6000); }
+    } catch (err) {
+      alert("Не удалось отправить. Попробуйте ещё раз или напишите на почту.");
     }
   };
 
@@ -25,29 +32,27 @@ export default function ContactBlock() {
         </div>
 
         <div className="contactBlock__grid">
-          {/* Левая колонка — информация */}
+          {/* Левая колонка — аккуратные данные */}
           <div className="contactBlock__info card">
-            <ul className="contactBlock__list">
-              <li>
-                <span>Телефон:</span>{" "}
-                <a href="tel:+74952155471">8 (495) 215-54-71</a>
-              </li>
-              <li><span>Адрес:</span> Москва, ул. Ильинка, 4</li>
-              <li>
-                <span>E-mail:</span>{" "}
-                <a href="mailto:laveastudio@yandex.ru">laveastudio@yandex.ru</a>
-              </li>
-            </ul>
+            <dl className="contactBlock__dl">
+              <div className="contactBlock__row">
+                <dt>Телефон</dt>
+                <dd><a href="tel:+74952155471">8 (495) 215-54-71</a></dd>
+              </div>
+              <div className="contactBlock__row">
+                <dt>Адрес</dt>
+                <dd>Москва, ул. Ильинка, 4</dd>
+              </div>
+              <div className="contactBlock__row">
+                <dt>E-mail</dt>
+                <dd><a href="mailto:laveastudio@yandex.ru">laveastudio@yandex.ru</a></dd>
+              </div>
+            </dl>
 
             <div className="contactBlock__hours">
-              <div><strong>пн–пт:</strong> 10:00–19:00</div>
-              <div><strong>сб:</strong> 10:00–17:00</div>
-              <div><strong>вс:</strong> выходной</div>
-            </div>
-
-            <div className="contactBlock__cta">
-              <a href="tel:+74952155471" className="goldBtn contactBlock__btn">Позвонить</a>
-              <a href="mailto:laveastudio@yandex.ru" className="contactBlock__btn contactBlock__btn--ghost">Написать</a>
+              <div><strong>пн–пт</strong> 10:00–19:00</div>
+              <div><strong>сб</strong> 10:00–17:00</div>
+              <div><strong>вс</strong> выходной</div>
             </div>
           </div>
 
@@ -65,7 +70,7 @@ export default function ContactBlock() {
               </div>
               <div className="contactBlock__field">
                 <label>Сообщение</label>
-                <textarea name="message" rows="4" placeholder="Коротко опишите задачу" />
+                <textarea name="message" rows={4} placeholder="Коротко опишите задачу" />
               </div>
               <label className="contactBlock__agree">
                 <input type="checkbox" required /> Согласен(а) на обработку персональных данных
