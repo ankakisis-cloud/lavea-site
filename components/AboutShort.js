@@ -23,7 +23,8 @@ export default function AboutShort() {
         </div>
 
         <div className="aboutShort__media">
-          <img src="/about/preview.jpg" alt="LAVEA — о студии" />
+          {/* ВАЖНО: файл в корне /public */}
+          <img src="/about-philosophy.jpg" alt="LAVEA — о студии" />
         </div>
       </div>
     </section>
