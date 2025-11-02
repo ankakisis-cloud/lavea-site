@@ -265,3 +265,27 @@ body{color:var(--ink);background:#fff;font-family:var(--font-body);}
 
 /* Карта — как была */
 .contactBlock__map iframe { width: 100%; height: 380px; border: 0; display: block; }
+/* ===== LAVEA — фикс шапки (липкая, белая, логотип) ===== */
+.lavea-topbar{
+  position: sticky;
+  top: 0;
+  z-index: 60;                /* выше героев/картинок */
+  background: #fff;           /* белый фон, чтобы не «терялась» */
+  border-bottom: 1px solid var(--border, #e8e8e8);
+}
+.lavea-topbar__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.lavea-logo{
+  font-family: var(--font-heading, "Prata", serif);
+  font-size: 26px;
+  letter-spacing: .02em;
+  color: #111;
+  text-decoration: none;
+}
