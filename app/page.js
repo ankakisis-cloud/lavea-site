@@ -8,54 +8,41 @@ import PricingBlock from "../components/PricingBlock";
 import ConsultModal from "../components/ConsultModal";
 import "../styles/lavea-additions.css";
 import ContactBlock from "../components/ContactBlock";
-import HeroSlider from '@/components/HeroSlider';
+import HeroSlider from "@/components/HeroSlider"; // наш новый слайдер
 
-export default function HomePage() {
-  return (
-    <main>
-      <HeroSlider />
-      {/* остальные блоки: портфолио, цены, о нас, контакты */}
-    </main>
-  );
-}
-
-
+// ЕДИНСТВЕННЫЙ default-экспорт
 export default function Home() {
   return (
-    <>
-      <HeroFullscreen />
+    <main>
+      {/* Герой-слайдер — вместо старого героя/фона */}
+      <HeroSlider />
 
-      {/* Портфолио (из него кнопка "Посмотреть полное портфолио" ведёт на /portfolio) */}
+      {/* ПОРТФОЛИО (из карточки — ссылка на /portfolio) */}
       <PortfolioPreview />
-{/* ПОРТФОЛИО */}
-<section id="portfolio">
-  {/* ваш блок портфолио */}
-</section>
-      {/* О нас (кнопка "Подробнее" ведёт на /about) */}
-      <AboutShort />
-{/* О НАС */}
-<section id="about">
-  {/* ваш блок О нас */}
-</section>
-      {/* Процесс (якорь #process) */}
-      <ProcessBlock />
-{/* ПРОЦЕСС */}
-<section id="process">
-  {/* ваш блок Процесс работы */}
-</section>
-      {/* Цены (детальные карточки – как у тебя на отдельной, только теперь здесь) */}
-      <PricingBlock />
-{/* ЦЕНЫ */}
-<section id="pricing">
-  {/* ваш блок с ценами */}
-</section>
-      <ContactBlock />
-{/* КОНТАКТЫ (если есть блок на главной) */}
-<section id="contacts">
-  {/* ваш блок Контакты / форма */}
-</section>
 
+      {/* ПОРТФОЛИО (якорь на главной, если нужно) */}
+      <section id="portfolio">
+        {/* твой блок портфолио, если он у тебя есть на главной */}
+      </section>
+
+      {/* О НАС (кнопка "Подробнее" ведёт на /about) */}
+      <AboutShort />
+
+      {/* ПРОЦЕСС (якорь #process) */}
+      <section id="process">
+        <ProcessBlock />
+      </section>
+
+      {/* ЦЕНЫ */}
+      <PricingBlock />
+
+      {/* КОНТАКТЫ (якорь #contact) */}
+      <section id="contact">
+        <ContactBlock />
+      </section>
+
+      {/* Модалка консультации, если используется глобально */}
       <ConsultModal />
-    </>
+    </main>
   );
 }
