@@ -8,7 +8,8 @@ import PricingBlock from "../components/PricingBlock";
 import ConsultModal from "../components/ConsultModal";
 import "../styles/lavea-additions.css";
 import ContactBlock from "../components/ContactBlock";
-import HeroSlider from "@/components/HeroSlider"; // наш новый слайдер
+import HeroSlider from "../components/HeroSlider";
+
 
 // ЕДИНСТВЕННЫЙ default-экспорт
 export default function Home() {
