@@ -486,3 +486,73 @@ header .wrap .actions .nav-cta{ display: inline-flex; }
 .btnSecondary:hover{
   background: rgba(255,255,255,.18);
 }
+/* ===== HERO LAVEA — фирменный стиль, широкие строки ===== */
+.heroContent{
+  position: absolute;
+  left: 140px;               /* сдвинули чуть правее — по линии логотипа */
+  bottom: 120px;
+  max-width: 1200px;         /* текст растянут почти до центра */
+  width: 72vw;
+  color: #fff;
+  text-shadow: 0 3px 18px rgba(0,0,0,.35);
+  word-break: keep-all;
+  hyphens: none;
+}
+
+.heroContent h1{
+  margin: 0 0 32px;
+  font-family: "Playfair Display", "Cormorant Garamond", "EB Garamond", serif; /* стиль LAVEA */
+  font-weight: 500;
+  font-size: clamp(44px, 4.8vw, 84px);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.heroContent p{
+  margin: 0 0 48px;
+  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif; /* тот же шрифт, что на сайте */
+  font-weight: 400;
+  font-size: clamp(18px, 1.3vw, 22px);
+  line-height: 1.7;
+  opacity: .92;
+  max-width: 70%;
+}
+
+/* Кнопки премиум-стиля */
+.ctaRow{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.goldBtn{
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,#E8C980,#C7A251);
+  color: #111;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+.goldBtn:hover{ filter: brightness(1.08); }
+
+.btnSecondary{
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.45);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  transition: all .3s ease;
+}
+.btnSecondary:hover{
+  background: rgba(255,255,255,.18);
+}
