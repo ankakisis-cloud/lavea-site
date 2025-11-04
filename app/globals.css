@@ -22,3 +22,40 @@ button:focus, .goldBtn:focus { outline: none; }
 
 /* На всякий случай: залипший нижний бар записи — отключить */
 .consultBar, .callbackBar, .bottomEnroll { display: none !important; }
+.heroShell{
+  position: relative;
+  height: calc(100vh - 96px);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.heroSlide{
+  position: absolute; inset: 0;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.heroSlide.isActive{ opacity: 1; }
+.heroOverlay{
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,0) 80%);
+}
+.heroContent{
+  position: absolute;
+  left: 48px; bottom: 64px;
+  max-width: 680px;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0,0,0,.35);
+}
+.heroContent h1{
+  margin: 0 0 20px;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.18;
+  letter-spacing: .01em;
+}
+.heroContent p{
+  margin: 0 0 28px;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.7;
+  opacity: .95;
+}
+.ctaRow{ display:flex; gap:12px; flex-wrap:wrap; }
