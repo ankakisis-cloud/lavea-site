@@ -8,6 +8,16 @@ import PricingBlock from "../components/PricingBlock";
 import ConsultModal from "../components/ConsultModal";
 import "../styles/lavea-additions.css";
 import ContactBlock from "../components/ContactBlock";
+import HeroSlider from '@/components/HeroSlider';
+
+export default function HomePage() {
+  return (
+    <main>
+      <HeroSlider />
+      {/* остальные блоки: портфолио, цены, о нас, контакты */}
+    </main>
+  );
+}
 
 
 export default function Home() {
