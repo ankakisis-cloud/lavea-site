@@ -122,3 +122,6 @@ export default function HeaderClient() {
     .header-wrap{ padding: 0 18px; }
   }
 `}</style>
+<style jsx global>{`
+  body { padding-top: 80px; }
+`}</style>
