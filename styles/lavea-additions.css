@@ -597,3 +597,40 @@ header .wrap .actions .nav-cta{ display: inline-flex; }
 }
 
 /* Не трогаю .goldBtn и ConsultBtn — они в проекте уже есть */
+/* === FIX: шапка "ПОПУЛЯРНЫЙ ТАРИФ" НАД карточкой, не смещает контент === */
+
+/* у сетки выравниваем карточки по верху на всякий случай */
+.pricingGrid { align-items: start; overflow: visible; }
+
+/* убираем ранее добавленные отступы сверху у популярной (если были) */
+.priceCard--popular { padding-top: 22px !important; margin-top: 0 !important; }
+
+/* сама шапка — полноценная золотая полоса над карточкой */
+.priceCard__badge{
+  position: absolute;
+  /* располагаем ПОВЕРХУ, но СНАРУЖИ карточки */
+  top: -34px;              /* выносит шапку над рамкой */
+  left: 0;
+  right: 0;
+  transform: none;
+
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+
+  border-radius: 10px 10px 0 0;      /* совпадает со скруглением карточки */
+  box-shadow: 0 6px 18px rgba(199,162,81,.22);
+  z-index: 5;
+  padding: 0 12px;
+  pointer-events: none;              /* чтобы не перехватывала клики */
+}
+
+/* если нужно чуть ближе к карточке — смени top: -34px на -28px */
