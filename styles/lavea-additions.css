@@ -634,3 +634,54 @@ header .wrap .actions .nav-cta{ display: inline-flex; }
 }
 
 /* если нужно чуть ближе к карточке — смени top: -34px на -28px */
+/* ==== PRICING — аккуратная шапка над карточкой + одинаковая высота ==== */
+
+/* Создаём небольшой зазор между подзаголовком и сеткой,
+   чтобы шапка не накрывала текст сверху */
+.pricingBlock .pricingGrid{
+  margin-top: 22px;               /* общий отступ вниз */
+  align-items: stretch !important;/* тянем все карточки на одинаковую высоту */
+  overflow: visible;
+}
+
+/* Гарантированно одинаковая высота карточек в одном ряду */
+.pricingBlock .pricingGrid > .priceCard{
+  height: 100%;
+}
+
+/* Базовые отступы у всех карточек одинаковые */
+.priceCard{
+  padding: 22px;                  /* как было в проекте */
+}
+
+/* НЕ увеличиваем отступы у популярной — высота не должна отличаться */
+.priceCard--popular{
+  padding-top: 22px !important;   /* ровно как у обычной */
+  margin-top: 0 !important;
+  border-color: var(--gold);
+  box-shadow: 0 10px 30px rgba(199,162,81,.25);
+}
+
+/* Шапка "ПОПУЛЯРНЫЙ ТАРИФ" — НАД карточкой, не сдвигает контент */
+.priceCard__badge{
+  position: absolute;
+  top: -28px;                     /* над рамкой карточки */
+  left: 0;
+  right: 0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: none;
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border-radius: 10px 10px 0 0;   /* вровень со скруглением карточки */
+  box-shadow: 0 6px 18px rgba(199,162,81,.22);
+  z-index: 5;
+  padding: 0 12px;
+  pointer-events: none;           /* не перехватывает клики */
+}
