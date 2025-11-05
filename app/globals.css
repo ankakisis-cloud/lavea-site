@@ -59,3 +59,57 @@ button:focus, .goldBtn:focus { outline: none; }
   opacity: .95;
 }
 .ctaRow{ display:flex; gap:12px; flex-wrap:wrap; }
+/* ===== LAVEA HEADER PREMIUM STYLE ===== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 999;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* ===== LOGO EFFECT ===== */
+.logo {
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(199,162,81,0.6);
+}
+
+/* ===== NAV BUTTONS ===== */
+nav a {
+  color: var(--ink);
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* ===== WRITE BUTTON ===== */
+.headerWriteBtn {
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold));
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.headerWriteBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(199,162,81,0.6);
+}
