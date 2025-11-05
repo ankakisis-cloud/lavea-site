@@ -8,10 +8,13 @@ export default function HeaderClient() {
     <>
       <header className="site-header">
         <div className="header-wrap">
-          {/* Логотип слева */}
-          <a href="/" className="lavea-logo">LAVEA</a>
+          {/* ЛОГО СЛЕВА */}
+          <div className="logoBlock">
+            <a href="/" className="lavea-logo">LAVEA</a>
+            <span className="logoTagline">ИНТЕРЬЕР С ЛЮБОВЬЮ К ДЕТАЛЯМ</span>
+          </div>
 
-          {/* Меню по центру */}
+          {/* МЕНЮ ПО ЦЕНТРУ */}
           <nav className="nav-center" aria-label="Основная навигация">
             <a href="#portfolio" className="header_link">Портфолио</a>
             <a href="#pricing"   className="header_link">Цены</a>
@@ -20,19 +23,18 @@ export default function HeaderClient() {
             <a href="#contacts"  className="header_link">Контакты</a>
           </nav>
 
-          {/* Кнопка справа */}
+          {/* КНОПКА СПРАВА */}
           <div className="actions">
             <ConsultBtn className="nav-cta">Написать</ConsultBtn>
           </div>
         </div>
       </header>
 
-      {/* ===== СТИЛИ ===== */}
+      {/* ===== СТИЛИ ШАПКИ ===== */}
       <style jsx>{`
-        .site-header {
+        .site-header{
           position: fixed;
-          top: 0;
-          left: 0;
+          top: 0; left: 0;
           width: 100%;
           height: 80px;
           z-index: 10000;
@@ -40,43 +42,60 @@ export default function HeaderClient() {
           -webkit-backdrop-filter: blur(20px);
           background: rgba(17,17,17,0.25);
           border-bottom: 1px solid rgba(255,255,255,0.14);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+          box-shadow: 0 8px 24px rgba(0,0,0,.06);
         }
 
-        .header-wrap {
+        /* трёхколоночная сетка: слева лого, центр — нав, справа — кнопка */
+        .header-wrap{
           background: transparent !important;
           width: 100%;
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 28px;
           height: 100%;
-          display: flex;
+          display: grid;
+          grid-template-columns: auto 1fr auto;
           align-items: center;
-          justify-content: space-between;
-          gap: 16px;
+          column-gap: 16px;
         }
 
-        .lavea-logo {
+        /* ====== ЛОГО И ПОДПИСЬ ====== */
+        .logoBlock{
+          justify-self: start;
+          display: flex;
+          flex-direction: column;
+          line-height: 1;
+        }
+        .lavea-logo{
           font-family: var(--font-heading, "Prata", serif);
           font-size: 28px;
           font-weight: 600;
+          letter-spacing: .04em;
           color: #fff;
           text-decoration: none;
-          letter-spacing: 0.04em;
           transition: color .3s ease, text-shadow .3s ease;
         }
-        .lavea-logo:hover {
-          color: #E8C980;
-          text-shadow: 0 0 14px rgba(199,162,81,0.8);
+        .lavea-logo:hover{
+          color: #E8C980;                        /* золото LAVEA */
+          text-shadow: 0 0 14px rgba(199,162,81,.8);
+        }
+        .logoTagline{
+          margin-top: 6px;
+          font-family: var(--font-heading, "Prata", serif);
+          font-size: 11px;
+          letter-spacing: .22em;
+          color: rgba(232,201,128,.95);          /* тёплое золото без фона */
+          white-space: nowrap;
         }
 
-        .nav-center {
-          display: flex !important;
+        /* ====== МЕНЮ ====== */
+        .nav-center{
+          justify-self: center;
+          display: flex;
           gap: 26px;
           align-items: center;
-          justify-content: center;
         }
-        .header_link {
+        .header_link{
           font-family: var(--font-heading, "Prata", serif);
           color: #fff;
           text-decoration: none;
@@ -86,22 +105,21 @@ export default function HeaderClient() {
           white-space: nowrap;
           transition: color .25s ease;
         }
-        .header_link:hover {
-          color: #E8C980;
-        }
+        .header_link:hover{ color: #E8C980; }
 
-        .actions {
+        /* ====== КНОПКА СПРАВА ====== */
+        .actions{
+          justify-self: end;
           display: flex;
           align-items: center;
-          justify-content: flex-end;
-          z-index: 1001;
         }
 
+        /* Перекрываем внутренние стили ConsultBtn, чтобы было «как в LAVEA» */
         .actions :global(button),
         .nav-cta :global(button),
-        .nav-cta {
+        .nav-cta{
           font-family: var(--font-heading, "Prata", serif) !important;
-          background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
+          background: linear-gradient(90deg,#E8C980 0%, #C7A251 100%) !important;
           color: #fff !important;
           border: none !important;
           padding: 12px 28px !important;
@@ -113,23 +131,21 @@ export default function HeaderClient() {
           transition: transform .25s ease, box-shadow .25s ease, filter .25s ease !important;
         }
         .actions :global(button:hover),
-        .nav-cta:hover {
+        .nav-cta:hover{
           transform: translateY(-1px) scale(1.05) !important;
-          box-shadow: 0 0 20px rgba(199,162,81,0.6) !important;
+          box-shadow: 0 0 20px rgba(199,162,81,.6) !important;
           filter: brightness(1.03) !important;
         }
 
-        @media (max-width: 900px) {
-          .nav-center { display: none !important; }
-          .header-wrap { padding: 0 18px; }
+        @media (max-width: 900px){
+          .nav-center{ display: none; }
+          .header-wrap{ padding: 0 18px; grid-template-columns: auto 1fr; }
         }
       `}</style>
 
-      {/* ===== ГЛОБАЛЬНЫЙ ОТСТУП ===== */}
+      {/* Отступ, чтобы контент не залезал под фиксированный header */}
       <style jsx global>{`
-        body {
-          padding-top: 80px;
-        }
+        body { padding-top: 80px; }
       `}</style>
     </>
   );
