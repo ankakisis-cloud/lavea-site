@@ -7,7 +7,8 @@ export default function HeaderClient() {
   return (
     <>
       <header className="site-header">
-        <div className="wrap">
+        <div className="header-wrap">
+
           {/* Логотип слева */}
           <a href="/" className="lavea-logo">LAVEA</a>
 
