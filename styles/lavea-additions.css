@@ -559,45 +559,35 @@ header .wrap .actions .nav-cta{ display: inline-flex; }
 /* === Плавающий бейдж "популярный тариф" над карточкой === */
 /* --- стили карточек (фрагмент, который нужно обновить) --- */
 
-.priceCard{
-  position: relative;
-  background: #fff;
-  border: 1px solid var(--border);
-  padding: 22px;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-}
+/* === РИББОН НА ВСЮ ШИРИНУ КАРТОЧКИ === */
+.priceCard{ position: relative; overflow: visible; }
 
-.priceCard--popular{
-  border-color: var(--gold);
-  box-shadow: 0 10px 30px rgba(199,162,81,.25);
-  margin-top: 12px;
-}
+/* делаем место под шапку, чтобы текст не упирался */
+.priceCard--popular{ padding-top: 38px; }
 
-/* Плавающий бейдж — теперь над карточкой, по центру */
+/* сама шапка */
 .priceCard__badge{
   position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;           /* шапка сидит прямо на верхней кромке карточки */
+  left: 0;
+  right: 0;
+  transform: none;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(180deg,var(--gold-soft),var(--gold));
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 999px;
   font-weight: 700;
-  letter-spacing: .02em;
-  box-shadow: 0 6px 18px rgba(199,162,81,.25);
-  z-index: 5;
-  text-transform: uppercase;
   font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border-radius: 10px 10px 0 0;       /* скругления как у карточки */
+  box-shadow: 0 6px 18px rgba(199,162,81,.22);
+  z-index: 5;
+  padding: 0 12px;
 }
 
-/* Заголовок карточки и др. — оставляем как было */
-.priceCard__title{font-family:var(--font-heading);font-size:20px;margin:0 0 6px;}
-.priceCard__desc{margin:0 0 8px;color:var(--ink-soft)}
-.priceCard__list{margin:8px 0 12px;padding-left:18px;}
-.priceCard__price{margin-top:auto;font-weight:800;}
 
 /* Оформление общей кнопки под карточками */
 .pricingCTA{
