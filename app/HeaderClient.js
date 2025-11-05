@@ -47,16 +47,30 @@ export default function HeaderClient() {
         }
 
         .header-wrap {
-          background: transparent;
-          width: 100%;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 28px;
-          height: 100%;
-          display: grid;
-          grid-template-columns: auto 1fr auto;
-          align-items: center;
-        }
+  background: transparent;
+  width: 100%;
+  max-width: 1400px;              /* немного шире, чтобы элементы дышали */
+  margin: 0 auto;
+  padding: 0 40px;                /* отступы по бокам — равномерные */
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;  /* три колонки: лево, центр, право */
+  align-items: center;
+}
+
+.logoBlock {
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.actions {
+  justify-self: end;              /* теперь кнопка прилипает вправо */
+  display: flex;
+  align-items: center;
+}
+
 
         /* ====== ЛОГО И ПОДПИСЬ ====== */
         .logoBlock {
