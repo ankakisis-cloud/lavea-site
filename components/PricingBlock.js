@@ -29,9 +29,15 @@ export default function PricingBlock() {
         </div>
 
         <div className="pricingGrid">
-    <div className="pricingCTA">
+    <div className="pricingCTA" style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginTop: '32px'
+}}>
   <ConsultBtn className="goldBtn">Обсудить проект</ConsultBtn>
 </div>
+
 
           {plans.map((item, idx) => (
             <article
