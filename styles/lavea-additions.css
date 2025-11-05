@@ -556,3 +556,28 @@ header .wrap .actions .nav-cta{ display: inline-flex; }
 .btnSecondary:hover{
   background: rgba(255,255,255,.18);
 }  
+/* === Плавающий бейдж "популярный тариф" над карточкой === */
+.priceCard {
+  position: relative;
+}
+
+.priceCard__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  z-index: 2;
+}
+.priceCard--popular {
+  border: 2px solid var(--gold);
+  margin-top: 20px;
+}
