@@ -34,10 +34,11 @@ export default function HeaderClient() {
           top: 0;
           left: 0;
           width: 100%;
+          height: 80px;
           z-index: 999;
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          background: rgba(17, 17, 17, 0.08);
+          background: rgba(17, 17, 17, 0.25);
           border-bottom: 1px solid rgba(255, 255, 255, 0.14);
           box-shadow: 0 8px 24px rgba(0,0,0,0.06);
         }
@@ -116,6 +117,24 @@ export default function HeaderClient() {
         }
 
         /* Мобилки */
+          /* ===== Переопределение кнопки ConsultBtn внутри ===== */
+  .actions :global(button) {
+    background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    font-family: var(--font-heading, "Prata", serif);
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 100px !important;
+    padding: 12px 28px !important;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  }
+  .actions :global(button:hover) {
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0 0 20px rgba(199,162,81,0.6);
+    filter: brightness(1.03);
+  }
         @media (max-width: 900px) {
           .nav-center { display: none; }
           .wrap { padding: 12px 18px; }
