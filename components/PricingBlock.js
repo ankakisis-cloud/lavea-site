@@ -29,6 +29,10 @@ export default function PricingBlock() {
         </div>
 
         <div className="pricingGrid">
+    <div className="pricingCTA">
+  <ConsultBtn className="goldBtn">Обсудить проект</ConsultBtn>
+</div>
+
           {plans.map((item, idx) => (
             <article key={item._id || idx} className={`priceCard ${item.popular ? "priceCard--popular" : ""}`}>
               {item.popular && <span className="priceCard__badge">популярный тариф</span>}
@@ -42,8 +46,7 @@ export default function PricingBlock() {
               )}
 
               <div className="priceCard__price">{item.price}</div>
-              <div className="priceCard__cta">
-                <ConsultBtn className="goldBtn">Обсудить проект</ConsultBtn>
+        
               </div>
             </article>
           ))}
