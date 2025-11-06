@@ -48,6 +48,17 @@ export default function HeroFullscreen() {
   }
 
   .heroActions{ display:flex; gap:12px; flex-wrap:wrap; }
+  /* Контейнер героя — на всю ширину */
+.heroFs__content.wrap{
+  max-width: 100% !important;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Снимаем ограничения ширины у заголовка и лида */
+.heroTitle{ max-width: none !important; }
+.heroLead { max-width: none !important; }
+
 `}</style>
 
     </section>
