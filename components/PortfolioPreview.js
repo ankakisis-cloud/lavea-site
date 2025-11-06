@@ -51,21 +51,22 @@ export default function PortfolioPreview() {
         .btnRow { display: flex; justify-content: center; margin-top: 28px; margin-bottom: 8px; }
 
         /* Жёстко переопределяем любые глобальные стили ссылок */
-        :global(a.goldBtn) {
+        :global(a.goldBtn){
   display: inline-block;
   padding: 12px 22px;
-  border-radius: 9999px;
+  border-radius: 999px;
   font-weight: 700;
-  color: #fff !important;                 /* было #111 */
-  text-decoration: none !important;       /* убираем подчёркивание */
+  color: #fff !important;                 /* белый текст */
+  text-decoration: none !important;       /* убрать подчёркивание */
   background-image: linear-gradient(180deg, #E8C980, #C7A251);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
   border: none;
   line-height: 1;
   white-space: nowrap;
 }
-:global(a.goldBtn:hover) { filter: brightness(0.96); }
-:global(a.goldBtn:active) { transform: translateY(1px); }
+:global(a.goldBtn:hover){ filter: brightness(0.96); }
+:global(a.goldBtn:active){ transform: translateY(1px); }
+
 
       `}</style>
     </section>
