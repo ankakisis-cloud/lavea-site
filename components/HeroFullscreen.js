@@ -20,18 +20,36 @@ export default function HeroFullscreen() {
       </div>
 
       <style jsx>{`
-        .heroFs{ position:relative; height: min(84vh, 920px); border-radius:28px; overflow:hidden; margin: 16px; }
-        .heroFs__bg{ position:absolute; inset:0; background-size:cover; background-position:center; filter:brightness(.72); }
-        .heroFs__content{
-          position:relative; z-index:2; height:100%;
-          display:flex; flex-direction:column; justify-content:center; gap:16px; color:#fff;
-          text-shadow: 0 2px 24px rgba(0,0,0,.35);
-        }
-        .heroTitle{ font-family: var(--font-heading, Prata, serif); font-weight:400; line-height:1.1;
-          font-size: clamp(32px, 4.6vw, 64px); margin:0; max-width: 16ch;}
-        .heroLead{ max-width: 760px; line-height:1.7; margin:0 0 8px; }
-        .heroActions{ display:flex; gap:12px; flex-wrap:wrap; }
-      `}</style>
+  .heroFs{ position:relative; height: min(84vh, 920px); border-radius:28px; overflow:hidden; margin: 16px; }
+  .heroFs__bg{ position:absolute; inset:0; background-size:cover; background-position:center; filter:brightness(.72); }
+
+  .heroFs__content{
+    position:relative; z-index:2; height:100%;
+    display:flex; flex-direction:column; justify-content:center; gap:16px; color:#fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,.35);
+  }
+
+  /* ВАЖНО: контейнер в герое на 100% ширины экрана */
+  .heroFs :global(.wrap){
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Растягиваем строки заголовка и подзаголовка */
+  .heroTitle{
+    font-family: var(--font-heading, Prata, serif); font-weight:400; line-height:1.1;
+    font-size: clamp(32px, 4.6vw, 64px); margin:0;
+    max-width: none;               /* было 16ch */
+  }
+  .heroLead{
+    max-width: none;               /* было 760px */
+    line-height:1.7; margin:0 0 8px;
+  }
+
+  .heroActions{ display:flex; gap:12px; flex-wrap:wrap; }
+`}</style>
+
     </section>
   );
 }
