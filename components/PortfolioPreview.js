@@ -52,22 +52,21 @@ export default function PortfolioPreview() {
 
         /* Жёстко переопределяем любые глобальные стили ссылок */
         :global(a.goldBtn) {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 12px 22px;
-          border-radius: 999px;
-          text-decoration: none !important;
-          font-weight: 700;
-          color: #111 !important;
-          background-image: linear-gradient(180deg, #E8C980, #C7A251);
-          box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-          border: none;
-          line-height: 1;
-          white-space: nowrap;
-        }
-        :global(a.goldBtn:hover) { filter: brightness(0.96); }
-        :global(a.goldBtn:active) { transform: translateY(1px); }
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  font-weight: 700;
+  color: #fff !important;                 /* было #111 */
+  text-decoration: none !important;       /* убираем подчёркивание */
+  background-image: linear-gradient(180deg, #E8C980, #C7A251);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  border: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+:global(a.goldBtn:hover) { filter: brightness(0.96); }
+:global(a.goldBtn:active) { transform: translateY(1px); }
+
       `}</style>
     </section>
   );
