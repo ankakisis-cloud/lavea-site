@@ -1,4 +1,5 @@
 // app/layout.js
+import "../styles/globals.css";
 import "../styles/lavea-additions.css";
 import "./globals.css";
 import "../styles/footer.css";
