@@ -17,54 +17,48 @@ export default function AboutShort() {
             <li>Продуманные планировки, инженерная точность</li>
             <li>Поставки мебели, света и декора</li>
           </ul>
+
           <div className="aboutShort__actions">
             <Link href="/about" className="goldBtn">Подробнее</Link>
-    <style jsx>{`
-  .aboutShort__actions :global(.goldBtn){
-    background: transparent !important;
-    border: 1px solid #111 !important;
-    color: #111 !important;
-    padding: 10px 26px !important;
-    border-radius: 100px !important;
-    font-size: 15px !important;
-    font-weight: 400 !important;
-    box-shadow: none !important;
-    transition: all .25s ease !important;
-  }
-  .aboutShort__actions :global(.goldBtn:hover){
-    color:#fff !important;
-    background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
-    border-color:#C7A251 !important;
-  }
-`}</style>
-
           </div>
         </div>
 
         <div className="aboutShort__media">
-          {/* ВАЖНО: файл в корне /public */}
+          {/* файл лежит в /public */}
           <img src="/about-philosophy.jpg" alt="LAVEA — о студии" />
         </div>
       </div>
-  <style jsx>{`
-  .aboutShort__actions :global(.goldBtn){
-    background: transparent !important;
-    border: 1px solid #111 !important;
-    color: #111 !important;
-    padding: 10px 26px !important;
-    border-radius: 100px !important;
-    font-size: 15px !important;
-    font-weight: 400 !important;
-    box-shadow: none !important;
-    transition: all .25s ease !important;
-  }
-  .aboutShort__actions :global(.goldBtn:hover){
-    color:#fff !important;
-    background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
-    border-color:#C7A251 !important;
-  }
-`}</style>
 
+      {/* ЛОКАЛЬНЫЕ стили компонента — строго внутри return */}
+      <style jsx>{`
+        .aboutShort{ padding: 40px 16px; }
+        .aboutShort__inner{
+          max-width: 1180px; margin: 0 auto;
+          display: grid; gap: 24px; grid-template-columns: 1.1fr .9fr;
+        }
+        @media (max-width: 980px){
+          .aboutShort__inner{ grid-template-columns: 1fr; }
+        }
+
+        /* Кнопка «Подробнее» — как «Связаться» (тонкая чёрная, золото на hover) */
+        .aboutShort__actions :global(.goldBtn){
+          background: transparent !important;
+          border: 1px solid #111 !important;
+          color: #111 !important;
+          padding: 10px 26px !important;
+          border-radius: 100px !important;
+          font-size: 15px !important;
+          font-weight: 400 !important;
+          box-shadow: none !important;
+          transition: all .25s ease !important;
+          text-decoration: none !important;
+        }
+        .aboutShort__actions :global(.goldBtn:hover){
+          color:#fff !important;
+          background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
+          border-color:#C7A251 !important;
+        }
+      `}</style>
     </section>
   );
 }
