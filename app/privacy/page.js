@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="legalShell">
+    <main className="legalDoc">
       <h1>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ<br />студии дизайна LAVEA</h1>
       <p><em>Дата публикации: 07.11.2025</em></p>
 
