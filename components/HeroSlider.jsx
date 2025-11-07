@@ -52,25 +52,28 @@ export default function HeroSlider() {
   <ConsultBtn className="goldBtn heroBtn">Связаться</ConsultBtn>
 </div>
 /* Контейнер героя — на всю ширину */
-:global(.hero .wrap){
+.hero :global(.wrap){
   max-width: 100% !important;
   padding-left: 24px;
   padding-right: 24px;
 }
-:global(.heroWrap){
+
+/* Эти классы локальные — БЕЗ :global */
+.heroWrap{
   max-width: 100% !important;
   padding-left: 24px;
   padding-right: 24px;
 }
-:global(.heroContent){
+.heroContent{
   max-width: 100% !important;
   padding-left: 24px;
   padding-right: 24px;
 }
+
+/* Растянуть заголовок/лид */
 .heroTitle{ max-width: none !important; }
 .heroLead { max-width: none !important; }
 
-}
 
 /* Сделать обе кнопки как «Связаться» (тонкая чёрная, золото на hover) */
 .heroBtn{
