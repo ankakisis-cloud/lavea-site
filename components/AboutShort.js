@@ -19,6 +19,25 @@ export default function AboutShort() {
           </ul>
           <div className="aboutShort__actions">
             <Link href="/about" className="goldBtn">Подробнее</Link>
+    <style jsx>{`
+  .aboutShort__actions :global(.goldBtn){
+    background: transparent !important;
+    border: 1px solid #111 !important;
+    color: #111 !important;
+    padding: 10px 26px !important;
+    border-radius: 100px !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    box-shadow: none !important;
+    transition: all .25s ease !important;
+  }
+  .aboutShort__actions :global(.goldBtn:hover){
+    color:#fff !important;
+    background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
+    border-color:#C7A251 !important;
+  }
+`}</style>
+
           </div>
         </div>
 
