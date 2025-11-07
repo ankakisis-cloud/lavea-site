@@ -53,77 +53,82 @@ export default function HeroSlider() {
       </div>
 
       <style jsx>{`
-        .heroShell{
-          position: relative;
-          height: min(84vh, 920px);
-          border-radius: 28px;
-          overflow: hidden;
-          margin: 16px;
-        }
-        .heroSlide{
-          position: absolute;
-          inset: 0;
-          object-fit: cover;
-          opacity: 0;
-          transition: opacity .6s ease;
-        }
-        .heroSlide.isActive{ opacity: 1; }
+  .heroShell{
+    position: relative;
+    height: min(84vh, 920px);
+    border-radius: 28px;
+    overflow: hidden;
+    margin: 16px;
+  }
+  .heroSlide{
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity .6s ease;
+  }
+  .heroSlide.isActive{ opacity: 1; }
 
-        .heroOverlay{
-          position: absolute;
-          inset: 0;
-          background: rgba(0,0,0,.28);
-          z-index: 1;
-        }
+  .heroOverlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.28);
+    z-index: 1;
+  }
 
-        .heroContent{
-          position: relative;
-          z-index: 2;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 16px;
-          color: #fff;
-          text-shadow: 0 2px 24px rgba(0,0,0,.35);
-          /* растягиваем содержимое на всю ширину */
-          max-width: 100% !important;
-          padding: 0 24px;
-        }
+  .heroContent{
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,.35);
+    max-width: 100% !important;
+    padding: 0 24px;
+  }
 
-        .heroTitle{
-          font-family: var(--font-heading, Prata, serif);
-          font-weight: 400;
-          line-height: 1.1;
-          font-size: clamp(32px, 4.6vw, 64px);
-          margin: 0;
-          max-width: none !important;
-        }
-        .heroLead{
-          line-height: 1.7;
-          margin: 0 0 8px;
-          max-width: none !important;
-        }
-        .heroActions{ display: flex; gap: 12px; flex-wrap: wrap; }
+  .heroTitle{
+    font-family: var(--font-heading, Prata, serif);
+    font-weight: 400;
+    line-height: 1.1;
+    font-size: clamp(32px, 4.6vw, 64px);
+    margin: 0;
+    max-width: none !important;
+  }
+  .heroLead{
+    line-height: 1.7;
+    margin: 0 0 8px;
+    max-width: none !important;
+  }
 
-        /* Кнопки в герое — одинаковые (как «Связаться») */
-        .heroBtn{
-          background: transparent !important;
-          border: 1px solid #111 !important;
-          color: #111 !important;
-          padding: 10px 26px !important;
-          border-radius: 100px !important;
-          font-size: 15px !important;
-          font-weight: 400 !important;
-          box-shadow: none !important;
-          transition: all .25s ease !important;
-        }
-        .heroBtn:hover{
-          color: #fff !important;
-          background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
-          border-color: #C7A251 !important;
-        }
-      `}</style>
+  .heroActions{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* === ОБЕ КНОПКИ НА ГЕРОЕ === */
+  .heroBtn{
+    display: inline-block;
+    background: linear-gradient(180deg, #E8C980, #C7A251) !important;
+    color: #fff !important;
+    padding: 12px 30px !important;
+    border: none !important;
+    border-radius: 100px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    transition: transform .25s ease !important;
+    text-decoration: none !important;
+  }
+  .heroBtn:hover{
+    transform: scale(1.05);
+  }
+`}</style>
+
     </section>
   );
 }
