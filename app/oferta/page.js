@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function OfertaPage() {
   return (
-    <main className="legalShell">
+    <main className="lclassName="legalDoc">
       <h1>ПУБЛИЧНАЯ ОФЕРТА<br />на оказание услуг студией дизайна LAVEA</h1>
       <p><strong>ИП Карева Анна Александровна</strong></p>
       <p><em>Дата публикации: 07.11.2025</em></p>
