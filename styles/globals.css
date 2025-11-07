@@ -143,19 +143,49 @@ a.btn-lavea:focus, .btn-lavea:focus {
   outline: none;
 }
 
-/* запасной стиль для goldBtn, если где-то не подтягивается фон */
-.goldBtn {
-  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
-  border-radius: 9999px;
-  padding: 12px 22px;
-  font-weight: 600;
-  line-height: 1;
+/* === Единый стиль «золотой» кнопки для <a> и <button> === */
+.goldBtn,
+a.goldBtn,
+button.goldBtn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%);
+  color: #fff !important;
+
+  /* единый размер шрифта */
+  font-size: 15px;          /* ← одинаково для всех кнопок */
+  font-weight: 600;
+  line-height: 1;
+
+  padding: 12px 22px;
+  border-radius: 9999px;
+
   box-shadow: 0 8px 28px rgba(0,0,0,.15);
-  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease, opacity .22s ease;
+  will-change: transform;
   cursor: pointer;
 }
-.goldBtn:active { transform: translateY(0); box-shadow: 0 6px 18px rgba(0,0,0,.12); }
-.goldBtn:hover  { transform: translateY(-1px); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
+
+/* плавное увеличение при наведении (без рывков) */
+.goldBtn:hover,
+a.goldBtn:hover,
+button.goldBtn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 36px rgba(0,0,0,.18);
+}
+
+/* лёгкое «приседание» при клике */
+.goldBtn:active,
+a.goldBtn:active,
+button.goldBtn:active {
+  transform: scale(0.99);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
