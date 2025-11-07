@@ -58,6 +58,22 @@ export default function HeroFullscreen() {
 /* Снимаем ограничения ширины у заголовка и лида */
 .heroTitle{ max-width: none !important; }
 .heroLead { max-width: none !important; }
+/* === Герой: сделать обе кнопки как "Связаться" (outline) === */
+.heroActions :global(.goldBtn){
+  background: transparent !important;
+  border: 1px solid #111 !important;
+  color: #111 !important;
+  padding: 10px 26px !important;
+  border-radius: 100px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease !important;
+}
+.heroActions :global(.goldBtn:hover){
+  color: #fff !important;
+  background: linear-gradient(90deg, #E8C980 0%, #C7A251 100%) !important;
+  border-color: #C7A251 !important;
 
 `}</style>
 
