@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import "../styles/lavea-additions.css";
 import "./globals.css";
 import "../styles/footer.css";
+import "../styles/responsive.css";
 
 import HeaderClient from "./HeaderClient";
 import ConsultModal from "../components/ConsultModal";
