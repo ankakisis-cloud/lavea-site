@@ -3,34 +3,12 @@
 import { useEffect, useState } from "react";
 
 export default function ConsultModal() {
-  // ✅ Сторожок: рендерим только первый экземпляр, если вдруг компонент подключён в двух местах
-  const [allowRender, setAllowRender] = useState(true);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.__consultModalMounted) {
-      setAllowRender(false);
-      return;
-    }
-    window.__consultModalMounted = true;
-    return () => { delete window.__consultModalMounted; };
-  }, []);
-  if (!allowRender) return null;
-
-  // === ТВОЙ ИЗНАЧАЛЬНЫЙ КОД НИЖЕ (без изменений поведения) ===
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onOpen = () => setOpen(true);
     window.addEventListener("open-consult-modal", onOpen);
-
-    // доп. удобство: закрытие по Esc (необязательно, но не мешает)
-    const onKey = (e) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-
-    return () => {
-      window.removeEventListener("open-consult-modal", onOpen);
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("open-consult-modal", onOpen);
   }, []);
 
   const close = () => setOpen(false);
@@ -40,7 +18,10 @@ export default function ConsultModal() {
   return (
     <div className="consultModal__backdrop" onClick={close}>
       <div className="consultModal" onClick={(e) => e.stopPropagation()}>
-        <button className="consultModal__close" onClick={close} aria-label="Закрыть">×</button>
+        <button className="consultModal__close" onClick={close} aria-label="Закрыть">
+          ×
+        </button>
+
         <h3 className="consultModal__title">Оставьте заявку</h3>
         <p className="consultModal__subtitle">Мы свяжемся с вами и ответим на вопросы.</p>
 
@@ -55,7 +36,6 @@ export default function ConsultModal() {
         </form>
       </div>
 
-      {/* важно: у <style jsx> должны быть обратные кавычки */}
       <style jsx>{`
         .consultModal__backdrop{
           position:fixed;inset:0;background:rgba(0,0,0,.45);
