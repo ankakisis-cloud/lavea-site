@@ -5,7 +5,6 @@ import PortfolioPreview from "../components/PortfolioPreview";
 import AboutShort from "../components/AboutShort";
 import ProcessBlock from "../components/ProcessBlock";
 import PricingBlock from "../components/PricingBlock";
-import ConsultModal from "../components/ConsultModal";
 import "../styles/lavea-additions.css";
 import ContactBlock from "../components/ContactBlock";
 import HeroSlider from "../components/HeroSlider";
@@ -42,8 +41,6 @@ export default function Home() {
         <ContactBlock />
       </section>
 
-      {/* Модалка консультации, если используется глобально */}
-      <ConsultModal />
     </main>
   );
 }
