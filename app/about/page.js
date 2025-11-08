@@ -5,8 +5,17 @@ import AboutHeroSlider from "../../components/AboutHeroSlider";
 export const metadata = {
   title: "О студии LAVEA",
   description:
-    "Интерьерная студия премиум-класса — современная итальянская классика, инженерная точность и спокойная эстетика.",
+    "Студия премиум-класса: итальянская эстетика, инженерная точность, команда и процесс без хаоса.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "О студии LAVEA — команда и философия",
+    description:
+      "Проектируем интерьеры с душой и системностью: 3D=реальность, прозрачные сметы, надзор-SLA.",
+    url: "/about",
+    images: [{ url: "/og/lavea-og.jpg" }],
+  },
 };
+
 
 export default function AboutPage() {
   return (
