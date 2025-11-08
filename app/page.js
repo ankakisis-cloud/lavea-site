@@ -1,6 +1,6 @@
 "use client";
 import FAQ from "../components/FAQ";
-import Script from "../next/script"; // для JSON-LD
+import Script from "next/script"; // для JSON-LD
 
 import HeroFullscreen from "../components/HeroFullscreen";
 import PortfolioPreview from "../components/PortfolioPreview";
