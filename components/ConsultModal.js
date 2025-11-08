@@ -1,34 +1,73 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ConsultModal() {
-  const [open, setOpen] = useState(false);
+  /* ============ 1) СИНГЛТОН (монтируется только один экземпляр) ============ */
+  const [allowRender, setAllowRender] = useState(true);
 
   useEffect(() => {
-    const onOpen = () => setOpen(true);
-    window.addEventListener("open-consult-modal", onOpen);
-    return () => window.removeEventListener("open-consult-modal", onOpen);
+    if (typeof window === "undefined") return;
+
+    // если модалка уже смонтирована — этот экземпляр не рисуем
+    if (window.__consultModalMounted) {
+      setAllowRender(false);
+      return;
+    }
+    window.__consultModalMounted = true;
+
+    return () => {
+      delete window.__consultModalMounted;
+    };
   }, []);
+
+  if (!allowRender) return null;
+
+  /* ============ 2) СОСТОЯНИЕ + АНТИ-ДВОЙНОЕ ОТКРЫТИЕ ============ */
+  const [open, setOpen] = useState(false);
+
+  // блокировка повторных open в течение короткого окна
+  const lastOpenAt = useRef(0);
+  const OPEN_GUARD_MS = 300;
+
+  const safeOpen = () => {
+    const now = Date.now();
+    if (now - lastOpenAt.current < OPEN_GUARD_MS) return; // игнорим дубль
+    lastOpenAt.current = now;
+
+    setOpen(true);
+  };
 
   const close = () => setOpen(false);
 
+  // один слушатель «open-consult-modal»
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const onOpen = () => safeOpen();
+    window.addEventListener("open-consult-modal", onOpen);
+
+    // опционально: Esc закрывает
+    const onKey = (e) => e.key === "Escape" && close();
+    window.addEventListener("keydown", onKey);
+
+    return () => {
+      window.removeEventListener("open-consult-modal", onOpen);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
   if (!open) return null;
 
+  /* ============ РАЗМЕТКА И СТИЛИ — как у тебя было ============ */
   return (
     <div className="consultModal__backdrop" onClick={close}>
       <div className="consultModal" onClick={(e) => e.stopPropagation()}>
-        <button className="consultModal__close" onClick={close} aria-label="Закрыть">
-          ×
-        </button>
-
+        <button className="consultModal__close" onClick={close} aria-label="Закрыть">×</button>
         <h3 className="consultModal__title">Оставьте заявку</h3>
         <p className="consultModal__subtitle">Мы свяжемся с вами и ответим на вопросы.</p>
 
-        <form
-          className="consultModal__form"
-          onSubmit={(e) => { e.preventDefault(); close(); }}
-        >
+        <form className="consultModal__form" onSubmit={(e) => { e.preventDefault(); close(); }}>
           <input className="consultModal__input" name="name" placeholder="Ваше имя" required />
           <input className="consultModal__input" name="phone" placeholder="Телефон" required />
           <textarea className="consultModal__input" name="msg" placeholder="Кратко о задаче" rows={3} />
