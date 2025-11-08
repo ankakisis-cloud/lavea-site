@@ -1,2 +1,7 @@
 User-agent: *
 Allow: /
+# public/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://lavea.studio/sitemap.xml
