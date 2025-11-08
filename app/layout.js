@@ -9,6 +9,7 @@ import HeaderClient from "./HeaderClient";
 import ConsultModal from "../components/ConsultModal";
 import FloatingContacts from "../components/FloatingContacts";
 import Footer from "../components/Footer";
+import Script from "next/script"; // ⬅️ добавили
 
 export const metadata = {
   title: "LAVEA — премиальная студия интерьера",
@@ -28,6 +29,9 @@ export default function RootLayout({ children }) {
 
         <ConsultModal />
         <FloatingContacts />
+
+        {/* ⬇️ фикс дублей модалки */}
+        <Script src="/modal-dedupe.js" strategy="afterInteractive" />
       </body>
     </html>
   );
