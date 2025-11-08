@@ -1,1 +1,82 @@
-"use client"; import { useEffect, useState } from "react"; export default function ConsultModal() { const [open, setOpen] = useState(false); useEffect(() => { const onOpen = () => setOpen(true); window.addEventListener("open-consult-modal", onOpen); return () => window.removeEventListener("open-consult-modal", onOpen); }, []); const close = () => setOpen(false); if (!open) return null; return ( <div className="consultModal__backdrop" onClick={close}> <div className="consultModal" onClick={(e) => e.stopPropagation()}> <button className="consultModal__close" onClick={close} aria-label="Закрыть">×</button> <h3 className="consultModal__title">Оставьте заявку</h3> <p className="consultModal__subtitle">Мы свяжемся с вами и ответим на вопросы.</p> <form className="consultModal__form" onSubmit={(e) => { e.preventDefault(); close(); }}> <input className="consultModal__input" name="name" placeholder="Ваше имя" required /> <input className="consultModal__input" name="phone" placeholder="Телефон" required /> <textarea className="consultModal__input" name="msg" placeholder="Кратко о задаче" rows={3} /> <button className="goldBtn" type="submit">Отправить</button> </form> </div> <style jsx>{ .consultModal__backdrop{ position:fixed;inset:0;background:rgba(0,0,0,.45); display:flex;align-items:center;justify-content:center;z-index:9999; } .consultModal{ position:relative; width:min(560px,92vw);background:#fff;border-radius:18px;padding:20px; box-shadow:0 24px 80px rgba(0,0,0,.25); } .consultModal__close{ position:absolute;right:14px;top:8px;border:0;background:none; font-size:28px;cursor:pointer;line-height:1; } .consultModal__title{margin:6px 0 4px;font-family:var(--font-heading)} .consultModal__subtitle{margin:0 0 12px;color:#666} .consultModal__form{display:grid;gap:10px} .consultModal__input{ width:100%;border:1px solid #e8e8e8;border-radius:12px;padding:12px 14px;outline:none; } }</style> </div> ); }
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function ConsultModal() {
+  // ✅ Сторожок: рендерим только первый экземпляр, если вдруг компонент подключён в двух местах
+  const [allowRender, setAllowRender] = useState(true);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.__consultModalMounted) {
+      setAllowRender(false);
+      return;
+    }
+    window.__consultModalMounted = true;
+    return () => { delete window.__consultModalMounted; };
+  }, []);
+  if (!allowRender) return null;
+
+  // === ТВОЙ ИЗНАЧАЛЬНЫЙ КОД НИЖЕ (без изменений поведения) ===
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener("open-consult-modal", onOpen);
+
+    // доп. удобство: закрытие по Esc (необязательно, но не мешает)
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+
+    return () => {
+      window.removeEventListener("open-consult-modal", onOpen);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  const close = () => setOpen(false);
+
+  if (!open) return null;
+
+  return (
+    <div className="consultModal__backdrop" onClick={close}>
+      <div className="consultModal" onClick={(e) => e.stopPropagation()}>
+        <button className="consultModal__close" onClick={close} aria-label="Закрыть">×</button>
+        <h3 className="consultModal__title">Оставьте заявку</h3>
+        <p className="consultModal__subtitle">Мы свяжемся с вами и ответим на вопросы.</p>
+
+        <form
+          className="consultModal__form"
+          onSubmit={(e) => { e.preventDefault(); close(); }}
+        >
+          <input className="consultModal__input" name="name" placeholder="Ваше имя" required />
+          <input className="consultModal__input" name="phone" placeholder="Телефон" required />
+          <textarea className="consultModal__input" name="msg" placeholder="Кратко о задаче" rows={3} />
+          <button className="goldBtn" type="submit">Отправить</button>
+        </form>
+      </div>
+
+      {/* важно: у <style jsx> должны быть обратные кавычки */}
+      <style jsx>{`
+        .consultModal__backdrop{
+          position:fixed;inset:0;background:rgba(0,0,0,.45);
+          display:flex;align-items:center;justify-content:center;z-index:9999;
+        }
+        .consultModal{
+          position:relative;
+          width:min(560px,92vw);background:#fff;border-radius:18px;padding:20px;
+          box-shadow:0 24px 80px rgba(0,0,0,.25);
+        }
+        .consultModal__close{
+          position:absolute;right:14px;top:8px;border:0;background:none;
+          font-size:28px;cursor:pointer;line-height:1;
+        }
+        .consultModal__title{margin:6px 0 4px;font-family:var(--font-heading)}
+        .consultModal__subtitle{margin:0 0 12px;color:#666}
+        .consultModal__form{display:grid;gap:10px}
+        .consultModal__input{
+          width:100%;border:1px solid #e8e8e8;border-radius:12px;padding:12px 14px;outline:none;
+        }
+      `}</style>
+    </div>
+  );
+}
