@@ -1,0 +1,53 @@
+/* ===== LAVEA — responsive layer (mobile + tablet) ===== */
+/* НИЧЕГО НЕ ЛОМАЕМ: только адаптивные переопределения */
+
+@media (max-width: 1200px){
+  /* портфолио/процессы/цены — 2 колонки на крупном планшете */
+  #portfolio.wrap .grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* планшет ≤ 992 */
+@media (max-width: 992px){
+  .header__container{ grid-template-columns: 1fr auto; padding: 10px 16px; }
+  .menu{ display:none; }             /* убираем среднее меню, остаются логотип и «Написать» */
+  .logoText{ font-size: 26px; }
+  .logoSub{ display:none; }
+
+  /* карточные сетки — по 2 в ряд */
+  .processGrid, .pricingGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* мобильный ≤ 768 */
+@media (max-width: 768px){
+  .wrap{ padding: 0 14px; }
+  .heroFullscreen{ margin: 12px; }   /* безопасный отступ для героя */
+  .goldBtn, .btn-lavea{ padding: 12px 18px; font-size: 15px; }
+
+  /* Портфолио — одна колонка */
+  #portfolio.wrap .grid{ grid-template-columns: 1fr; gap: 10px; }
+
+  /* Процессы и Цены — одна колонка */
+  .processGrid, .pricingGrid{ grid-template-columns: 1fr; }
+
+  /* Контакты */
+  .contactBlock{ padding: 36px 12px 40px; }
+  .contactBlock__grid{ grid-template-columns: 1fr; gap: 14px; }
+  .contactBlock__btn--full{ width: 100%; }
+  .contactBlock__hours{ grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .contactBlock__map{ margin-top: 16px; }
+  .contactBlock__map iframe{
+    width: 100%; height: 280px; border: 0; border-radius: 16px; display: block;
+  }
+
+  /* Футер — в столбик */
+  .lavea-footer__wrap{ grid-template-columns: 1fr; gap: 18px; }
+  .lavea-footer__title{ margin-bottom: 6px; }
+  .lavea-footer__wrap-small{ flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+/* очень маленькие экраны */
+@media (max-width: 480px){
+  .logoText{ font-size: 22px; }
+  .goldBtn, .btn-lavea{ padding: 11px 16px; font-size: 14px; }
+  .aboutHeroVideo{ height: 340px; border-radius: 18px; margin: 12px; }
+}
