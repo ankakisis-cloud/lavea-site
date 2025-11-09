@@ -99,57 +99,76 @@ function AccordionItem({ q, a }) {
       </div>
 
       <style jsx>{`
-        .faqItem{
-          border: 1px solid var(--border, #e8e8e8);
-          border-radius: 16px;
-          background: #fff;
-          box-shadow: var(--shadow, 0 8px 30px rgba(0,0,0,.06));
-          transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
-          will-change: box-shadow, transform;
-        }
-        .faqItem:hover{
-          border-color: var(--gold, #C7A251);
-          box-shadow: 0 10px 30px rgba(0,0,0,.08), 0 0 0 3px rgba(199,162,81,.12);
-          transform: translateY(-1px);
-        }
-        .faqItem.is-open{
-          border-color: var(--gold, #C7A251);
-          box-shadow: 0 12px 34px rgba(0,0,0,.1), 0 0 0 4px rgba(199,162,81,.14);
-        }
+  .faqItem {
+    border: 1px solid var(--border, #e8e8e8);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: var(--shadow, 0 8px 30px rgba(0,0,0,.06));
+    transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+    will-change: box-shadow, transform;
+  }
+  .faqItem:hover {
+    border-color: var(--gold, #C7A251);
+    box-shadow: 0 10px 30px rgba(0,0,0,.08), 0 0 0 3px rgba(199,162,81,.12);
+    transform: translateY(-1px);
+  }
+  .faqItem.is-open {
+    border-color: var(--gold, #C7A251);
+    box-shadow: 0 12px 34px rgba(0,0,0,.1), 0 0 0 4px rgba(199,162,81,.14);
+  }
 
-        .faqQ{
-          width: 100%;
-          display: flex; align-items: center; justify-content: space-between;
-          gap: 14px;
-          padding: 18px 20px;
-          background: transparent; border: 0; cursor: pointer;
-          text-align: left;
-          font-weight: 600;
-          outline: none;
-        }
-        .qText{
-          line-height: 1.4;
-        }
-        .chev{ transition: transform .25s ease; }
-        .chev.rot{ transform: rotate(-180deg); }
+  .faqQ {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 18px 20px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 17px;        /* одинаковый с ответом */
+    line-height: 1.6;
+    outline: none;
+    color: var(--ink, #111);
+  }
 
-        .faqPanel{
-          height: 0;
-          overflow: hidden;
-          transition: height .35s ease, opacity .35s ease, padding .35s ease;
-          opacity: 0;
-          padding: 0 20px;
-        }
-        .faqItem.is-open .faqPanel{
-          opacity: 1;
-          padding: 0 20px 18px;
-        }
-        .faqA{
-          padding-top: 10px;
-          color: var(--ink, #111);
-          line-height: 1.7;
-        }
-      `}</style>
+  .qText {
+    line-height: 1.6;
+  }
+
+  .chev {
+    transition: transform .25s ease;
+  }
+  .chev.rot {
+    transform: rotate(-180deg);
+  }
+
+  .faqPanel {
+    height: 0;
+    overflow: hidden;
+    transition: height .35s ease, opacity .35s ease, padding .35s ease;
+    opacity: 0;
+    padding: 0 20px;
+  }
+  .faqItem.is-open .faqPanel {
+    opacity: 1;
+    padding: 0 20px 18px;
+  }
+
+  .faqA {
+    padding-top: 10px;
+    color: var(--ink, #111);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 17px;        /* точно такой же размер */
+    line-height: 1.6;
+  }
+`}</style>
+
     </div>
   );
 }
