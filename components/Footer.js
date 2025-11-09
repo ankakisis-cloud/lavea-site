@@ -115,4 +115,42 @@ export default function Footer() {
           {/* ✅ КАРТА САЙТА */}
           <h4 className="lavea-footer__subtitle" style={{ marginTop: 18 }}>Карта сайта</h4>
           <ul className="lavea-footer__sitemap">
-            <li><Link href
+            <li><Link href="/">Главная</Link></li>
+            <li><Link href="/portfolio">Портфолио</Link></li>
+            {/* Если разделов "Цены" или "Процесс" у тебя нет — просто удали строки ниже */}
+            {/* <li><Link href="/prices">Цены</Link></li> */}
+            <li><Link href="/about">О студии</Link></li>
+            {/* <li><Link href="/process">Процесс</Link></li> */}
+            <li><Link href="/contacts">Контакты</Link></li>
+            <li><Link href="/reviews">Отзывы</Link></li>
+            <li><a href="/sitemap.xml" rel="nofollow">sitemap.xml</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="lavea-footer__bar">
+        <div className="lavea-footer__wrap-small">
+          <small>© {new Date().getFullYear()} LAVEA. Все права защищены.</small>
+        </div>
+      </div>
+
+      {/* Небольшие стили для списка карты, чтобы без правок footer.css всё выглядело опрятно */}
+      <style jsx>{`
+        .lavea-footer__sitemap{
+          list-style: none; margin: 8px 0 0; padding: 0;
+          display: grid; gap: 6px;
+        }
+        .lavea-footer__sitemap a{
+          text-decoration: none;
+          color: var(--ink, #111);
+          font-size: 14px;
+          transition: color .18s ease, transform .12s ease;
+        }
+        .lavea-footer__sitemap a:hover{
+          color: var(--gold, #C7A251);
+          transform: translateX(4px);
+        }
+      `}</style>
+    </footer>
+  );
+}
