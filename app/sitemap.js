@@ -1,21 +1,21 @@
 // app/sitemap.js
 export default function sitemap() {
-  const base = "https://lavea.studio"; // TODO: твой домен
-
-  /** перечисляем существующие страницы */
+  const base = "https://lavea.studio"; // <- замените на реальный домен
   const routes = [
     "",
     "/about",
     "/portfolio",
+    "/prices",
+    "/process",
     "/contacts",
     "/reviews",
-    "/privacy",
     "/oferta",
+    "/privacy",
   ];
 
   return routes.map((path) => ({
     url: `${base}${path}`,
-    lastModified: new Date(),
+    lastModified: new Date().toISOString(),
     changeFrequency: "weekly",
     priority: path === "" ? 1.0 : 0.7,
   }));
