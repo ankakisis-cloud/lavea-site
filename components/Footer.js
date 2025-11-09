@@ -10,9 +10,9 @@ export default function Footer() {
       <div className="lf-wrap">
         {/* 1) Бренд + контакты */}
         <div className="lf-col">
-          <h3 className="lf-title">LAVEA — премиальная студия интерьера</h3>
+          <h3 className="lf-title">LAVEA - премиальная студия интерьера</h3>
           <p className="lf-text">
-            Интерьеры с любовью к деталям — от концепции и 3D до комплектации и авторского надзора.
+            Интерьеры с любовью к деталям - от концепции и 3D до комплектации и авторского надзора.
           </p>
           <ul className="lf-contacts">
             <li><strong>Тел:</strong> 8 (495) 215-54-71</li>
@@ -41,7 +41,7 @@ export default function Footer() {
         {/* 3) Часы + соцсети */}
         <div className="lf-col">
           <h4 className="lf-sub">Часы работы</h4>
-          <p className="lf-text">Пн—Пт 09:00–19:00</p>
+          <p className="lf-text">Пн-Пт 09:00–19:00</p>
 
           <h4 className="lf-sub" style={{ marginTop: 10 }}>Мы в социальных сетях</h4>
           <p className="lf-social">
