@@ -1,46 +1,14 @@
 // components/Footer.js
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";               // ✅ добавили Link для внутренних ссылок
+import Link from "next/link";
 import "../styles/footer.css";
 
 export default function Footer() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [msg, setMsg] = useState("");
-  const [status, setStatus] = useState(null);
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, message: msg }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setStatus("ok");
-        setName("");
-        setPhone("");
-        setMsg("");
-      } else {
-        setStatus("error");
-        console.warn("lead error:", data);
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-    setTimeout(() => setStatus(null), 4000);
-  }
-
   return (
     <footer className="lavea-footer">
       <div className="lavea-footer__wrap">
-        {/* ЛЕВАЯ КОЛОНКА */}
+        {/* ЛЕВАЯ КОЛОНКА — БРЕНД + КОНТАКТЫ */}
         <div className="lavea-footer__col about">
           <h3 className="lavea-footer__title">LAVEA — премиальная студия интерьера</h3>
           <p className="lavea-footer__text">
@@ -57,49 +25,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* СРЕДНЯЯ КОЛОНКА — ФОРМА */}
-        <div className="lavea-footer__col form">
-          <h4 className="lavea-footer__subtitle">Оставьте заявку</h4>
-          <form className="lavea-footer__form" onSubmit={handleSubmit}>
-            <label className="lavea-field">
-              <input
-                placeholder="Имя"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="lavea-input"
-                required
-              />
-            </label>
-            <label className="lavea-field">
-              <input
-                placeholder="Телефон"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="lavea-input"
-                required
-              />
-            </label>
-            <label className="lavea-field">
-              <textarea
-                placeholder="Коротко о проекте (необязательно)"
-                value={msg}
-                onChange={(e) => setMsg(e.target.value)}
-                className="lavea-textarea"
-                rows="3"
-              />
-            </label>
-
-            <div className="lavea-footer__actions">
-              <button type="submit" className="lavea-btn gold">Отправить заявку</button>
-              <span className="lavea-footer__status">
-                {status === "loading" && "Отправка..."}
-                {status === "ok" && "Спасибо! Ваша заявка принята."}
-                {status === "error" && "Ошибка отправки. Попробуйте позже."}
-              </span>
-            </div>
-          </form>
-        </div>
-
         {/* ПРАВАЯ КОЛОНКА — ИНФО + КАРТА САЙТА */}
         <div className="lavea-footer__col info">
           <h4 className="lavea-footer__subtitle">Часы работы</h4>
@@ -112,15 +37,11 @@ export default function Footer() {
             <a href="#" aria-label="vk" className="social-link">VK</a>
           </div>
 
-          {/* ✅ КАРТА САЙТА */}
-          <h4 className="lavea-footer__subtitle" style={{ marginTop: 18 }}>Карта сайта</h4>
+          <h4 className="lavea-footer__subtitle" style={{ marginTop: 14 }}>Карта сайта</h4>
           <ul className="lavea-footer__sitemap">
             <li><Link href="/">Главная</Link></li>
             <li><Link href="/portfolio">Портфолио</Link></li>
-            {/* Если разделов "Цены" или "Процесс" у тебя нет — просто удали строки ниже */}
-            {/* <li><Link href="/prices">Цены</Link></li> */}
             <li><Link href="/about">О студии</Link></li>
-            {/* <li><Link href="/process">Процесс</Link></li> */}
             <li><Link href="/contacts">Контакты</Link></li>
             <li><Link href="/reviews">Отзывы</Link></li>
             <li><a href="/sitemap.xml" rel="nofollow">sitemap.xml</a></li>
@@ -134,21 +55,52 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Небольшие стили для списка карты, чтобы без правок footer.css всё выглядело опрятно */}
+      {/* Мини-override, чтобы подвал стал компактнее и ссылки были золотыми */}
       <style jsx>{`
+        .lavea-footer{
+          padding: 24px 16px;                  /* было больше — сделали компактным */
+          background: linear-gradient(180deg, rgba(248,244,238,1) 0%, rgba(255,255,255,1) 100%);
+          border-top: 1px solid var(--border, #eee);
+        }
+        .lavea-footer__wrap{
+          max-width: 1200px; margin: 0 auto;
+          display: grid; gap: 18px;            /* меньше расстояние */
+          grid-template-columns: 1.2fr .8fr;   /* две колонки */
+          align-items: start;
+        }
+        .lavea-footer__col{ font-size: 14px; line-height: 1.6; }   /* уменьшили шрифт */
+        .lavea-footer__title{ font-size: 16px; margin: 0 0 6px; font-family: var(--font-heading); }
+        .lavea-footer__subtitle{ font-size: 15px; margin: 10px 0 6px; font-family: var(--font-heading); }
+        .lavea-footer__text{ font-size: 14px; margin: 0 0 8px; color: var(--ink-soft,#666); }
+        .lavea-footer__contacts{ margin: 8px 0; padding: 0; list-style: none; }
+        .lavea-footer__contacts li{ margin: 4px 0; }
+
+        /* Золотые ссылки в подвале */
+        .lavea-footer a{
+          color: var(--gold, #C7A251);         /* вместо синих — золото */
+          text-decoration: none;
+          transition: opacity .18s ease;
+        }
+        .lavea-footer a:hover{ opacity: .85; }
+        .lavea-footer__link{ text-decoration: underline; text-underline-offset: 3px; }
+
+        /* Список карты сайта */
         .lavea-footer__sitemap{
-          list-style: none; margin: 8px 0 0; padding: 0;
+          list-style: none; padding: 0; margin: 6px 0 0;
           display: grid; gap: 6px;
         }
-        .lavea-footer__sitemap a{
-          text-decoration: none;
-          color: var(--ink, #111);
-          font-size: 14px;
-          transition: color .18s ease, transform .12s ease;
+        .lavea-footer__bar{
+          border-top: 1px solid var(--border,#eee);
+          margin-top: 18px;
+          padding-top: 10px;
         }
-        .lavea-footer__sitemap a:hover{
-          color: var(--gold, #C7A251);
-          transform: translateX(4px);
+        .lavea-footer__wrap-small{
+          max-width: 1200px; margin: 0 auto; padding: 0 4px;
+          font-size: 12px; color: var(--ink-soft,#666);
+        }
+
+        @media (max-width: 880px){
+          .lavea-footer__wrap{ grid-template-columns: 1fr; }
         }
       `}</style>
     </footer>
