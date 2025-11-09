@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";               // ✅ добавили Link для внутренних ссылок
 import "../styles/footer.css";
 
 export default function Footer() {
@@ -39,6 +40,7 @@ export default function Footer() {
   return (
     <footer className="lavea-footer">
       <div className="lavea-footer__wrap">
+        {/* ЛЕВАЯ КОЛОНКА */}
         <div className="lavea-footer__col about">
           <h3 className="lavea-footer__title">LAVEA — премиальная студия интерьера</h3>
           <p className="lavea-footer__text">
@@ -50,10 +52,12 @@ export default function Footer() {
             <li><strong>Email:</strong> <a href="mailto:laveastudio@yandex.ru">laveastudio@yandex.ru</a></li>
           </ul>
           <p className="lavea-footer__legal">
-            <a href="/oferta" className="lavea-footer__link">Публичная оферта</a> • <a href="/privacy" className="lavea-footer__link">Политика конфиденциальности</a>
+            <Link href="/oferta" className="lavea-footer__link">Публичная оферта</Link> •{" "}
+            <Link href="/privacy" className="lavea-footer__link">Политика конфиденциальности</Link>
           </p>
         </div>
 
+        {/* СРЕДНЯЯ КОЛОНКА — ФОРМА */}
         <div className="lavea-footer__col form">
           <h4 className="lavea-footer__subtitle">Оставьте заявку</h4>
           <form className="lavea-footer__form" onSubmit={handleSubmit}>
@@ -86,9 +90,7 @@ export default function Footer() {
             </label>
 
             <div className="lavea-footer__actions">
-              <button type="submit" className="lavea-btn gold">
-                Отправить заявку
-              </button>
+              <button type="submit" className="lavea-btn gold">Отправить заявку</button>
               <span className="lavea-footer__status">
                 {status === "loading" && "Отправка..."}
                 {status === "ok" && "Спасибо! Ваша заявка принята."}
@@ -98,6 +100,7 @@ export default function Footer() {
           </form>
         </div>
 
+        {/* ПРАВАЯ КОЛОНКА — ИНФО + КАРТА САЙТА */}
         <div className="lavea-footer__col info">
           <h4 className="lavea-footer__subtitle">Часы работы</h4>
           <p className="lavea-footer__text">Пн—Пт 09:00–19:00</p>
@@ -108,14 +111,8 @@ export default function Footer() {
             <a href="#" aria-label="telegram" className="social-link">Telegram</a>
             <a href="#" aria-label="vk" className="social-link">VK</a>
           </div>
-        </div>
-      </div>
 
-      <div className="lavea-footer__bar">
-        <div className="lavea-footer__wrap-small">
-          <small>© {new Date().getFullYear()} LAVEA. Все права защищены.</small>
-        </div>
-      </div>
-    </footer>
-  );
-}
+          {/* ✅ КАРТА САЙТА */}
+          <h4 className="lavea-footer__subtitle" style={{ marginTop: 18 }}>Карта сайта</h4>
+          <ul className="lavea-footer__sitemap">
+            <li><Link href
